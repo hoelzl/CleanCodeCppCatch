@@ -18,7 +18,7 @@ double point_theta(ConcretePoint point)
 
 inline ConcretePoint add(ConcretePoint lhs, ConcretePoint rhs)
 {
-    return { lhs.x + rhs.x, lhs.y + rhs.y };
+    return {lhs.x + rhs.x, lhs.y + rhs.y};
 }
 
 inline void print(ConcretePoint p)
