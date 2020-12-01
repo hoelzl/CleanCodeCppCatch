@@ -2,9 +2,9 @@
 
 #include "catch.hpp"
 #include "prime_factors.h"
-#include <vector>
 #include <functional>
 #include <numeric>
+#include <vector>
 
 TEST_CASE("compute_prime_factors(2) returns [2]")
 {
@@ -44,11 +44,14 @@ bool is_prime(long n)
     return true;
 }
 
-long multiply_elements(const std::vector<long>& v) {
+long multiply_elements(const std::vector<long>& v)
+{
     return std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
 }
 
-TEST_CASE("Pseudo-parametric/property-based test case")
+// Try the tag combinations [!hide][slow] (or [.slow]) to exclude the
+// test from default runs.
+TEST_CASE("Pseudo-parametric/property-based test case", "[slow]")
 {
     for (long i = 1; i < 1000L; ++i) {
         std::vector<long> result = compute_prime_factors(i);
