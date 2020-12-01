@@ -12,7 +12,7 @@ double RegularMovie::determine_amount(int days_rented) const
 {
     double this_amount{2.0};
     if (days_rented > 2) {
-        this_amount += (days_rented - 2) * 1.5;
+        this_amount += (days_rented - 2.0) * 1.5;
     }
     return this_amount;
 }

@@ -16,7 +16,8 @@ std::string to_string(double d)
     return stream.str();
 }
 
-RentalStatement::RentalStatement(const std::string& customer_name) : customer_name(customer_name)
+RentalStatement::RentalStatement(const std::string& customer_name)
+    : customer_name(customer_name)
 {
 }
 
@@ -71,7 +72,8 @@ std::string RentalStatement::format_rental_item(Rental& rental, double amount)
 
 std::string RentalStatement::make_footer()
 {
-    return "You owed "s + to_string(total_amount) + "\n"s + "You earned "s + std::to_string(frequent_renter_points) +
+    return "You owed "s + to_string(total_amount) + "\n"s + "You earned "s +
+           std::to_string(frequent_renter_points) +
            " frequent renter points\n"s;
 }
 double RentalStatement::get_owned() const

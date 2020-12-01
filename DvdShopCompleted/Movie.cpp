@@ -6,7 +6,7 @@
 
 #include <utility>
 
-Movie::Movie(std::string  title) : title(std::move(title))
+Movie::Movie(std::string title) : title(std::move(title))
 {
 }
 

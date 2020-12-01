@@ -10,7 +10,7 @@
 class RegularMovie : public Movie
 {
 public:
-    RegularMovie(const std::string & title);
+    RegularMovie(const std::string& title);
     double determine_amount(int days_rented) const override;
     int determine_points(int days_rented) const override;
 };

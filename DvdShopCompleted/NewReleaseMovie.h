@@ -10,7 +10,7 @@
 class NewReleaseMovie : public Movie
 {
 public:
-    NewReleaseMovie(const std::string & title);
+    NewReleaseMovie(const std::string& title);
     double determine_amount(int days_rented) const override;
     int determine_points(int days_rented) const override;
 };

@@ -13,7 +13,7 @@ private:
     std::string title;
 
 public:
-    explicit Movie(std::string  title);
+    explicit Movie(std::string title);
     [[nodiscard]] const std::string& get_title() const;
 
     [[nodiscard]] virtual double determine_amount(int days_rented) const = 0;
