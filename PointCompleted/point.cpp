@@ -12,7 +12,7 @@ int main()
     ConcretePoint cp3{add(cp1, cp2)};
 
     // atan(1) is pi/4; and this is not clean code :)
-    ConcretePoint cp4{ConcretePoint::from_polar(sqrt(2), atan(1))};
+    ConcretePoint cp4{point_from_polar(sqrt(2), atan(1))};
     
     print(cp1);
     print(cp2);

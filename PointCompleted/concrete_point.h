@@ -4,12 +4,12 @@
 struct ConcretePoint {
     double x;
     double y;
-
-    static ConcretePoint from_polar(double r, double theta)
-    {
-        return {r * cos(theta), r * sin(theta)};
-    }
 };
+
+ConcretePoint point_from_polar(double r, double theta)
+{
+    return {r * cos(theta), r * sin(theta)};
+}
 
 double point_r(ConcretePoint point)
 {

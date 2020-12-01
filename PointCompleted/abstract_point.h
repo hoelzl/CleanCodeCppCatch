@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 
-class AbstractPoint {
+class AbstractPoint
+{
 private:
     double x;
     double y;
@@ -15,20 +16,33 @@ private:
 public:
     static AbstractPoint from_cartesian(double x, double y)
     {
-        return { x, y };
+        return {x, y};
     }
     static AbstractPoint from_polar(double r, double theta)
     {
-        return { r * cos(theta), r * sin(theta) };
+        return {r * cos(theta), r * sin(theta)};
     }
 
-    double get_x() const { return x; }
-    double get_y() const { return y; }
-    double get_r() const { return sqrt(x * x + y * y); }
-    double get_theta() const { return x == 0.0 ? atan(1.0) : atan(y / x); }
+    double get_x() const
+    {
+        return x;
+    }
+    double get_y() const
+    {
+        return y;
+    }
+    double get_r() const
+    {
+        return sqrt(x * x + y * y);
+    }
+    double get_theta() const
+    {
+        return x == 0.0 ? atan(1.0) : atan(y / x);
+    }
 
-    AbstractPoint operator+(AbstractPoint rhs) {
-        return { x + rhs.get_x(), y + rhs.get_y() };
+    AbstractPoint operator+(AbstractPoint rhs)
+    {
+        return {x + rhs.get_x(), y + rhs.get_y()};
     }
 };
 
