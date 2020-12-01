@@ -28,7 +28,7 @@ public:
     static std::string report_hours(EmployeeType employee_type);
     void print_report();
     void save_employee();
-    double calculateRegularHours() const;
+    double calculate_regular_hours() const;
 };
 
 

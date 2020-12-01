@@ -32,7 +32,7 @@ void Employee::save_employee()
 {
 }
 
-double Employee::calculateRegularHours() const
+double Employee::calculate_regular_hours() const
 {
     return 40.0 + overtime;
 }
