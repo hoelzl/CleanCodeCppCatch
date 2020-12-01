@@ -8,28 +8,28 @@
 
 TEST_CASE("compute_prime_factors(2) returns [2]")
 {
-    std::vector<long> expected { 2L };
+    std::vector<long> expected{2L};
 
     REQUIRE(compute_prime_factors(2L) == expected);
 }
 
 TEST_CASE("compute_prime_factors(3) returns [3]")
 {
-    std::vector<long> expected { 3L };
+    std::vector<long> expected{3L};
 
     REQUIRE(compute_prime_factors(3L) == expected);
 }
 
 TEST_CASE("compute_prime_factors(4) returns [2, 2]")
 {
-    std::vector<long> expected { 2L, 2L };
+    std::vector<long> expected{2L, 2L};
 
     REQUIRE(compute_prime_factors(4L) == expected);
 }
 
 TEST_CASE("compute_prime_factors(5) returns [5]")
 {
-    std::vector<long> expected { 5L };
+    std::vector<long> expected{5L};
 
     REQUIRE(compute_prime_factors(5L) == expected);
 }

@@ -2,7 +2,7 @@
 
 std::vector<long> compute_prime_factors(long n)
 {
-    std::vector<long> result {};
+    std::vector<long> result{};
 
     for (long factor = 2; factor <= n; ++factor) {
         while (n % factor == 0) {
