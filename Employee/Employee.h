@@ -22,7 +22,8 @@ private:
     Project& project;
 
 public:
-    Employee(int id, std::string name, EmployeeType type, double salary, int overtime, Project& project);
+    Employee(int id, std::string name, EmployeeType type, double salary,
+             int overtime, Project& project);
     static double calculate_pay(EmployeeType employee_type);
     static std::string report_hours(EmployeeType employee_type);
     void print_report();

@@ -7,8 +7,10 @@
 #include <utility>
 
 
-Employee::Employee(int id, std::string name, EmployeeType type, double salary, int overtime, Project& project)
-    : id(id), name(std::move(name)), type(type), salary(salary), overtime(overtime), project(project)
+Employee::Employee(int id, std::string name, EmployeeType type, double salary,
+                   int overtime, Project& project)
+    : id(id), name(std::move(name)), type(type), salary(salary),
+      overtime(overtime), project(project)
 {
 }
 double Employee::calculate_pay(EmployeeType employee_type)

@@ -8,8 +8,9 @@ class Project
 private:
     std::string name;
     double assets;
+
 public:
-    Project(std::string  name, double assets);
+    Project(std::string name, double assets);
     double get_assets() const;
 };
 
