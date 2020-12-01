@@ -3,7 +3,8 @@
 //
 
 #include "Movie.h"
-Movie::Movie(const std::string& title, int price_code) : title(title), price_code(price_code)
+Movie::Movie(const std::string& title, int price_code)
+    : title(title), price_code(price_code)
 {
 }
 int Movie::get_price_code() const

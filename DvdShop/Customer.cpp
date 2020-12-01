@@ -38,7 +38,9 @@ std::string Customer::statement()
                     this_amount += (it->get_days_rented() - 2) * 1.5;
                 }
                 break;
-            case Movie::NEW_RELEASE: this_amount += it->get_days_rented() * 3.0; break;
+            case Movie::NEW_RELEASE:
+                this_amount += it->get_days_rented() * 3.0;
+                break;
             case Movie::CHILDRENS:
                 this_amount += 1.5;
                 if (it->get_days_rented() > 3) {
@@ -49,17 +51,20 @@ std::string Customer::statement()
 
         frequent_renter_points++;
 
-        if (it->get_movie().get_price_code() == Movie::NEW_RELEASE && it->get_days_rented() > 1) {
+        if (it->get_movie().get_price_code() == Movie::NEW_RELEASE &&
+            it->get_days_rented() > 1) {
             frequent_renter_points++;
         }
 
-        result += "\t" + it->get_movie().get_title() + "\t" + to_string(this_amount) + "\n";
+        result += "\t" + it->get_movie().get_title() + "\t" +
+                  to_string(this_amount) + "\n";
         total_amount += this_amount;
         ++it;
     }
 
     result += "You owed " + to_string(total_amount) + "\n";
-    result += "You earned " + std::to_string(frequent_renter_points) + " frequent renter points\n";
+    result += "You earned " + std::to_string(frequent_renter_points) +
+              " frequent renter points\n";
 
     return result;
 }
