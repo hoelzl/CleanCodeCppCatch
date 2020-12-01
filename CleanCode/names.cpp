@@ -2,12 +2,13 @@
 #include <string>
 #include <vector>
 
-class BadNames1 {
+class BadNames1
+{
     std::vector<std::pair<int, int>> theList;
 
     std::vector<std::pair<int, int>> getThem()
     {
-        std::vector<std::pair<int, int>> list1 {};
+        std::vector<std::pair<int, int>> list1{};
         for (std::pair<int, int> x : theList) {
             if (x.first == 4) {
                 list1.push_back(x);
@@ -16,19 +17,23 @@ class BadNames1 {
     }
 };
 
-class MineSweeper {
-    enum class Status { Flagged,
-        Unflagged };
+class MineSweeper
+{
+    enum class Status
+    {
+        Flagged,
+        Unflagged
+    };
     struct Cell {
-        Status status { Status::Flagged };
-        int bomb_count { 0 };
+        Status status{Status::Flagged};
+        int bomb_count{0};
     };
 
     std::vector<Cell> game_board;
 
     std::vector<Cell> getFlaggedCells()
     {
-        std::vector<Cell> flagged_cells {};
+        std::vector<Cell> flagged_cells{};
         for (Cell cell : game_board) {
             if (cell.status == Status::Flagged) {
                 flagged_cells.push_back(cell);
@@ -38,11 +43,13 @@ class MineSweeper {
     }
 };
 
-class BdNms3 {
+class BdNms3
+{
     int ts_yymmdd;
 };
 
-class BadNames4 {
+class BadNames4
+{
     int unix_timestamp;
 };
 
@@ -66,13 +73,15 @@ class ObjectController;
 
 // Disinformation
 
-class Pair {
+class Pair
+{
     int first;
     int second;
     int third;
 };
 
-class Triple {
+class Triple
+{
     int first;
     int second;
     int third;
@@ -81,16 +90,18 @@ class Triple {
 class CalenderDate;
 class SerializableDate;
 
-class SerialDate {
+class SerialDate
+{
     virtual int toSerial() = 0;
     // ...
 };
 
-class UnixDate : public SerialDate {
-    int unix_timestamp { 0 };
+class UnixDate : public SerialDate
+{
+    int unix_timestamp{0};
     int toSerial() override
     {
-        return unix_timestamp; // Unix timestamp
+        return unix_timestamp;// Unix timestamp
     }
 };
 
@@ -109,47 +120,68 @@ void copy_2(char from[], char to[])
 int* pi_target;
 int* target;
 
-class IActor {
+class IActor
+{
 };
-class Actor : public IActor {
-};
-
-class Actor2 {
-};
-class ActorImpl : public Actor2 {
+class Actor : public IActor
+{
 };
 
-class File {
-    bool is_open() const { return true; }
+class Actor2
+{
+};
+class ActorImpl : public Actor2
+{
+};
+
+class File
+{
+    bool is_open() const
+    {
+        return true;
+    }
 };
 
 // Wrong part of speech
-class GoToTheServer {
-    void connection() { }
-    bool server_availability() { return false; }
+class GoToTheServer
+{
+    void connection()
+    {
+    }
+    bool server_availability()
+    {
+        return false;
+    }
 };
 
-class ServerConnection {
-    void connect() { }
-    bool is_server_available() { return false; }
+class ServerConnection
+{
+    void connect()
+    {
+    }
+    bool is_server_available()
+    {
+        return false;
+    }
 };
 
 // Functions
 
 int my_fun(int a, int b)
 {
-    int c { 0 };
-    int d { 0 };
+    int c{0};
+    int d{0};
     // Do something complex
     // Do something else
     return 0;
 }
 
-class MyFun {
+class MyFun
+{
     int a;
     int b;
-    int c { 0 };
-    int d { 0 };
+    int c{0};
+    int d{0};
 
 public:
     MyFun(int a, int b)
@@ -158,8 +190,12 @@ public:
         this->b = b;
     }
 
-    void do_something_complex() { }
-    void do_something_else() { }
+    void do_something_complex()
+    {
+    }
+    void do_something_else()
+    {
+    }
 
     int compute()
     {
@@ -171,24 +207,27 @@ public:
 
 void f()
 {
-    int i { my_fun(1, 2) };
+    int i{my_fun(1, 2)};
 
-    MyFun my_new_fun { 1, 2 };
-    int j { my_new_fun.compute() };
+    MyFun my_new_fun{1, 2};
+    int j{my_new_fun.compute()};
 }
 
-class Employee {
+class Employee
+{
     virtual int calculate_pay(const std::string& name) = 0;
 };
 
-class CommissionedEmployee : public Employee {
+class CommissionedEmployee : public Employee
+{
     int calculate_pay(const std::string& name) override
     {
         return 4500;
     }
 };
 
-class HourlyEmployee : public Employee {
+class HourlyEmployee : public Employee
+{
     int calculate_pay(const std::string& name) override
     {
         return 1500;
