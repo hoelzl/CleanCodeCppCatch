@@ -14,11 +14,13 @@ class BadNames1
                 list1.push_back(x);
             }
         }
+        return list1;
     }
 };
 
 class MineSweeper
 {
+
     enum class Status
     {
         Flagged,
@@ -28,10 +30,12 @@ class MineSweeper
         Status status{Status::Flagged};
         int bomb_count{0};
     };
+    using board_type = std::vector<Cell>;
+    using flagged_cells_type = std::vector<Cell>;
 
-    std::vector<Cell> game_board;
+    board_type game_board;
 
-    std::vector<Cell> getFlaggedCells()
+    flagged_cells_type getFlaggedCells()
     {
         std::vector<Cell> flagged_cells{};
         for (Cell cell : game_board) {
@@ -70,6 +74,7 @@ int MY_CONTROLLER_FOR_EFFICIENT_STORING_OF_STRINGS = 2;
 
 class ObjectManager;
 class ObjectController;
+class DataController;
 
 // Disinformation
 
