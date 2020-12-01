@@ -36,8 +36,8 @@ TEST_CASE("tests for say_number")
 TEST_CASE("test for fizz_buzz")
 {
     std::stringstream output;
-    std::string result { "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\n"
-                         "Buzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n" };
+    std::string result{"1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\n"
+                       "Buzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n"};
 
     fizz_buzz(output, 16);
     REQUIRE(output.str() == result);
