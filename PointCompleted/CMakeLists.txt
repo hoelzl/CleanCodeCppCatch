@@ -1,7 +1,7 @@
 ﻿# CMakeList.txt : CMake project for Point, 
 #
 cmake_minimum_required (VERSION 3.8)
-project(Point)
+project(PointCompleted)
 
 set(CMAKE_CXX_STANDARD 11)
 
