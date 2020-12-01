@@ -4,10 +4,11 @@
 
 std::ostream& operator<<(std::ostream& s, const AbstractShape& shape)
 {
-    const AbstractShape* shape_ptr { &shape };
+    const AbstractShape* shape_ptr{&shape};
     if (auto square = dynamic_cast<const AbstractSquare*>(shape_ptr)) {
         s << *square;
-    } else if (auto rectangle = dynamic_cast<const AbstractRectangle*>(shape_ptr)) {
+    } else if (auto rectangle =
+                       dynamic_cast<const AbstractRectangle*>(shape_ptr)) {
         s << *rectangle;
     } else if (auto circle = dynamic_cast<const AbstractCircle*>(shape_ptr)) {
         s << *circle;
@@ -30,17 +31,19 @@ double AbstractSquare::compute_area() const
 
 void AbstractSquare::move(double x, double y)
 {
-    Point new_location { bottom_left_corner + Point { x, y } };
+    Point new_location{bottom_left_corner + Point{x, y}};
     bottom_left_corner = new_location;
 }
 
 std::ostream& operator<<(std::ostream& s, const AbstractSquare& square)
 {
-    s << "AbstractSquare(" << square.bottom_left_corner << ", " << square.side << ")";
+    s << "AbstractSquare(" << square.bottom_left_corner << ", " << square.side
+      << ")";
     return s;
 }
 
-AbstractRectangle::AbstractRectangle(Point bottom_left_corner, double width, double height)
+AbstractRectangle::AbstractRectangle(Point bottom_left_corner, double width,
+                                     double height)
 {
     this->bottom_left_corner = bottom_left_corner;
     this->width = width;
@@ -54,14 +57,14 @@ double AbstractRectangle::compute_area() const
 
 void AbstractRectangle::move(double x, double y)
 {
-    Point new_location { bottom_left_corner + Point { x, y } };
+    Point new_location{bottom_left_corner + Point{x, y}};
     bottom_left_corner = new_location;
 }
 
 std::ostream& operator<<(std::ostream& s, const AbstractRectangle& rect)
 {
-    s << "AbstractRectangle(" << rect.bottom_left_corner << ", "
-      << rect.width << ", " << rect.height << ")";
+    s << "AbstractRectangle(" << rect.bottom_left_corner << ", " << rect.width
+      << ", " << rect.height << ")";
     return s;
 }
 
@@ -78,7 +81,7 @@ double AbstractCircle::compute_area() const
 
 void AbstractCircle::move(double x, double y)
 {
-    Point new_location { center + Point { x, y } };
+    Point new_location{center + Point{x, y}};
     center = new_location;
 }
 
@@ -88,127 +91,132 @@ std::ostream& operator<<(std::ostream& s, const AbstractCircle& circle)
     return s;
 }
 
-ConcreteSquare::ConcreteSquare(Point bottom_left_corner, double side)
+ConcreteSquare::type ConcreteSquare::make(Point bottom_left_corner, double side)
 {
-    this->bottom_left_corner = bottom_left_corner;
-    this->side = side;
+    return ConcreteShape(ShapeType::Square, bottom_left_corner, side, 0.0);
 }
 
-ShapeType ConcreteSquare::get_type() const
+Point ConcreteSquare::get_bottom_left_corner(const type& square)
 {
-    return ShapeType::Square;
+    return square.point;
 }
 
-ConcreteRectangle::ConcreteRectangle(Point bottom_left_corner, double width, double height)
+void ConcreteSquare::set_bottom_left_corner(type& square, Point point)
 {
-    this->bottom_left_corner = bottom_left_corner;
-    this->width = width;
-    this->height = height;
+    square.point = point;
 }
 
-ShapeType ConcreteRectangle::get_type() const
+double ConcreteSquare::get_side(const type& square)
 {
-    return ShapeType::Rectangle;
+    return square.data1;
 }
 
-ConcreteCircle::ConcreteCircle(Point center, double radius)
+ConcreteRectangle::type ConcreteRectangle::make(Point bottom_left_corner,
+                                                double width, double height)
 {
-    this->center = center;
-    this->radius = radius;
+    return ConcreteShape(ShapeType::Rectangle, bottom_left_corner, width,
+                         height);
 }
 
-ShapeType ConcreteCircle::get_type() const
+Point ConcreteRectangle::get_bottom_left_corner(const type& rectangle)
 {
-    return ShapeType::Circle;
+    return rectangle.point;
+}
+
+void ConcreteRectangle::set_bottom_left_corner(type& rectangle, Point point)
+{
+    rectangle.point = point;
+}
+
+double ConcreteRectangle::get_width(const type& rectangle)
+{
+    return rectangle.data1;
+}
+
+double ConcreteRectangle::get_height(const type& rectangle)
+{
+    return rectangle.data2;
+}
+
+ConcreteCircle::type ConcreteCircle::make(Point center, double radius)
+{
+    return ConcreteShape(ShapeType::Circle, center, radius, 0.0);
+}
+
+Point ConcreteCircle::get_center(const type& circle)
+{
+    return circle.point;
+}
+
+void ConcreteCircle::set_center(type& circle, Point point)
+{
+    circle.point = point;
+}
+
+double ConcreteCircle::get_radius(const type& circle)
+{
+    return circle.data1;
 }
 
 double compute_area(const ConcreteShape& shape)
 {
     switch (shape.get_type()) {
-    case ShapeType::Square: {
-        auto square { static_cast<const ConcreteSquare&>(shape) };
-        return square.side * square.side;
-    }
-    case ShapeType::Rectangle: {
-        auto rectangle { static_cast<const ConcreteRectangle&>(shape) };
-        return rectangle.width * rectangle.height;
-    }
-    case ShapeType::Circle: {
-        auto circle { static_cast<const ConcreteCircle&>(shape) };
-        return 4.0 * atan(1.0) * circle.radius * circle.radius;
-    }
-    default:
-        throw std::invalid_argument("Invalid shape.");
+        case ShapeType::Square: {
+            double side{ConcreteSquare::get_side(shape)};
+            return side * side;
+        }
+        case ShapeType::Rectangle: {
+            double width{ConcreteRectangle::get_width(shape)};
+            double height{ConcreteRectangle::get_height(shape)};
+            return width * height;
+        }
+        case ShapeType::Circle: {
+            double radius{ConcreteCircle::get_radius(shape)};
+            return 4.0 * atan(1.0) * radius * radius;
+        }
+        default: throw std::invalid_argument("Invalid shape.");
     }
 }
 
-void move(const ConcreteShape& shape, double x, double y)
+void move(ConcreteShape& shape, double x, double y)
 {
     switch (shape.get_type()) {
-    case ShapeType::Square: {
-        auto square { static_cast<const ConcreteSquare&>(shape) };
-        Point new_location { square.bottom_left_corner + Point { x, y } };
-        square.bottom_left_corner = new_location;
-        break;
-    }
-    case ShapeType::Rectangle: {
-        auto rectangle { static_cast<const ConcreteRectangle&>(shape) };
-        Point new_location { rectangle.bottom_left_corner + Point { x, y } };
-        rectangle.bottom_left_corner = new_location;
-        break;
-    }
-    case ShapeType::Circle: {
-        auto circle { static_cast<const ConcreteCircle&>(shape) };
-        Point new_location { circle.center + Point { x, y } };
-        circle.center = new_location;
-        break;
-    }
-    default:
-        throw std::invalid_argument("Invalid shape.");
-    }
-}
-
-template <typename T>
-void move_shape_with_bottom_left_corner(const ConcreteShape& shape, double x, double y)
-{
-    auto downcast_shape { static_cast<const T&>(shape) };
-    Point new_location { downcast_shape.bottom_left_corner + Point { x, y } };
-    downcast_shape.bottom_left_corner = new_location;
-}
-
-void move_v2(const ConcreteShape& shape, double x, double y)
-{
-    switch (shape.get_type()) {
-    case ShapeType::Square:
-        move_shape_with_bottom_left_corner<ConcreteSquare>(shape, x, y);
-        break;
-    case ShapeType::Rectangle:
-        move_shape_with_bottom_left_corner<ConcreteRectangle>(shape, x, y);
-        break;
-    case ShapeType::Circle: {
-        auto circle { static_cast<const ConcreteCircle&>(shape) };
-        Point new_location { circle.center + Point { x, y } };
-        circle.center = new_location;
-        break;
-    }
-    default:
-        throw std::invalid_argument("Invalid shape.");
+        case ShapeType::Square: {
+            Point new_location{ConcreteSquare::get_bottom_left_corner(shape) +
+                               Point{x, y}};
+            ConcreteSquare::set_bottom_left_corner(shape, new_location);
+            break;
+        }
+        case ShapeType::Rectangle: {
+            Point new_location{
+                    ConcreteRectangle::get_bottom_left_corner(shape) +
+                    Point{x, y}};
+            ConcreteRectangle::set_bottom_left_corner(shape, new_location);
+            break;
+        }
+        case ShapeType::Circle: {
+            Point new_location{ConcreteCircle::get_center(shape) + Point{x, y}};
+            ConcreteCircle::set_center(shape, new_location);
+            break;
+        }
+        default: throw std::invalid_argument("Invalid shape.");
     }
 }
 
 std::ostream& operator<<(std::ostream& s, const ConcreteShape& shape)
 {
-    const ConcreteShape* shape_ptr { &shape };
-    if (auto square = dynamic_cast<const ConcreteSquare*>(shape_ptr)) {
-        s << "ConcreteSquare(" << square->bottom_left_corner
-          << ", " << square->side << ")";
-    } else if (auto rectangle = dynamic_cast<const ConcreteRectangle*>(shape_ptr)) {
-        s << "ConcreteRectangle(" << rectangle->bottom_left_corner
-          << ", " << rectangle->height
-          << ", " << rectangle->width << ")";
-    } else if (auto circle = dynamic_cast<const ConcreteCircle*>(shape_ptr)) {
-        s << "ConcreteCircle(" << circle->center
-          << ", " << circle->radius << ")";
+    const ConcreteShape* shape_ptr{&shape};
+    if (shape.get_type() == ShapeType::Square) {
+        s << "ConcreteSquare(" << ConcreteSquare::get_bottom_left_corner(shape)
+          << ", " << ConcreteSquare::get_side(shape) << ")";
+    } else if (shape.get_type() == ShapeType::Rectangle) {
+        s << "ConcreteRectangle("
+          << ConcreteRectangle::get_bottom_left_corner(shape) << ", "
+          << ConcreteRectangle::get_height(shape) << ", "
+          << ConcreteRectangle::get_width(shape) << ")";
+    } else if (shape.get_type() == ShapeType::Circle) {
+        s << "ConcreteCircle(" << ConcreteCircle::get_center(shape) << ", "
+          << ConcreteCircle::get_radius(shape) << ")";
     } else {
         throw std::invalid_argument("Invalid shape.");
     }

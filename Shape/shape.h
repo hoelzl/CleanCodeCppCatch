@@ -1,8 +1,8 @@
 #pragma once
 
 #include "point.h"
-#include <iostream>
 #include <array>
+#include <iostream>
 
 class AbstractShape {
 public:
@@ -62,39 +62,60 @@ enum class ShapeType {
 };
 
 struct ConcreteShape {
-    virtual ShapeType get_type() const = 0;
+    ConcreteShape(ShapeType shape_type, Point point, double data1 = 0.0, double data2 = 0.0)
+        : shape_type { shape_type }
+        , point { point }
+        , data1 { data1 }
+        , data2 { data2 }
+    {
+    }
+
+    Point point;
+    double data1;
+    double data2;
+
+    ShapeType get_type() const
+    {
+        return shape_type;
+    }
+
+private:
+    ShapeType shape_type;
 };
 
-struct ConcreteSquare : public ConcreteShape {
-    Point bottom_left_corner {};
-    double side { 1.0 };
+namespace ConcreteSquare {
 
-    ConcreteSquare(Point bottom_left_corner, double side);
+using type = ConcreteShape;
 
-    ShapeType get_type() const override;
-};
+ConcreteSquare::type make(Point bottom_left_corner, double side);
+Point get_bottom_left_corner(const type& square);
+void set_bottom_left_corner(type& square, Point point);
+double get_side(const type& square);
+}
 
-struct ConcreteRectangle : public ConcreteShape {
-    Point bottom_left_corner {};
-    double width { 1.0 };
-    double height { 1.0 };
+namespace ConcreteRectangle {
 
-    ConcreteRectangle(Point bottom_left_corner, double width, double height);
+using type = ConcreteShape;
 
-    ShapeType get_type() const override;
-};
+ConcreteSquare::type make(Point bottom_left_corner, double width, double height);
+Point get_bottom_left_corner(const type& rectangle);
+void set_bottom_left_corner(type& rectangle, Point point);
+double get_width(const type& rectangle);
+double get_height(const type& rectangle);
+}
 
-struct ConcreteCircle : public ConcreteShape {
-    Point center {};
-    double radius { 1.0 };
+namespace ConcreteCircle {
 
-    ConcreteCircle(Point center, double radius);
+using type = ConcreteShape;
 
-    ShapeType get_type() const override;
-};
+ConcreteSquare::type make(Point center, double radius);
+Point get_center(const type& circle);
+void set_center(type& circle, Point point);
+double get_radius(const type& circle);
+}
 
 double compute_area(const ConcreteShape& shape);
 
-void move(const ConcreteShape& shape, double x, double y);
+void move(ConcreteShape& shape, double x, double y);
 
 std::ostream& operator<<(std::ostream& s, const ConcreteShape& shape);
