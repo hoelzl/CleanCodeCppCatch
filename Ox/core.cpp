@@ -3,7 +3,8 @@
 //
 #include "core.h"
 
-CharacterMatch::CharacterMatch(char proposed_char) : proposed_char(proposed_char)
+CharacterMatch::CharacterMatch(char proposed_char)
+    : proposed_char(proposed_char)
 {
 }
 
@@ -49,7 +50,8 @@ bool FailedMatch::is_partial_match() const
     return false;
 }
 
-std::unique_ptr<CharacterMatch> get_character_match(char guess, std::size_t index, const std::string& solution)
+std::unique_ptr<CharacterMatch>
+get_character_match(char guess, std::size_t index, const std::string& solution)
 {
     if (index < solution.size() && solution[index] == guess) {
         return std::make_unique<PerfectMatch>(guess);
@@ -60,11 +62,13 @@ std::unique_ptr<CharacterMatch> get_character_match(char guess, std::size_t inde
     return std::make_unique<FailedMatch>(guess);
 }
 
-Match::Match(const std::string& word_to_guess, const std::string& proposed_solution)
+Match::Match(const std::string& word_to_guess,
+             const std::string& proposed_solution)
     : word_to_guess(word_to_guess), proposed_solution(proposed_solution)
 {
     for (int i{0}; i < word_to_guess.size(); ++i) {
-        character_matches.push_back(get_character_match(word_to_guess[i], i, proposed_solution));
+        character_matches.push_back(
+                get_character_match(word_to_guess[i], i, proposed_solution));
     }
 }
 bool Match::is_perfect_match() const

@@ -42,12 +42,14 @@ public:
     [[nodiscard]] bool is_partial_match() const override;
 };
 
-std::unique_ptr<CharacterMatch> get_character_match(char guess, std::size_t index, const std::string& solution);
+std::unique_ptr<CharacterMatch>
+get_character_match(char guess, std::size_t index, const std::string& solution);
 
 class Match
 {
 public:
-    Match(const std::string& word_to_guess, const std::string& proposed_solution);
+    Match(const std::string& word_to_guess,
+          const std::string& proposed_solution);
     [[nodiscard]] bool is_perfect_match() const;
     [[nodiscard]] std::string describe() const;
 

@@ -27,19 +27,22 @@ TEST_CASE("match_chars")
 {
     SECTION("perfect match")
     {
-        std::unique_ptr<CharacterMatch> match{get_character_match('b', 1, "abc")};
+        std::unique_ptr<CharacterMatch> match{
+                get_character_match('b', 1, "abc")};
         CHECK(dynamic_cast<PerfectMatch*>(match.get()));
     }
 
     SECTION("partial match")
     {
-        std::unique_ptr<CharacterMatch> match{get_character_match('b', 0, "abc")};
+        std::unique_ptr<CharacterMatch> match{
+                get_character_match('b', 0, "abc")};
         CHECK(dynamic_cast<PartialMatch*>(match.get()));
     }
 
     SECTION("failed match")
     {
-        std::unique_ptr<CharacterMatch> match{get_character_match('x', 0, "abc")};
+        std::unique_ptr<CharacterMatch> match{
+                get_character_match('x', 0, "abc")};
         CHECK(dynamic_cast<FailedMatch*>(match.get()));
     }
 }
@@ -58,7 +61,8 @@ TEST_CASE("match strings")
     }
 }
 
-TEST_CASE("describe match") {
+TEST_CASE("describe match")
+{
     Match match{"word", "warped"};
     CHECK(match.describe() == "+.+-");
 }
