@@ -1,0 +1,12 @@
+*~
+auto/
+*.aux
+*.fdb*
+*.fls
+*.gz
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
