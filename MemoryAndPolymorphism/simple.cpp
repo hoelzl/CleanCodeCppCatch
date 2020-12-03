@@ -32,18 +32,28 @@ struct Derived : public Base {
     }
 };
 
+void print_it(const Base& base)
+{
+    std::cout << "Printing: " << base.get_sum() << std::endl;
+}
+
 int main()
 {
     Base base{2, 3, 5};
     std::cout << "base: " << base.get_sum() << std::endl;
+    print_it(base);
 
     Derived derived{2, 3, 5};
     std::cout << "derived: " << derived.get_sum() << ", "
               << derived.get_product() << std::endl;
+    print_it(derived);
 
     Base* base_pointer{&base};
     std::cout << "base_pointer: " << base_pointer->get_sum() << std::endl;
 
     base_pointer = &derived;
     std::cout << "base_pointer: " << base_pointer->get_sum() << std::endl;
+
+    base = derived;
+    std::cout << "base: " << base.get_sum() << std::endl;
 }

@@ -29,10 +29,10 @@ struct MyDerived : public MyBase {
     int y;
 };
 
-void print_array(const MyBase arr[], int len)
+void print_array(const MyBase arr[], std::size_t len)
 {
     std::cout << "MyBase[]: " << typeid(arr).name() << std::endl;
-    for (int i = 0; i < len; ++i) {
+    for (std::size_t i = 0; i < len; ++i) {
         std::cout << arr[i].x << std::endl;
     }
 }
@@ -73,7 +73,7 @@ template<typename T>
 void print_std_array(std::array<T, 3> arr)
 {
     std::cout << "array<T>: " << typeid(arr).name() << std::endl;
-    for (const MyBase& elt : arr) {
+    for (const T& elt : arr) {
         std::cout << elt.x << std::endl;
     }
 }

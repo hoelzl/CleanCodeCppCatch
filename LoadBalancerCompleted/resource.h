@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#define SHOW_RESOURCE_LIFECYCLE 0
+#define SHOW_RESOURCE_LIFECYCLE 1
 
 class Resource
 {

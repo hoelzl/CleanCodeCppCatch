@@ -20,7 +20,10 @@ void WeightedRoundRobin::add_resource(Resource r)
     std::cout << "Adding resource to weighted round robin balancer."
               << std::endl;
     // Note: this will add a copy construction even though we move off r!
-    queue_t queue{std::move(r)};
+    // queue_t queue{std::move(r)};
+    queue_t queue{};
+    queue.emplace_back(std::move(r));
+
     weighted_queues.emplace_back(1.0, std::move(queue));
 }
 

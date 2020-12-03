@@ -67,6 +67,7 @@ public:
 #endif
 
     // Use Non-virtual inheritance pattern
+    // (special case of template method).
     std::string describe() const
     {
         return describe_impl();

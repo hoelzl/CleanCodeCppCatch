@@ -1,5 +1,5 @@
-#define OMIT_VIRTUAL_DESTRUCTOR 0
-#define SHOW_ANIMAL_INSTANCE_LIFE_CYCLE 0
+#define OMIT_VIRTUAL_DESTRUCTOR 1
+#define SHOW_ANIMAL_INSTANCE_LIFE_CYCLE 1
 
 #include "animal.h"
 #include "dog.h"
@@ -9,7 +9,7 @@
 #include <memory>
 #include <string>
 
-void describe_animal(Animal* animal)
+void describe_animal(const Animal* animal)
 {
     std::cout << "Describing an animal.\n";
     std::cout << animal->describe() << std::endl;

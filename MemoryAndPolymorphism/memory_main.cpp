@@ -2,6 +2,6 @@
 #include "polymorphic_array.h"
 
 int main() {
-    print_memory_layout();
-    // print_polymorphic_array_examples();
+    // print_memory_layout();
+    print_polymorphic_array_examples();
 }
