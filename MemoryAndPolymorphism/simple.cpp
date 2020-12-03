@@ -1,0 +1,49 @@
+#include <iostream>
+
+struct Base {
+    Base(int x, int y, int z) : x{x}, y{y}, z{z}
+    {
+    }
+    virtual ~Base() = default;
+    virtual int get_sum() const
+    {
+        return x + y + z;
+    }
+
+protected:
+    int x;
+    int y;
+
+private:
+    int z;
+};
+
+struct Derived : public Base {
+    Derived(int x, int y, int z) : Base{x, y, z}
+    {
+    }
+    int get_sum() const override
+    {
+        return Base::get_sum() + 1;
+    }
+    int get_product() const
+    {
+        return x * y;
+    }
+};
+
+int main()
+{
+    Base base{2, 3, 5};
+    std::cout << "base: " << base.get_sum() << std::endl;
+
+    Derived derived{2, 3, 5};
+    std::cout << "derived: " << derived.get_sum() << ", "
+              << derived.get_product() << std::endl;
+
+    Base* base_pointer{&base};
+    std::cout << "base_pointer: " << base_pointer->get_sum() << std::endl;
+
+    base_pointer = &derived;
+    std::cout << "base_pointer: " << base_pointer->get_sum() << std::endl;
+}
