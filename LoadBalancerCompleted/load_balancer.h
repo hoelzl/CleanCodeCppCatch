@@ -1,12 +1,13 @@
 #pragma once
 
 #include "resource.h"
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using queue_t = std::vector<Resource>;
 
-class LoadBalancer {
+class LoadBalancer
+{
 public:
     virtual ~LoadBalancer() = default;
     virtual void add_resource(Resource r) = 0;
@@ -23,10 +24,13 @@ public:
     void balance() override;
 };
 
-struct WeightedQueue
-{
-    double weight{1};
-    queue_t queue{};
+struct WeightedQueue {
+    WeightedQueue(double weight = 1, queue_t queue = {})
+        : weight(weight), queue{std::move(queue)}
+    {
+    }
+    double weight;
+    queue_t queue;
 };
 
 class WeightedRoundRobin : public LoadBalancer
