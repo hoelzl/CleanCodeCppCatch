@@ -12,14 +12,14 @@ TEST_CASE("character matchers")
     SECTION("PartialMatch")
     {
         PartialMatch match{'b'};
-        CHECK(!match.is_perfect_match());
+        CHECK_FALSE(match.is_perfect_match());
         CHECK(match.is_partial_match());
     }
     SECTION("FailedMatch")
     {
         FailedMatch match{'c'};
-        CHECK(!match.is_perfect_match());
-        CHECK(!match.is_partial_match());
+        CHECK_FALSE(match.is_perfect_match());
+        CHECK_FALSE(match.is_partial_match());
     }
 }
 
@@ -57,7 +57,7 @@ TEST_CASE("match strings")
     SECTION("failed match")
     {
         Match match{"word", "games"};
-        CHECK(!match.is_perfect_match());
+        CHECK_FALSE(match.is_perfect_match());
     }
 }
 

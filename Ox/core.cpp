@@ -71,6 +71,7 @@ Match::Match(const std::string& word_to_guess,
                 get_character_match(word_to_guess[i], i, proposed_solution));
     }
 }
+
 bool Match::is_perfect_match() const
 {
     for (auto& char_match : character_matches) {

@@ -3,6 +3,8 @@ project(Ox)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ox main.cpp core.h core.cpp)
-add_executable("ox-test" test_main.cpp core.h core.cpp core_test.cpp)
+set(ox_sources "core.h" "core.cpp" "game.h" "game.cpp")
+
+add_executable(ox "main.cpp" ${ox_sources})
+add_executable("ox-test" "test_main.cpp" "core_test.cpp" ${ox_sources})
 
