@@ -14,15 +14,15 @@ TEST_CASE("tests for concrete points")
 
     SECTION("points are created correctly from polar coordinates")
     {
-        ConcretePoint p{ConcretePoint::from_polar(2.0, 0.0)};
+        ConcretePoint p{point_from_polar(2.0, 0.0)};
         REQUIRE(p.x == Approx(2.0));
         REQUIRE(p.y == Approx(0.0));
 
-        ConcretePoint p2{ConcretePoint::from_polar(1.0, PI_DIV_2)};
+        ConcretePoint p2{point_from_polar(1.0, PI_DIV_2)};
         REQUIRE(p2.x == Approx(0.0));
         REQUIRE(p2.y == Approx(1.0));
 
-        ConcretePoint p3{ConcretePoint::from_polar(1.0, PI_DIV_4)};
+        ConcretePoint p3{point_from_polar(1.0, PI_DIV_4)};
         REQUIRE(p3.x == Approx(sqrt(2.0) / 2.0));
         REQUIRE(p3.y == Approx(sqrt(2.0) / 2.0));
     }

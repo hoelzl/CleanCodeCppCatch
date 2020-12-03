@@ -44,6 +44,16 @@ public:
     {
         return {x + rhs.get_x(), y + rhs.get_y()};
     }
+
+    bool operator==(AbstractPoint rhs)
+    {
+        return get_x() == rhs.get_x() && get_y() == rhs.get_y();
+    }
+
+    bool operator!=(AbstractPoint rhs)
+    {
+        return !(*this == rhs);
+    }
 };
 
 inline std::ostream& operator<<(std::ostream& s, const AbstractPoint& point) {
