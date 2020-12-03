@@ -1,30 +1,13 @@
-#include <cstdint>
-#include <iostream>
-#include <vector>
-#include <string>
+#include "print_memory_layout.h"
 
-template <typename T>
-void print_address(const std::string& prefix, T obj)
+void print_content_addresses(const std::string& name, const std::vector<int>& v)
 {
-    std::cout << prefix << " Ox" << std::hex
-              << reinterpret_cast<std::uintptr_t>(obj) << std::endl;
-}
-
-void print_content_addresses(const std::string& name, const std::vector<int>& v) {
     for (int i = 0; i < v.size(); ++i) {
         print_address(name + "[" + std::to_string(i) + "]: ", &v[i]);
     }
 }
 
-template <typename T1, typename T2>
-void print_dist(const std::string& prefix, T1 obj1, T2 obj2)
-{
-    std::cout << prefix << std::dec
-              << reinterpret_cast<std::uintptr_t>(obj2) - reinterpret_cast<std::uintptr_t>(obj1)
-              << std::endl;
-}
-
-int main()
+void print_memory_layout()
 {
     int i { 17 };
     int ai[3] = { 1, 2, 3 };
@@ -58,7 +41,6 @@ int main()
 
     std::cout << std::endl;
     print_content_addresses("ui", ui);
-
 
     std::cout << std::endl;
     print_dist(" i to ai: ", &i, &ai);
