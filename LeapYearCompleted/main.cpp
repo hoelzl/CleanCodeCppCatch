@@ -1,5 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
+#include <iostream>
 
 bool is_leap_year(int year)
 {
@@ -12,9 +13,9 @@ TEST_CASE("a year is not a leap year")
     {
         CHECK(!is_leap_year(1983));
     }
-    SECTION("if it is divisible by 100")
+    SECTION("if it is divisible by 100 but not 400")
     {
-        CHECK(!is_leap_year(1900));
+        CHECK_FALSE(is_leap_year(1900));
     }
 }
 
@@ -22,10 +23,10 @@ TEST_CASE("a year is a leap year")
 {
     SECTION("if it is divisible by 4 but not 100")
     {
-        CHECK(is_leap_year(1984));
+        REQUIRE(is_leap_year(1984));
     }
     SECTION("if it is divisible by 400")
     {
-        CHECK(is_leap_year(2000));
+        REQUIRE(is_leap_year(2000));
     }
 }
