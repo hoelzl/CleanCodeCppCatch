@@ -1,7 +1,3 @@
-//
-// Created by tc on 08/07/2020.
-//
-
 #include "Employee.h"
 #include <iostream>
 #include <utility>
