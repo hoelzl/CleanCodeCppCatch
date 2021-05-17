@@ -1,6 +1,6 @@
 #pragma once
-#include <iostream>
 #include <cstdint>
+#include <iostream>
 #include <string>
 
 using namespace std::string_literals;
@@ -22,7 +22,7 @@ public:
                   << " via copy constructor." << std::endl;
     }
 
-    Animal(Animal&& animal)
+    Animal(Animal&& animal) noexcept
     {
         std::cout << "Creating animal instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this)
@@ -36,7 +36,7 @@ public:
         return *this;
     }
 
-    Animal& operator=(Animal&& animal)
+    Animal& operator=(Animal&& animal) noexcept
     {
         std::cout << "Move assigning animal instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
@@ -66,32 +66,32 @@ public:
 #endif
 #endif
 
-    // Use Non-virtual inheritance pattern
+    // Use Non-virtual interface pattern
     // (special case of template method).
-    std::string describe() const
+    [[nodiscard]] std::string describe() const
     {
         return describe_impl();
     }
 
-    std::string make_sound() const
+    [[nodiscard]] std::string make_sound() const
     {
         return make_sound_impl();
     }
 
-    std::string provide_detailed_description() const
+    [[nodiscard]] std::string provide_detailed_description() const
     {
         return provide_detailed_description_impl();
     }
 
 protected:
-    virtual std::string describe_impl() const = 0;
-    virtual std::string make_sound_impl() const = 0;
+    [[nodiscard]] virtual std::string describe_impl() const = 0;
+    [[nodiscard]] virtual std::string make_sound_impl() const = 0;
 
-    virtual std::string provide_detailed_description_impl() const
+    [[nodiscard]] virtual std::string provide_detailed_description_impl() const
     {
         std::string description{};
         description.append({});
-        return "Detailed description:\n\n"s + describe_impl() + "\n\n"s +
+        return "Detailed description:\n"s + describe_impl() + "\n"s +
                "The sound it makes is "s + make_sound_impl() + "\n"s;
     }
 };

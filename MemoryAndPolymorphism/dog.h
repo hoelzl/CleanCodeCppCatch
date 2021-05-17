@@ -22,7 +22,7 @@ public:
                   << " via copy constructor." << std::endl;
     }
 
-    Dog(Dog&& dog)
+    Dog(Dog&& dog) noexcept
     {
         std::cout << "Creating dog instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this)
@@ -36,7 +36,7 @@ public:
         return *this;
     }
 
-    Dog& operator=(Dog&& dog)
+    Dog& operator=(Dog&& dog) noexcept
     {
         std::cout << "Move assigning dog instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
@@ -51,13 +51,13 @@ public:
 #endif
 
 protected:
-    std::string describe_impl() const override
+    [[nodiscard]] std::string describe_impl() const override
     {
         return "A dog. What is there to say?"s;
     }
 
-    std::string make_sound_impl() const override
+    [[nodiscard]] std::string make_sound_impl() const override
     {
-        return "Woof!"s;
+        return "[Woof]!"s;
     }
 };

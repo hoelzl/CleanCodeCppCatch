@@ -5,11 +5,12 @@
 #include <memory>
 #include <span>
 #include <typeinfo>
+#include <vector>
 
 #define USE_TEMPLATES 1
 
 struct MyBase {
-    MyBase(int x) : x{x}
+    explicit MyBase(int x) : x{x}
     {
     }
 
@@ -26,7 +27,7 @@ struct MyDerived : public MyBase {
     MyDerived(int x, int y) : MyBase{x}, y{y}
     {
     }
-    int y;
+    [[maybe_unused]] int y;
 };
 
 void print_array(const MyBase arr[], std::size_t len)

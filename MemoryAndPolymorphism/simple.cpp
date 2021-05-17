@@ -5,7 +5,7 @@ struct Base {
     {
     }
     virtual ~Base() = default;
-    virtual int get_sum() const
+    [[nodiscard]] virtual int get_sum() const
     {
         return x + y + z;
     }
@@ -22,11 +22,11 @@ struct Derived : public Base {
     Derived(int x, int y, int z) : Base{x, y, z}
     {
     }
-    int get_sum() const override
+    [[nodiscard]] int get_sum() const override
     {
         return Base::get_sum() + 1;
     }
-    int get_product() const
+    [[nodiscard]] int get_product() const
     {
         return x * y;
     }
@@ -54,6 +54,6 @@ int main()
     base_pointer = &derived;
     std::cout << "base_pointer: " << base_pointer->get_sum() << std::endl;
 
-    base = derived;
+    base = derived; // NOLINT(cppcoreguidelines-slicing)
     std::cout << "base: " << base.get_sum() << std::endl;
 }

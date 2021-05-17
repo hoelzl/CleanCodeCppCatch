@@ -22,7 +22,7 @@ public:
                   << " via copy constructor." << std::endl;
     }
 
-    Cat(Cat&& cat)
+    Cat(Cat&& cat) noexcept
     {
         std::cout << "Creating cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this)
@@ -36,7 +36,7 @@ public:
         return *this;
     }
 
-    Cat& operator=(Cat&& cat)
+    Cat& operator=(Cat&& cat) noexcept
     {
         std::cout << "Move assigning cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
@@ -51,20 +51,20 @@ public:
 #endif
 
 protected:
-    std::string describe_impl() const override
+    [[nodiscard]] std::string describe_impl() const override
     {
         return "A cat. The most elegant and majestic of animals."s;
     }
 
-    std::string make_sound_impl() const override
+    [[nodiscard]] std::string make_sound_impl() const override
     {
-        return "Meow!"s;
+        return "[Meow]!"s;
     }
 
-    std::string provide_detailed_description_impl() const override
+    [[nodiscard]] std::string provide_detailed_description_impl() const override
     {
-        return "The glorious species of cats.\n\n"s +
-               "No description can do this animal justice.\n\n"s +
+        return "The glorious species of cats.\n"s +
+               "No description can do this animal justice.\n"s +
                "So don't even try.\n"s;
     }
 };
