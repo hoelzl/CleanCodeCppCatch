@@ -15,6 +15,7 @@ public:
                   << reinterpret_cast<std::uintptr_t>(this)
                   << " via default constructor." << std::endl;
     }
+
     Dog(const Dog& dog)
     {
         std::cout << "Creating dog instance " << std::hex
@@ -31,6 +32,7 @@ public:
 
     Dog& operator=(const Dog& dog)
     {
+        Animal::operator=(dog);
         std::cout << "Copy assigning dog instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
         return *this;
@@ -38,12 +40,13 @@ public:
 
     Dog& operator=(Dog&& dog) noexcept
     {
+        Animal::operator=(dog);
         std::cout << "Move assigning dog instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
         return *this;
     }
 
-    ~Dog()
+    ~Dog() override
     {
         std::cout << "Destroying dog instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;

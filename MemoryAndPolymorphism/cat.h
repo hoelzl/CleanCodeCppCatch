@@ -15,14 +15,14 @@ public:
                   << reinterpret_cast<std::uintptr_t>(this)
                   << " via default constructor." << std::endl;
     }
-    Cat(const Cat& cat)
+    Cat(const Cat& cat) : Animal(cat)
     {
         std::cout << "Creating cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this)
                   << " via copy constructor." << std::endl;
     }
 
-    Cat(Cat&& cat) noexcept
+    Cat(Cat&& cat) noexcept : Animal(std::move(cat))
     {
         std::cout << "Creating cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this)
@@ -31,6 +31,7 @@ public:
 
     Cat& operator=(const Cat& cat)
     {
+        Animal::operator=(cat);
         std::cout << "Copy assigning cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
         return *this;
@@ -38,12 +39,13 @@ public:
 
     Cat& operator=(Cat&& cat) noexcept
     {
+        Animal::operator=(std::move(cat));
         std::cout << "Move assigning cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
         return *this;
     }
 
-    ~Cat()
+    ~Cat() override
     {
         std::cout << "Destroying cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
