@@ -45,7 +45,7 @@ public:
         return *this;
     }
 
-    ~Cat() override
+    ~Cat()
     {
         std::cout << "Destroying cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;

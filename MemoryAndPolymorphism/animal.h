@@ -15,6 +15,7 @@ public:
                   << reinterpret_cast<std::uintptr_t>(this)
                   << " via default constructor." << std::endl;
     }
+
     Animal(const Animal& animal)
     {
         std::cout << "Creating animal instance " << std::hex

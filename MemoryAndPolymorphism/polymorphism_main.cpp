@@ -3,7 +3,7 @@
 #pragma clang diagnostic ignored "-Wdelete-abstract-non-virtual-dtor"
 #endif
 
-#define OMIT_VIRTUAL_DESTRUCTOR 0
+#define OMIT_VIRTUAL_DESTRUCTOR 1
 #define SHOW_ANIMAL_INSTANCE_LIFE_CYCLE 1
 
 #include "animal.h"

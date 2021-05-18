@@ -1,4 +1,4 @@
-#define PRINT_MEMORY_LAYOUT 1
+#define PRINT_MEMORY_LAYOUT 0
 
 #if PRINT_MEMORY_LAYOUT
 #include "print_memory_layout.h"
