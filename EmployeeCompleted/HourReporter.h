@@ -2,6 +2,8 @@
 
 #include <string>
 
+class Employee;
+
 class HourReporter
 {
 public:

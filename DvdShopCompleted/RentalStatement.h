@@ -1,7 +1,3 @@
-//
-// Created by tc on 08/07/2020.
-//
-
 #ifndef DVDSHOP_RENTALSTATEMENT_H
 #define DVDSHOP_RENTALSTATEMENT_H
 

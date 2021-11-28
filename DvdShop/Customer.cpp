@@ -1,7 +1,3 @@
-//
-// Created by tc on 07/07/2020.
-//
-
 #include "Customer.h"
 
 #include <iomanip>

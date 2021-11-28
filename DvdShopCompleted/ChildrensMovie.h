@@ -1,8 +1,8 @@
 #ifndef DVDSHOP_CHILDRENSMOVIE_H
 #define DVDSHOP_CHILDRENSMOVIE_H
 
-
 #include "Movie.h"
+
 class ChildrensMovie : public Movie
 {
 public:

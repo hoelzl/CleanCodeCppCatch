@@ -1,5 +1,7 @@
 #pragma once
 
+class Employee;
+
 class PaymentCalculator
 {
 public:

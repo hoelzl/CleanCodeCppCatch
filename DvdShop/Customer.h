@@ -1,7 +1,3 @@
-//
-// Created by tc on 07/07/2020.
-//
-
 #ifndef DVDSHOP_CUSTOMER_H
 #define DVDSHOP_CUSTOMER_H
 

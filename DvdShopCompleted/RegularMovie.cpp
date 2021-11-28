@@ -1,7 +1,3 @@
-//
-// Created by tc on 08/07/2020.
-//
-
 #include "RegularMovie.h"
 
 RegularMovie::RegularMovie(const std::string& title) : Movie(title)

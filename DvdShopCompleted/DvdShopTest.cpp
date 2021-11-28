@@ -1,4 +1,5 @@
 #define CATCH_CONFIG_MAIN
+
 #include "ChildrensMovie.h"
 #include "NewReleaseMovie.h"
 #include "RegularMovie.h"

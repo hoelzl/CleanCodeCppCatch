@@ -1,7 +1,3 @@
-//
-// Created by tc on 07/07/2020.
-//
-
 #ifndef DVDSHOP_MOVIE_H
 #define DVDSHOP_MOVIE_H
 
