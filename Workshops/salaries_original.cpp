@@ -2,6 +2,16 @@
 #include <iostream>
 #include <string>
 
+// The following function does more than one thing.
+
+// Split it into several functions so that each does one thing only. Ensure that
+//
+// - each function does its job well and is at a single level of abstraction,
+// - all names are appropriate, and
+// - the code is easy to understand.
+//
+// You can use the *_workshop* files for your solution.
+
 double handle_money_stuff(int i_dow, double d_spd, const char* pc_n,
                           std::vector<double>& dv_slrs)
 {
