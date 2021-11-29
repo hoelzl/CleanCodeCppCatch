@@ -2,5 +2,5 @@
 
 int main()
 {
-    std::cout << "Salaries workshop\n";
+    std::cout << "Salaries workshop\n\n";
 }

@@ -49,12 +49,12 @@ void show_compute_tax_rate()
 
 int main()
 {
-    std::cout << "Salaries completed\n";
+    std::cout << "Salaries completed\n\n";
     pay_some_salaries();
 
-	std::cout << "Day of week computation\n";
+	std::cout << "\nDay of week computation\n";
     show_compute_day_of_week_name();
 
-	std::cout << "Tax rate computation\n";
+	std::cout << "\nTax rate computation\n";
 	show_compute_tax_rate();
 }

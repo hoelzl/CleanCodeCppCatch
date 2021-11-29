@@ -15,6 +15,6 @@ void pay_some_salaries()
 
 int main()
 {
-    std::cout << "Salaries original\n";
+    std::cout << "Salaries original\n\n";
     pay_some_salaries();
 }
