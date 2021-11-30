@@ -121,7 +121,7 @@
     should act like \verb!pop_default(default)!. When
     \verb!clear_default()! is called, \texttt{pop()} should revert to
     its original behavior, i.e., throw an exception when the stack is
-    empty
+    empty.
   \end{itemize}
 \end{frame}
 
@@ -136,7 +136,7 @@
     Modify your implementation so that it uses a
     \verb|std::array<int, 16>| to store its elements. Make
     \texttt{push()} throw an exception of type
-    \verb!std::out_of_range!
+    \verb!std::out_of_range! if the stack is full.
 
     \bigskip
     \emph{Hint:} You will probably need a member variable to indicate
