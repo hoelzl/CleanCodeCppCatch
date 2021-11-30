@@ -115,10 +115,10 @@
   \frametitle{Extension (4)}  
   \begin{itemize}
   \item Extend the \texttt{Stack} data type with member functions\\[1ex]
-    \verb!void set_default(int default)!\\
+    \verb!void set_default(int default_value)!\\
     \verb!void clear_default()!\\[1ex]
-    After \verb!set_default(default)! has been called, \texttt{pop()}
-    should act like \verb!pop_default(default)!. When
+    After \verb!set_default(default_value)! has been called, \texttt{pop()}
+    should act like \verb!pop_default(default_value)!. When
     \verb!clear_default()! is called, \texttt{pop()} should revert to
     its original behavior, i.e., throw an exception when the stack is
     empty.

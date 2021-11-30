@@ -115,7 +115,7 @@ int BoundedStack::pop_default(int the_default_value) noexcept
 
 void BoundedStack::set_default(int new_default_value) noexcept
 {
-    this->default_value = new_default_value;
+    default_value = new_default_value;
 }
 
 void BoundedStack::clear_default() noexcept
