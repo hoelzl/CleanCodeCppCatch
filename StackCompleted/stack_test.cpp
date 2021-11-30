@@ -7,9 +7,9 @@ int another_arbitrary_number{34};
 int a_third_arbitrary_number{49};
 int a_fourth_arbitrary_number{75};
 
-#define USE_BOUNDED_STACK_TYPE 0
+#define USE_BOUNDED_STACK_TYPE 1
 
-#ifdef USE_BOUNDED_STACK_TYPE
+#if USE_BOUNDED_STACK_TYPE
 using Stack_t = BoundedStack;
 #else
 using Stack_t = Stack;
@@ -244,6 +244,7 @@ SCENARIO("Tests for counting elements")
     }
 }
 
+#if USE_BOUNDED_STACK_TYPE
 SCENARIO("Tests for bounded stacks")
 {
     GIVEN("a bounded stack")
@@ -284,3 +285,4 @@ SCENARIO("Tests for bounded stacks")
         }
     }
 }
+#endif
