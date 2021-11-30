@@ -7,11 +7,12 @@ bool is_leap_year(int year)
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
-TEST_CASE("a year is not a leap year")
+TEST_CASE("A year is not a leap year")
 {
     SECTION("if it is not divisible by 4")
     {
         CHECK(!is_leap_year(1983));
+        CHECK_FALSE(is_leap_year(2021));
     }
     SECTION("if it is divisible by 100 but not 400")
     {
@@ -19,7 +20,7 @@ TEST_CASE("a year is not a leap year")
     }
 }
 
-TEST_CASE("a year is a leap year")
+TEST_CASE("A year is a leap year")
 {
     SECTION("if it is divisible by 4 but not 100")
     {

@@ -1,5 +1,9 @@
 #include "prime_factors.h"
 
+#include <iostream>
+
+using namespace std::string_literals;
+
 std::vector<long> compute_prime_factors(long n)
 {
     std::vector<long> result{};
@@ -12,4 +16,24 @@ std::vector<long> compute_prime_factors(long n)
     }
 
     return result;
+}
+
+std::string format_primes(const std::vector<long>& primes)
+{
+    std::string result{};
+    std::string prefix{""s};
+    for (int prime : primes) {
+        result += prefix + std::to_string(prime);
+        prefix = ", ";
+    }
+
+    return result;
+}
+
+void compute_and_write_primes(long n, std::ostream& os)
+{
+    std::vector<long> prime_factors(compute_prime_factors(n));
+
+    os << "The primes of " << n
+       << " are: " << format_primes(prime_factors);
 }

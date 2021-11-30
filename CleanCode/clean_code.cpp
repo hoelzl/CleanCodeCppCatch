@@ -52,10 +52,13 @@ int main()
     //// This does not produce the expected result!
     formatted_text = format_text_object.compute();
 
+    std::cout << "Output of second call to compute():" << std::endl;
+    std::cout << formatted_text << std::endl;
+
     formatted_text = FormatText("This is the text to format\n",
                                 "<<< A header >>>\n", "<<< A footer >>>\n", 10).compute();
 
-    std::cout << "Output of string conversion:" << std::endl;
+    std::cout << "Output of inline construction:" << std::endl;
     std::cout << formatted_text << std::endl;
 
     std::cout << "The end.";
