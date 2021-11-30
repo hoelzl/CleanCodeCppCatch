@@ -50,7 +50,8 @@ void Rectangle::move(double x, double y)
 
 std::ostream& Rectangle::write_to_stream(std::ostream& s) const
 {
-    s << "Rectangle(" << bottom_left_corner << ", " << width << ", " << height << ")";
+    s << "Rectangle(" << bottom_left_corner << ", " << width << ", " << height
+      << ")";
     return s;
 }
 
@@ -97,7 +98,8 @@ double RawSquare::get_side(const type& square)
     return square.data1;
 }
 
-RawRectangle::type RawRectangle::make(Point bottom_left_corner, double width, double height)
+RawRectangle::type RawRectangle::make(Point bottom_left_corner, double width,
+                                      double height)
 {
     return RawShape(ShapeKind::Rectangle, bottom_left_corner, width, height);
 }
@@ -144,68 +146,62 @@ double RawCircle::get_radius(const type& circle)
 
 double compute_area(const RawShape& shape)
 {
-    switch (shape.get_shape_kind())
-    {
-    case ShapeKind::Square: {
-        double side{RawSquare::get_side(shape)};
-        return side * side;
-    }
-    case ShapeKind::Rectangle: {
-        double width{RawRectangle::get_width(shape)};
-        double height{RawRectangle::get_height(shape)};
-        return width * height;
-    }
-    case ShapeKind::Circle: {
-        double radius{RawCircle::get_radius(shape)};
-        return 4.0 * atan(1.0) * radius * radius;
-    }
-    default:
-        throw std::invalid_argument("Invalid shape.");
+    switch (shape.get_shape_kind()) {
+        case ShapeKind::Square: {
+            double side{RawSquare::get_side(shape)};
+            return side * side;
+        }
+        case ShapeKind::Rectangle: {
+            double width{RawRectangle::get_width(shape)};
+            double height{RawRectangle::get_height(shape)};
+            return width * height;
+        }
+        case ShapeKind::Circle: {
+            double radius{RawCircle::get_radius(shape)};
+            return 4.0 * atan(1.0) * radius * radius;
+        }
+        default: throw std::invalid_argument("Invalid shape.");
     }
 }
 
 void move(RawShape& shape, double x, double y)
 {
-    switch (shape.get_shape_kind())
-    {
-    case ShapeKind::Square: {
-        Point new_location{RawSquare::get_bottom_left_corner(shape) + Point{x, y}};
-        RawSquare::set_bottom_left_corner(shape, new_location);
-        break;
-    }
-    case ShapeKind::Rectangle: {
-        Point new_location{RawRectangle::get_bottom_left_corner(shape) + Point{x, y}};
-        RawRectangle::set_bottom_left_corner(shape, new_location);
-        break;
-    }
-    case ShapeKind::Circle: {
-        Point new_location{RawCircle::get_center(shape) + Point{x, y}};
-        RawCircle::set_center(shape, new_location);
-        break;
-    }
-    default:
-        throw std::invalid_argument("Invalid shape.");
+    switch (shape.get_shape_kind()) {
+        case ShapeKind::Square: {
+            Point new_location{RawSquare::get_bottom_left_corner(shape) +
+                               Point{x, y}};
+            RawSquare::set_bottom_left_corner(shape, new_location);
+            break;
+        }
+        case ShapeKind::Rectangle: {
+            Point new_location{RawRectangle::get_bottom_left_corner(shape) +
+                               Point{x, y}};
+            RawRectangle::set_bottom_left_corner(shape, new_location);
+            break;
+        }
+        case ShapeKind::Circle: {
+            Point new_location{RawCircle::get_center(shape) + Point{x, y}};
+            RawCircle::set_center(shape, new_location);
+            break;
+        }
+        default: throw std::invalid_argument("Invalid shape.");
     }
 }
 
 std::ostream& operator<<(std::ostream& s, const RawShape& shape)
 {
     const RawShape* shape_ptr{&shape};
-    if (shape.get_shape_kind() == ShapeKind::Square)
-    {
-        s << "ConcreteSquare(" << RawSquare::get_bottom_left_corner(shape) << ", " << RawSquare::get_side(shape) << ")";
-    }
-    else if (shape.get_shape_kind() == ShapeKind::Rectangle)
-    {
-        s << "ConcreteRectangle(" << RawRectangle::get_bottom_left_corner(shape) << ", "
-          << RawRectangle::get_height(shape) << ", " << RawRectangle::get_width(shape) << ")";
-    }
-    else if (shape.get_shape_kind() == ShapeKind::Circle)
-    {
-        s << "ConcreteCircle(" << RawCircle::get_center(shape) << ", " << RawCircle::get_radius(shape) << ")";
-    }
-    else
-    {
+    if (shape.get_shape_kind() == ShapeKind::Square) {
+        s << "RawSquare(" << RawSquare::get_bottom_left_corner(shape) << ", "
+          << RawSquare::get_side(shape) << ")";
+    } else if (shape.get_shape_kind() == ShapeKind::Rectangle) {
+        s << "RawRectangle(" << RawRectangle::get_bottom_left_corner(shape)
+          << ", " << RawRectangle::get_height(shape) << ", "
+          << RawRectangle::get_width(shape) << ")";
+    } else if (shape.get_shape_kind() == ShapeKind::Circle) {
+        s << "RawCircle(" << RawCircle::get_center(shape) << ", "
+          << RawCircle::get_radius(shape) << ")";
+    } else {
         throw std::invalid_argument("Invalid shape.");
     }
     return s;

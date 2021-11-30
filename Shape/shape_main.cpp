@@ -38,7 +38,8 @@ int main()
 
     RawSquare::type concrete_square{RawSquare::make(Point{}, 2.0)};
     test_raw_shape(concrete_square);
-    RawRectangle::type concrete_rectangle{RawRectangle::make(Point{}, 2.0, 3.0)};
+    RawRectangle::type concrete_rectangle{
+            RawRectangle::make(Point{}, 2.0, 3.0)};
     test_raw_shape(concrete_rectangle);
     RawCircle::type concrete_circle{RawCircle::make(Point{}, 1.0)};
     test_raw_shape(concrete_circle);
