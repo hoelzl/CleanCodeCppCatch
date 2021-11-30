@@ -7,7 +7,7 @@ int another_arbitrary_number{34};
 int a_third_arbitrary_number{49};
 int a_fourth_arbitrary_number{75};
 
-#define USE_BOUNDED_STACK_TYPE 1
+#define USE_BOUNDED_STACK_TYPE 0
 
 #if USE_BOUNDED_STACK_TYPE
 using Stack_t = BoundedStack;

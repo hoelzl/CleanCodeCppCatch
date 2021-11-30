@@ -21,11 +21,12 @@ std::string Employee::report_hours(EmployeeType employee_type)
 
 void Employee::print_report()
 {
-    std::cout << "Report for " + name;
+    std::cout << "Report for " + name << "\n";
 }
 
 void Employee::save_employee()
 {
+    std::cout << "Saving employee" << name << "\n";
 }
 
 double Employee::calculate_regular_hours() const

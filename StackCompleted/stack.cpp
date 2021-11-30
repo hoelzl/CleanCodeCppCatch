@@ -66,7 +66,7 @@ int Stack::pop_nonempty_stack() noexcept
 
 bool BoundedStack::is_empty() const noexcept
 {
-    return next_index == 0;
+    return size() == 0;
 }
 
 bool BoundedStack::is_full() const noexcept
@@ -99,7 +99,9 @@ std::size_t BoundedStack::size() const noexcept
 
 std::size_t BoundedStack::count(int element) const noexcept
 {
-    // This implementation is subtly wrong!
+    // The commented-out implementation is wrong!
+    // It counts all the occurrences of element on the stack, not just
+    // those in the "active region".
     // return std::count(std::cbegin(elements), std::cend(elements), element);
     const auto& begin_it = std::cbegin(elements);
     return std::count(begin_it, begin_it + next_index, element);

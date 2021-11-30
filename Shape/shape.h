@@ -9,70 +9,61 @@ class AbstractShape
 public:
     virtual double compute_area() const = 0;
     virtual void move(double x, double y) = 0;
+    virtual std::ostream& write_to_stream(std::ostream& s) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& s, const AbstractShape& square);
 
-class AbstractSquare : public AbstractShape
+class Square : public AbstractShape
 {
-    friend std::ostream& operator<<(std::ostream& s,
-                                    const AbstractSquare& square);
-
     Point bottom_left_corner{};
     double side{1.0};
 
 public:
-    AbstractSquare(Point bottom_left_corner, double side);
+    Square(Point bottom_left_corner, double side);
 
     double compute_area() const override;
     void move(double x, double y) override;
+    virtual std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
-std::ostream& operator<<(std::ostream& s, const AbstractSquare& square);
-
-class AbstractRectangle : public AbstractShape
+class Rectangle : public AbstractShape
 {
-    friend std::ostream& operator<<(std::ostream& s,
-                                    const AbstractRectangle& rect);
     Point bottom_left_corner{};
     double width{1.0};
     double height{1.0};
 
 public:
-    AbstractRectangle(Point bottom_left_corner, double width, double height);
+    Rectangle(Point bottom_left_corner, double width, double height);
 
     double compute_area() const override;
     void move(double x, double y) override;
+    virtual std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
-std::ostream& operator<<(std::ostream& s, const AbstractRectangle& rect);
-
-class AbstractCircle : public AbstractShape
+class Circle : public AbstractShape
 {
-    friend std::ostream& operator<<(std::ostream& s,
-                                    const AbstractCircle& circle);
     Point center{};
     double radius{1.0};
 
 public:
-    AbstractCircle(Point center, double radius);
+    Circle(Point center, double radius);
     double compute_area() const override;
     void move(double x, double y) override;
+    virtual std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
-std::ostream& operator<<(std::ostream& s, const AbstractCircle& circle);
-
-enum class ShapeType
+enum class ShapeKind
 {
     Square,
     Rectangle,
     Circle
 };
 
-struct ConcreteShape {
-    ConcreteShape(ShapeType shape_type, Point point, double data1 = 0.0,
-                  double data2 = 0.0)
-        : shape_type{shape_type}, point{point}, data1{data1}, data2{data2}
+struct RawShape
+{
+    RawShape(ShapeKind shape_kind, Point point, double data1 = 0.0, double data2 = 0.0)
+        : shape_kind{shape_kind}, point{point}, data1{data1}, data2{data2}
     {
     }
 
@@ -80,49 +71,45 @@ struct ConcreteShape {
     double data1;
     double data2;
 
-    ShapeType get_type() const
-    {
-        return shape_type;
-    }
+    ShapeKind get_shape_kind() const { return shape_kind; }
 
 private:
-    ShapeType shape_type;
+    ShapeKind shape_kind;
 };
 
-namespace ConcreteSquare {
+namespace RawSquare
+{
+using type = RawShape;
 
-using type = ConcreteShape;
-
-ConcreteSquare::type make(Point bottom_left_corner, double side);
+RawSquare::type make(Point bottom_left_corner, double side);
 Point get_bottom_left_corner(const type& square);
 void set_bottom_left_corner(type& square, Point point);
 double get_side(const type& square);
-}// namespace ConcreteSquare
+} // namespace RawSquare
 
-namespace ConcreteRectangle {
+namespace RawRectangle
+{
+using type = RawShape;
 
-using type = ConcreteShape;
-
-ConcreteSquare::type make(Point bottom_left_corner, double width,
-                          double height);
+RawSquare::type make(Point bottom_left_corner, double width, double height);
 Point get_bottom_left_corner(const type& rectangle);
 void set_bottom_left_corner(type& rectangle, Point point);
 double get_width(const type& rectangle);
 double get_height(const type& rectangle);
-}// namespace ConcreteRectangle
+} // namespace RawRectangle
 
-namespace ConcreteCircle {
+namespace RawCircle
+{
+using type = RawShape;
 
-using type = ConcreteShape;
-
-ConcreteSquare::type make(Point center, double radius);
+RawSquare::type make(Point center, double radius);
 Point get_center(const type& circle);
 void set_center(type& circle, Point point);
 double get_radius(const type& circle);
-}// namespace ConcreteCircle
+} // namespace RawCircle
 
-double compute_area(const ConcreteShape& shape);
+double compute_area(const RawShape& shape);
 
-void move(ConcreteShape& shape, double x, double y);
+void move(RawShape& shape, double x, double y);
 
-std::ostream& operator<<(std::ostream& s, const ConcreteShape& shape);
+std::ostream& operator<<(std::ostream& s, const RawShape& shape);
