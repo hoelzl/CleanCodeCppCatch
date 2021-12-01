@@ -6,17 +6,17 @@ struct RawPoint {
     double y;
 };
 
-RawPoint point_from_polar(double r, double theta)
+inline RawPoint point_from_polar(double r, double theta)
 {
     return {r * cos(theta), r * sin(theta)};
 }
 
-double point_r(RawPoint point)
+inline double point_r(RawPoint point)
 {
     return sqrt(point.x * point.x + point.y * point.y);
 }
 
-double point_theta(RawPoint point)
+inline double point_theta(RawPoint point)
 {
     return (point.x == 0.0) ? atan(1.0) : atan(point.y / point.x);
 }
