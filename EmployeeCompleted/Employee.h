@@ -15,16 +15,15 @@ private:
     int id;
     std::string name;
 
-    std::unique_ptr<PaymentScheme> payment_scheme;
+    std::unique_ptr<const PaymentScheme> payment_scheme;
     std::shared_ptr<const ReportPrinter> report_printer;
     std::shared_ptr<Database> database;
 
 public:
     Employee(int id, std::string name,
-             std::unique_ptr<PaymentScheme> payment_scheme,
+             std::unique_ptr<const PaymentScheme> payment_scheme,
              std::shared_ptr<const ReportPrinter> report_printer,
              std::shared_ptr<Database> database);
-    virtual ~Employee() = default;
 
     int get_id() const;
     const std::string& get_name() const;

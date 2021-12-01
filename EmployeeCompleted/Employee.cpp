@@ -5,7 +5,7 @@
 
 
 Employee::Employee(int id, std::string name,
-                   std::unique_ptr<PaymentScheme> payment_scheme,
+                   std::unique_ptr<const PaymentScheme> payment_scheme,
                    std::shared_ptr<const ReportPrinter> report_printer,
                    std::shared_ptr<Database> database)
     : id{id}, name{std::move(name)}, payment_scheme{std::move(payment_scheme)},
