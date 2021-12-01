@@ -4,24 +4,27 @@
 #include "catch.hpp"
 #include <sstream>
 #include <string>
+#include <vector>
 
 using namespace std::string_literals;
 
 SCENARIO("Some Company")
 {
+    std::shared_ptr<AugurDB> database{std::make_shared<AugurDB>()};
+
     GIVEN("any kind of employee and project")
     {
         Project project{"The Big Project", 5000.0};
         Employee employee{
-                123, "Jack Hammer"s, EmployeeType::Commissioned, 2000.0,
-                10,  project};
+                123,     "Jack Hammer"s, EmployeeType::Commissioned, 2000.0, 10,
+                project, database};
 
         THEN("the employee's ID is correct")
         {
             CHECK(employee.get_id() == 123);
         }
 
-        THEN("The employee's name is correct")
+        THEN("the employee's name is correct")
         {
             CHECK(employee.get_name() == "Jack Hammer");
         }
@@ -29,14 +32,19 @@ SCENARIO("Some Company")
         THEN("saving works")
         {
             CHECK(employee.save_employee() == SaveResult::Successful);
+            DatabaseRecord db_record{
+                    {"id"s, "name"s, "type"s, "salary"s, "project"s}};
+            std::vector<DatabaseRecord> expected_records{db_record};
+            CHECK(database->get_records() == expected_records);
         }
     }
 
     GIVEN("a regular employee")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{123, "Jill Connor"s, EmployeeType::Regular, 2000.0,
-                          10,  project};
+        Employee employee{
+                123,     "Jill Connor"s, EmployeeType::Regular, 2000.0, 10,
+                project, database};
 
         THEN("the report hours are correct")
         {
@@ -59,8 +67,9 @@ SCENARIO("Some Company")
     GIVEN("a freelance employee")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{123, "Jill Connor"s, EmployeeType::Houred, 2000.0,
-                          35,  project};
+        Employee employee{
+                123,     "Jill Connor"s, EmployeeType::Houred, 2000.0, 35,
+                project, database};
 
         THEN("the report hours are correct")
         {
@@ -84,8 +93,8 @@ SCENARIO("Some Company")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
         Employee employee{
-                123, "Jill Connor"s, EmployeeType::Commissioned, 2000.0,
-                35,  project};
+                123,     "Jill Connor"s, EmployeeType::Commissioned, 2000.0, 35,
+                project, database};
 
         THEN("the report hours are correct")
         {
@@ -108,9 +117,13 @@ SCENARIO("Some Company")
     GIVEN("an employee with invalid type")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{
-                123, "Jill Connor"s, static_cast<EmployeeType>(123), 2000.0,
-                35,  project};
+        Employee employee{123,
+                          "Jill Connor"s,
+                          static_cast<EmployeeType>(123),
+                          2000.0,
+                          35,
+                          project,
+                          database};
 
         THEN("report_hours() raises an exception")
         {

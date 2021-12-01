@@ -45,6 +45,16 @@ RegularEmployee::RegularEmployee(
 {
 }
 
+double RegularEmployee::get_salary() const
+{
+    return salary;
+}
+
+int RegularEmployee::get_overtime() const
+{
+    return overtime;
+}
+
 double RegularEmployee::calculate_pay() const
 {
     return salary + 60.0 * overtime;
@@ -86,6 +96,11 @@ FreelanceEmployee::FreelanceEmployee(
     : Employee{id, name, std::move(report_printer), std::move(database)},
       billable_hours{billable_hours}
 {
+}
+
+int FreelanceEmployee::get_billable_hours() const
+{
+    return billable_hours;
 }
 
 double FreelanceEmployee::calculate_pay() const

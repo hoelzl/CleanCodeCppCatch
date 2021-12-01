@@ -12,4 +12,4 @@ add_executable(Employee "EmployeeTestCompleted.cpp"
 	Project.h
 	ReportPrinter.cpp
 	ReportPrinter.h
-)
+ "AugurDB.h" "AugurDatabase.h" "AugurDatabase.cpp")

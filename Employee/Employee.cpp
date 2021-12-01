@@ -5,9 +5,10 @@
 using namespace std::string_literals;
 
 Employee::Employee(int id, std::string name, EmployeeType type, double salary,
-                   int overtime, const Project& project)
+                   int overtime, const Project& project,
+                   std::shared_ptr<AugurDB> database)
     : id{id}, name{std::move(name)}, type{type}, salary{salary},
-      overtime{overtime}, project{project}
+      overtime{overtime}, project{project}, database{std::move(database)}
 {
 }
 
@@ -54,5 +55,12 @@ void Employee::print_report(std::ostream& os /* = std::cout */) const
 
 SaveResult Employee::save_employee() const
 {
+    database->start_transaction();
+    database->store_field("id"s, id);
+    database->store_field("name"s, name);
+    database->store_field("type"s, type);
+    database->store_field("salary"s, salary);
+    database->store_field("project"s, project.get_name());
+    database->commit_transaction();
     return SaveResult::Successful;
 }

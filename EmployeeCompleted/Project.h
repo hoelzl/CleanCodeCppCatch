@@ -14,6 +14,7 @@ private:
 public:
     Project(std::string name, double assets, double commissioned_pay);
 
+    const std::string& get_name() const;
     double get_assets() const;
     double get_commissioned_pay() const;
 };

@@ -41,6 +41,9 @@ public:
     RegularEmployee(int id, std::string name, double salary, int overtime,
                     std::shared_ptr<const ReportPrinter> report_printer,
                     std::shared_ptr<Database> database);
+    double get_salary() const;
+    int get_overtime() const;
+
     virtual double calculate_pay() const override;
     virtual int report_hours() const override;
 };
@@ -69,6 +72,8 @@ public:
     FreelanceEmployee(int id, std::string name, int billable_hours,
                    std::shared_ptr<const ReportPrinter> report_printer,
                    std::shared_ptr<Database> database);
+
+    int get_billable_hours() const;
     virtual double calculate_pay() const override;
     virtual int report_hours() const override;
 };

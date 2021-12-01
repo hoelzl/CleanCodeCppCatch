@@ -2,7 +2,10 @@
 #ifndef EMPLOYEE_COMPLETED_DATABASE_H
 #define EMPLOYEE_COMPLETED_DATABASE_H
 
+#include "AugurDB.h"
 #include <iostream>
+
+using namespace std::string_literals;
 
 class Employee;
 
@@ -17,11 +20,7 @@ class Database
 public:
     virtual ~Database() = default;
 
-    virtual SaveResult save_employee(const Employee& employee)
-    {
-        // This has to know about the different types of employees...
-        return SaveResult::Successful;
-    }
+    virtual SaveResult save_employee(const Employee& employee) = 0;
 };
 
 #endif//EMPLOYEE_COMPLETED_DATABASE_H

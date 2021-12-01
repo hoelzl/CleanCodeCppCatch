@@ -3,4 +3,11 @@ project(Employee)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Employee "EmployeeTest.cpp" Project.cpp Project.h Employee.cpp Employee.h)
+add_executable(Employee
+	AugurDB.h 
+	Employee.cpp 
+	Employee.h 
+	EmployeeTest.cpp 
+	Project.cpp 
+	Project.h
+)

@@ -1,4 +1,6 @@
 #define CATCH_CONFIG_MAIN
+#include "AugurDatabase.h"
+#include "AugurDB.h"
 #include "Employee.h"
 #include "Project.h"
 #include "catch.hpp"
@@ -9,7 +11,8 @@ using namespace std::string_literals;
 
 SCENARIO("Some Company")
 {
-    std::shared_ptr<Database> database{std::make_shared<Database>()};
+    std::shared_ptr<AugurDB> augur_db{std::make_shared<AugurDB>()};
+    std::shared_ptr<Database> database{std::make_shared<AugurDatabase>(augur_db)};
 
     std::stringstream report_stream{};
     std::shared_ptr<const ReportPrinter> report_printer{
@@ -28,11 +31,6 @@ SCENARIO("Some Company")
         THEN("The employee's name is correct")
         {
             CHECK(employee.get_name() == "Jack Hammer");
-        }
-
-        THEN("saving works")
-        {
-            CHECK(employee.save_employee() == SaveResult::Successful);
         }
     }
 
@@ -56,6 +54,15 @@ SCENARIO("Some Company")
         {
             CHECK(employee.calculate_pay() == 2600.0);
         }
+
+        THEN("saving works")
+        {
+            CHECK(employee.save_employee() == SaveResult::Successful);
+            DatabaseRecord db_record{
+                    {"id"s, "name"s, "salary"s, "overtime"s}};
+            std::vector<DatabaseRecord> expected_records{db_record};
+            CHECK(augur_db->get_records() == expected_records);
+        }
     }
 
     GIVEN("a freelance employee")
@@ -77,6 +84,14 @@ SCENARIO("Some Company")
         THEN("the employee's payment is computed correctly")
         {
             CHECK(employee.calculate_pay() == 1750.0);
+        }
+
+        THEN("saving works")
+        {
+            CHECK(employee.save_employee() == SaveResult::Successful);
+            DatabaseRecord db_record{{"id"s, "name"s, "billable_hours"s}};
+            std::vector<DatabaseRecord> expected_records{db_record};
+            CHECK(augur_db->get_records() == expected_records);
         }
     }
 
@@ -100,6 +115,14 @@ SCENARIO("Some Company")
         THEN("the employee's payment is computed according to the project")
         {
             CHECK(employee.calculate_pay() == 1200.0);
+        }
+
+        THEN("saving works")
+        {
+            CHECK(employee.save_employee() == SaveResult::Successful);
+            DatabaseRecord db_record{{"id"s, "name"s, "project"s}};
+            std::vector<DatabaseRecord> expected_records{db_record};
+            CHECK(augur_db->get_records() == expected_records);
         }
     }
 }

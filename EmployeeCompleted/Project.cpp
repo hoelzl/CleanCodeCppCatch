@@ -6,6 +6,11 @@ Project::Project(std::string name, double assets, double commissioned_pay)
 {
 }
 
+const std::string& Project::get_name() const
+{
+    return name;
+}
+
 double Project::get_assets() const
 {
     return assets;
