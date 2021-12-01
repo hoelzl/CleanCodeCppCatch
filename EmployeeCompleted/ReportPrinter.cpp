@@ -1,7 +1,8 @@
 #include "ReportPrinter.h"
 #include "Employee.h"
 
-inline void ReportPrinter::print_report(Employee& employee)
+void ReportPrinter::print_report(const Employee& employee) const
 {
-    std::cout << "Report for " + employee.get_name();
+    os << employee.get_name() << " worked " << employee.report_hours()
+       << " hours.\n";
 }

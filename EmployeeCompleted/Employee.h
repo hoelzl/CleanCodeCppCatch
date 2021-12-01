@@ -1,45 +1,77 @@
-#ifndef EMPLOYEE_EMPLOYEE_H
-#define EMPLOYEE_EMPLOYEE_H
+#pragma once
+#ifndef EMPLOYEE_COMPLETED_EMPLOYEE_H
+#define EMPLOYEE_COMPLETED_EMPLOYEE_H
 
-#include "HourReporter.h"
-#include "PaymentCalculator.h"
+#include "Database.h"
 #include "Project.h"
 #include "ReportPrinter.h"
 #include <string>
-
-enum class EmployeeType
-{
-    Regular,
-    Houred,
-    Commissioned
-};
 
 class Employee
 {
 private:
     int id;
     std::string name;
-    EmployeeType type;
-    double salary;// only for regular employees
-    int overtime; // for regular employees or freelancers (houred)
-    Project& project;
-    PaymentCalculator& payment_calculator;
-    HourReporter& hour_reporter;
-    ReportPrinter& report_printer;
+
+    std::shared_ptr<const ReportPrinter> report_printer;
+    std::shared_ptr<Database> database;
 
 public:
-    Employee(int id, std::string name, EmployeeType type, double salary,
-             int overtime, Project& project,
-             PaymentCalculator& payment_calculator, HourReporter& hour_reporter,
-             ReportPrinter& report_printer);
-    std::string get_name() const;
+    Employee(int id, std::string name,
+             std::shared_ptr<const ReportPrinter> report_printer,
+             std::shared_ptr<Database> database);
+    virtual ~Employee() = default;
 
-    double calculate_pay() const;
-    std::string report_hours() const;
+    int get_id() const;
+    const std::string& get_name() const;
+
+    virtual double calculate_pay() const = 0;
+    virtual int report_hours() const = 0;
     void print_report() const;
-    void save_employee() const;
-    double calculate_regular_hours() const;
+    SaveResult save_employee() const;
+};
+
+class RegularEmployee : public Employee
+{
+private:
+    double salary{};
+    int overtime{};
+
+public:
+    RegularEmployee(int id, std::string name, double salary, int overtime,
+                    std::shared_ptr<const ReportPrinter> report_printer,
+                    std::shared_ptr<Database> database);
+    virtual double calculate_pay() const override;
+    virtual int report_hours() const override;
+};
+
+class CommissionedEmployee : public Employee
+{
+private:
+    const Project& project;
+
+public:
+    CommissionedEmployee(int id, std::string name, const Project& project,
+                         std::shared_ptr<const ReportPrinter> report_printer,
+                         std::shared_ptr<Database> database);
+    const Project& get_project() const;
+    virtual double calculate_pay() const override;
+    virtual int report_hours() const override;
 };
 
 
-#endif//EMPLOYEE_EMPLOYEE_H
+class FreelanceEmployee : public Employee
+{
+private:
+    int billable_hours{};
+
+public:
+    FreelanceEmployee(int id, std::string name, int billable_hours,
+                   std::shared_ptr<const ReportPrinter> report_printer,
+                   std::shared_ptr<Database> database);
+    virtual double calculate_pay() const override;
+    virtual int report_hours() const override;
+};
+
+
+#endif//EMPLOYEE_COMPLETED_EMPLOYEE_H

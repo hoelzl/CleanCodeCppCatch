@@ -27,7 +27,7 @@ private:
     EmployeeType type;
     double salary;// only for regular employees
     int overtime; // for regular employees or freelancers (payed by the hour)
-    const Project& project;
+    const Project& project;// only for commissioned employees
 
 public:
     Employee(int id, std::string name, EmployeeType type, double salary,
@@ -37,10 +37,10 @@ public:
     const std::string& get_name() const;
     const Project& get_project() const;
 
-    double calculate_pay();
-    std::string report_hours();
-    void print_report(std::ostream& os = std::cout);
-    SaveResult save_employee();
+    double calculate_pay() const;
+    int report_hours() const;
+    void print_report(std::ostream& os = std::cout) const;
+    SaveResult save_employee() const;// save to database
 };
 
 

@@ -3,42 +3,97 @@
 #include <utility>
 
 
-Employee::Employee(int id, std::string name, EmployeeType type, double salary,
-                   int overtime, Project& project,
-                   PaymentCalculator& payment_calculator,
-                   HourReporter& hour_reporter, ReportPrinter& report_printer)
-    : id(id), name(std::move(name)), type(type), salary(salary),
-      overtime(overtime),
-      project(project), payment_calculator{payment_calculator},
-      hour_reporter{hour_reporter}, report_printer{report_printer}
+Employee::Employee(int id, std::string name,
+                   std::shared_ptr<const ReportPrinter> report_printer,
+                   std::shared_ptr<Database> database)
+    : id{id}, name{std::move(name)},
+      report_printer{std::move(report_printer)}, database{std::move(database)}
 {
 }
 
-std::string Employee::get_name() const
+int Employee::get_id() const
+{
+    return id;
+}
+
+const std::string& Employee::get_name() const
 {
     return name;
 }
 
-double Employee::calculate_pay() const
-{
-    return payment_calculator.calculate_pay(*this);
-}
-
-std::string Employee::report_hours() const
-{
-    return hour_reporter.report_hours(*this);
-}
-
 void Employee::print_report() const
 {
-    std::cout << "Report for " + name;
+    if (report_printer) {
+        report_printer->print_report(*this);
+    }
 }
 
-void Employee::save_employee() const
+SaveResult Employee::save_employee() const
+{
+    if (database) {
+        return database->save_employee(*this);
+    }
+    return SaveResult::Failed;
+}
+
+RegularEmployee::RegularEmployee(
+        int id, std::string name, double salary, int overtime,
+        std::shared_ptr<const ReportPrinter> report_printer,
+        std::shared_ptr<Database> database)
+    : Employee{id, name, std::move(report_printer), std::move(database)},
+      salary{salary}, overtime{overtime}
 {
 }
 
-double Employee::calculate_regular_hours() const
+double RegularEmployee::calculate_pay() const
 {
-    return 40.0 + overtime;
+    return salary + 60.0 * overtime;
+}
+
+int RegularEmployee::report_hours() const
+{
+    return 40 + overtime;
+}
+
+CommissionedEmployee::CommissionedEmployee(
+        int id, std::string name, const Project& project,
+        std::shared_ptr<const ReportPrinter> report_printer,
+        std::shared_ptr<Database> database)
+    : Employee{id, name, std::move(report_printer), std::move(database)},
+      project{project}
+{
+}
+
+const Project& CommissionedEmployee::get_project() const
+{
+    return project;
+}
+
+double CommissionedEmployee::calculate_pay() const
+{
+    return project.get_commissioned_pay();
+}
+
+int CommissionedEmployee::report_hours() const
+{
+    return 40;
+}
+
+FreelanceEmployee::FreelanceEmployee(
+        int id, std::string name, int billable_hours,
+        std::shared_ptr<const ReportPrinter> report_printer,
+        std::shared_ptr<Database> database)
+    : Employee{id, name, std::move(report_printer), std::move(database)},
+      billable_hours{billable_hours}
+{
+}
+
+double FreelanceEmployee::calculate_pay() const
+{
+    return 50.0 * billable_hours;
+}
+
+int FreelanceEmployee::report_hours() const
+{
+    return billable_hours;
 }

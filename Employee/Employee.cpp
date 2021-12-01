@@ -25,35 +25,34 @@ const Project& Employee::get_project() const
     return project;
 }
 
-double Employee::calculate_pay()
+double Employee::calculate_pay() const
 {
     switch (type) {
         case EmployeeType::Regular: return salary + 60.0 * overtime;
         case EmployeeType::Commissioned: return project.get_commissioned_pay();
-        // We use overtime for the total hours worked.
+        // We use overtime for the billed hours.
         case EmployeeType::Houred: return 50.0 * overtime;
         default: throw std::invalid_argument("Invalid employee type.");
     }
 }
 
-std::string Employee::report_hours()
+int Employee::report_hours() const
 {
     switch (type) {
-        case EmployeeType::Regular:
-            return std::to_string(40 + overtime) + " hours"s;
-        case EmployeeType::Commissioned: return "40 hours"s;
-        // We use overtime for the total hours worked.
-        case EmployeeType::Houred: return std::to_string(overtime) + " hours"s;
+        case EmployeeType::Regular: return 40 + overtime;
+        case EmployeeType::Commissioned: return 40;
+        // We use overtime for the billed hours.
+        case EmployeeType::Houred: return overtime;
         default: throw std::invalid_argument("Invalid employee type.");
     }
 }
 
-void Employee::print_report(std::ostream& os /* = std::cout */)
+void Employee::print_report(std::ostream& os /* = std::cout */) const
 {
-    os << name << " worked " << report_hours() << ".\n";
+    os << name << " worked " << report_hours() << " hours.\n";
 }
 
-SaveResult Employee::save_employee()
+SaveResult Employee::save_employee() const
 {
     return SaveResult::Successful;
 }

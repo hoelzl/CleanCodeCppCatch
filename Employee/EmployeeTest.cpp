@@ -40,7 +40,7 @@ SCENARIO("Some Company")
 
         THEN("the report hours are correct")
         {
-            CHECK(employee.report_hours() == "50 hours");
+            CHECK(employee.report_hours() == 50);
         }
 
         THEN("the report is correct")
@@ -64,7 +64,7 @@ SCENARIO("Some Company")
 
         THEN("the report hours are correct")
         {
-            CHECK(employee.report_hours() == "35 hours");
+            CHECK(employee.report_hours() == 35);
         }
 
         THEN("the report is correct")
@@ -89,7 +89,7 @@ SCENARIO("Some Company")
 
         THEN("the report hours are correct")
         {
-            CHECK(employee.report_hours() == "40 hours");
+            CHECK(employee.report_hours() == 40);
         }
 
         THEN("the report is correct")
