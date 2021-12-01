@@ -5,6 +5,7 @@
 #include "AugurDB.h"
 #include "Project.h"
 #include <iostream>
+#include <memory>
 #include <string>
 
 enum class EmployeeType

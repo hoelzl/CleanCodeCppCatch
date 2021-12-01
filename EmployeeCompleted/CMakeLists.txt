@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(EmployeeCompleted)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Employee "EmployeeTestCompleted.cpp"
 	Database.cpp 
@@ -12,4 +12,4 @@ add_executable(Employee "EmployeeTestCompleted.cpp"
 	Project.h
 	ReportPrinter.cpp
 	ReportPrinter.h
- "AugurDB.h" "AugurDatabase.h" "AugurDatabase.cpp")
+ "AugurDB.h" "AugurDatabase.h" "AugurDatabase.cpp" "PaymentScheme.h" "PaymentScheme.cpp")
