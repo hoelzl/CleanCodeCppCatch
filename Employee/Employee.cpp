@@ -2,34 +2,58 @@
 #include <iostream>
 #include <utility>
 
+using namespace std::string_literals;
 
 Employee::Employee(int id, std::string name, EmployeeType type, double salary,
-                   int overtime, Project& project)
-    : id(id), name(std::move(name)), type(type), salary(salary),
-      overtime(overtime), project(project)
+                   int overtime, const Project& project)
+    : id{id}, name{std::move(name)}, type{type}, salary{salary},
+      overtime{overtime}, project{project}
 {
-}
-double Employee::calculate_pay(EmployeeType employee_type)
-{
-    return 1000.0;
 }
 
-std::string Employee::report_hours(EmployeeType employee_type)
+int Employee::get_id() const
 {
-    return "40 hours";
+    return id;
+}
+const std::string& Employee::get_name() const
+{
+    return name;
 }
 
-void Employee::print_report()
+const Project& Employee::get_project() const
 {
-    std::cout << "Report for " + name << "\n";
+    return project;
 }
 
-void Employee::save_employee()
+double Employee::calculate_pay()
 {
-    std::cout << "Saving employee" << name << "\n";
+    switch (type) {
+        case EmployeeType::Regular: return salary + 60.0 * overtime;
+        case EmployeeType::Commissioned: return project.get_commissioned_pay();
+        // We use overtime for the total hours worked.
+        case EmployeeType::Houred: return 50.0 * overtime;
+        default: throw std::invalid_argument("Invalid employee type.");
+    }
 }
 
-double Employee::calculate_regular_hours() const
+std::string Employee::report_hours()
 {
-    return 40.0 + overtime;
+    switch (type) {
+        case EmployeeType::Regular:
+            return std::to_string(40 + overtime) + " hours"s;
+        case EmployeeType::Commissioned: return "40 hours"s;
+        // We use overtime for the total hours worked.
+        case EmployeeType::Houred: return std::to_string(overtime) + " hours"s;
+        default: throw std::invalid_argument("Invalid employee type.");
+    }
+}
+
+void Employee::print_report(std::ostream& os /* = std::cout */)
+{
+    os << name << " worked " << report_hours() << ".\n";
+}
+
+SaveResult Employee::save_employee()
+{
+    return SaveResult::Successful;
 }

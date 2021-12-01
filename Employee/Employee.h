@@ -3,13 +3,20 @@
 #define EMPLOYEE_EMPLOYEE_H
 
 #include "Project.h"
+#include <iostream>
 #include <string>
 
 enum class EmployeeType
 {
     Regular,
     Houred,
-    Commissioned
+    Commissioned,
+};
+
+enum class SaveResult
+{
+    Successful,
+    Failed,
 };
 
 class Employee
@@ -19,18 +26,22 @@ private:
     std::string name;
     EmployeeType type;
     double salary;// only for regular employees
-    int overtime; // for regular employees or freelancers (houred)
-    Project& project;
+    int overtime; // for regular employees or freelancers (payed by the hour)
+    const Project& project;
 
 public:
     Employee(int id, std::string name, EmployeeType type, double salary,
-             int overtime, Project& project);
-    static double calculate_pay(EmployeeType employee_type);
-    static std::string report_hours(EmployeeType employee_type);
-    void print_report();
-    void save_employee();
-    double calculate_regular_hours() const;
+             int overtime, const Project& project);
+
+    int get_id() const;
+    const std::string& get_name() const;
+    const Project& get_project() const;
+
+    double calculate_pay();
+    std::string report_hours();
+    void print_report(std::ostream& os = std::cout);
+    SaveResult save_employee();
 };
 
 
-#endif//EMPLOYEE_EMPLOYEE_H
+#endif// EMPLOYEE_EMPLOYEE_H
