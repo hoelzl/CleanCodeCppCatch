@@ -1,0 +1,5 @@
+﻿add_subdirectory("CleanCode")
+add_subdirectory("ClockTimer")
+add_subdirectory("Iterators")
+add_subdirectory("MemoryAndPolymorphism")
+add_subdirectory("Shape")
