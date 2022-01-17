@@ -4,6 +4,8 @@ project ("CleanCodeCpp")
 
 set(CMAKE_CXX_STANDARD 17)
 
+option(ASAN_ENABLED "Build with AddressSanitizer" OFF)
+
 add_subdirectory("Completed")
 add_subdirectory("Examples")
 add_subdirectory("External")

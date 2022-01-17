@@ -2,5 +2,5 @@
 project(OneShotsCompleted)
 
 
-add_executable (OneShotsCompletedTest "argument_passing.cpp")
+add_executable (OneShotsCompletedTest "argument_passing.cpp" "ownership_1.cpp")
 target_link_libraries(OneShotsCompletedTest "Catch2WithMain" "GSL")

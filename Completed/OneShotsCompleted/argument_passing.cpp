@@ -3,6 +3,8 @@
 #include <gsl/gsl>
 #include <numeric>
 
+namespace argument_passing {
+
 int fun1(int my_int, int your_int) { return 2 * my_int + 3 * your_int; }
 
 TEST_CASE("fun1()") { CHECK(fun1(1, 2) == 8); }
@@ -63,10 +65,7 @@ struct SumProd
     int prod{};
 };
 
-SumProd fun5_a(int x, int y)
-{
-    return {x + y, x * y};
-}
+SumProd fun5_a(int x, int y) { return {x + y, x * y}; }
 
 TEST_CASE("fun5a()")
 {
@@ -89,3 +88,5 @@ TEST_CASE("fun6()")
     CHECK(fun6(nullptr) == -1);
     CHECK(fun6(&s) == 5);
 }
+
+} // namespace argument_passing
