@@ -25,7 +25,7 @@ struct MyBase
 struct MyDerived : public MyBase
 {
     MyDerived(int x, int y) : MyBase{x}, y{y} {}
-    [[maybe_unused]] int y;
+    int y;
 };
 
 inline void print_array(const MyBase arr[], std::size_t len)
