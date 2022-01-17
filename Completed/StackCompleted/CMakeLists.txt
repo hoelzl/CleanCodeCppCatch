@@ -3,7 +3,7 @@ project(StackCompleted)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(stack_sources  "stack.cpp" "stack.h")
+set(stack_sources "stack.cpp" "stack.h")
 set(stack_main "stack_main.cpp")
 set(stack_test "stack_test.cpp")
 

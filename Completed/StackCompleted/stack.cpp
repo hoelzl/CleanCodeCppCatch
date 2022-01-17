@@ -1,5 +1,6 @@
 #include "stack.h"
 
+#include <algorithm>
 #include <stdexcept>
 
 bool Stack::is_empty() const noexcept { return elements.empty(); }
