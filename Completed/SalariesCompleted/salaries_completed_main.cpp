@@ -5,6 +5,8 @@
 
 #include "salaries_completed.h"
 
+using namespace salaries_completed;
+
 void pay_some_salaries()
 {
     std::vector<double> all_salaries{};

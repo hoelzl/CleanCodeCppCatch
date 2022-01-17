@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+namespace salaries_completed {
+
 void assert_valid_day_number(int day_number);
 
 double process_salary(
@@ -13,11 +15,11 @@ double process_salary(
     std::vector<double>& all_salaries)
 {
     assert_valid_day_number(day_number);
-    const auto salary_after_taxes
-        = compute_salary_after_taxes(day_number, salary_per_day);
+    const auto [taxes, salary_after_taxes]{
+        compute_taxed_salary(day_number, salary_per_day)};
     store_salary(salary_after_taxes, all_salaries);
     print_salary(day_number, salary_per_day, employee_name);
-    return compute_taxes(day_number, salary_per_day);
+    return taxes;
 }
 
 void assert_valid_day_number(int day_number)
@@ -27,12 +29,12 @@ void assert_valid_day_number(int day_number)
     }
 }
 
-double compute_salary_after_taxes(int day_number, double salary_per_day)
+TaxedSalary compute_taxed_salary(int day_number, double salary_per_day)
 {
     const auto salary_before_taxes
         = compute_salary_before_taxes(day_number, salary_per_day);
     const auto taxes = compute_taxes(salary_before_taxes);
-    return salary_before_taxes - taxes;
+    return {taxes, salary_before_taxes - taxes};
 }
 
 double compute_salary_before_taxes(int day_number, double salary_per_day)
@@ -44,13 +46,6 @@ double compute_salary_before_taxes(int day_number, double salary_per_day)
 double compute_taxes(double salary_before_taxes)
 {
     return salary_before_taxes * compute_tax_rate(salary_before_taxes);
-}
-
-double compute_taxes(int day_number, double salary_per_day)
-{
-    const auto salary_before_taxes
-        = compute_salary_before_taxes(day_number, salary_per_day);
-    return compute_taxes(salary_before_taxes);
 }
 
 double compute_tax_rate(double salary)
@@ -76,13 +71,11 @@ void store_salary(double salary, std::vector<double>& all_salaries)
 
 void print_salary(int day_number, double salary_per_day, const char* employee_name)
 {
+    auto [taxes, salary_after_taxes]{compute_taxed_salary(day_number, salary_per_day)};
     std::cout << employee_name << " worked till "
               << compute_day_of_week_name(day_number) << " and earned $"
-              << compute_salary_after_taxes(day_number, salary_per_day)
-              << " this week.\n";
-    std::cout << "  "
-              << "Their taxes were $" << compute_taxes(day_number, salary_per_day)
-              << ".";
+              << salary_after_taxes << " this week.\n";
+    std::cout << "  Their taxes were $" << taxes << ".";
     std::cout << std::endl;
 }
 
@@ -93,3 +86,4 @@ const std::string& compute_day_of_week_name(int day_number)
     assert_valid_day_number(day_number);
     return day_names.at(day_number - 1);
 }
+} // namespace salaries_completed
