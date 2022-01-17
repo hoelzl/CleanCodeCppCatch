@@ -16,4 +16,4 @@ public:
 };
 
 
-#endif//DVDSHOP_RENTAL_H
+#endif // DVDSHOP_RENTAL_H

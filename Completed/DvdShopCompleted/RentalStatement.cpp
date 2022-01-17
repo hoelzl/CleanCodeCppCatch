@@ -1,4 +1,5 @@
 #include "RentalStatement.h"
+
 #include <iomanip>
 #include <sstream>
 #include <string>
@@ -12,20 +13,13 @@ std::string to_string(double d)
     return stream.str();
 }
 
-RentalStatement::RentalStatement(const std::string& customer_name)
-    : customer_name(customer_name)
-{
-}
+RentalStatement::RentalStatement(std::string customer_name)
+    : customer_name(std::move(customer_name))
+{}
 
-void RentalStatement::add_rental(const Rental& rental)
-{
-    rentals.push_back(rental);
-}
+void RentalStatement::add_rental(const Rental& rental) { rentals.push_back(rental); }
 
-std::string RentalStatement::get_customer_name() const
-{
-    return customer_name;
-}
+std::string RentalStatement::get_customer_name() const { return customer_name; }
 std::string RentalStatement::make_rental_statement()
 {
     clear_totals();
@@ -38,7 +32,7 @@ void RentalStatement::clear_totals()
     frequent_renter_points = 0;
 }
 
-std::string RentalStatement::make_header()
+std::string RentalStatement::make_header() const
 {
     return "Rental Record for "s + get_customer_name() + "\n"s;
 }
@@ -52,7 +46,7 @@ std::string RentalStatement::make_rental_items()
     return rental_items;
 }
 
-std::string RentalStatement::make_rental_item(Rental& rental)
+std::string RentalStatement::make_rental_item(const Rental& rental)
 {
     const double rental_amount{rental.determine_amount()};
     frequent_renter_points += rental.determine_points();
@@ -61,22 +55,15 @@ std::string RentalStatement::make_rental_item(Rental& rental)
     return format_rental_item(rental, rental_amount);
 }
 
-std::string RentalStatement::format_rental_item(Rental& rental, double amount)
+std::string RentalStatement::format_rental_item(const Rental& rental, double amount)
 {
     return "\t"s + rental.get_title() + "\t"s + to_string(amount) + "\n"s;
 }
 
-std::string RentalStatement::make_footer()
+std::string RentalStatement::make_footer() const
 {
-    return "You owed "s + to_string(total_amount) + "\n"s + "You earned "s +
-           std::to_string(frequent_renter_points) +
-           " frequent renter points\n"s;
+    return "You owed "s + to_string(total_amount) + "\n"s + "You earned "s
+           + std::to_string(frequent_renter_points) + " frequent renter points\n"s;
 }
-double RentalStatement::get_owned() const
-{
-    return total_amount;
-}
-int RentalStatement::get_points() const
-{
-    return frequent_renter_points;
-}
+double RentalStatement::get_owned() const { return total_amount; }
+int RentalStatement::get_points() const { return frequent_renter_points; }

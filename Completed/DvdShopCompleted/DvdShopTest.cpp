@@ -1,12 +1,13 @@
 #define CATCH_CONFIG_MAIN
 
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
+#include <string>
+
 #include "ChildrensMovie.h"
 #include "NewReleaseMovie.h"
 #include "RegularMovie.h"
 #include "RentalStatement.h"
-#include <catch2/catch_test_macros.hpp>
-#include <catch2/catch_approx.hpp>
-#include <string>
 
 using namespace std::literals::string_literals;
 using Catch::Approx;
@@ -67,12 +68,13 @@ TEST_CASE("video store")
         statement.add_rental({regular_movie_2, 2});
         statement.add_rental({regular_movie_3, 3});
 
-        CHECK(statement.make_rental_statement() ==
-              "Rental Record for Customer Name\n"
-              "\tRegular 1\t2.00\n"
-              "\tRegular 2\t2.00\n"
-              "\tRegular 3\t3.50\n"
-              "You owed 0.00\n"
-              "You earned 0 frequent renter points\n"s);
+        CHECK(
+            statement.make_rental_statement()
+            == "Rental Record for Customer Name\n"
+               "\tRegular 1\t2.00\n"
+               "\tRegular 2\t2.00\n"
+               "\tRegular 3\t3.50\n"
+               "You owed 0.00\n"
+               "You earned 0 frequent renter points\n"s);
     }
 }

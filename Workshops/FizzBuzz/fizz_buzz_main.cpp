@@ -1,6 +1,3 @@
 #include "fizz_buzz.h"
 
-int main()
-{
-    fizz_buzz(20);
-}
+int main() { fizz_buzz(20); }

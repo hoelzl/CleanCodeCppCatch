@@ -6,13 +6,13 @@
 #define OMIT_VIRTUAL_DESTRUCTOR 1
 #define SHOW_ANIMAL_INSTANCE_LIFE_CYCLE 1
 
-#include "animal.h"
-#include "cat.h"
-#include "dog.h"
-
 #include <iostream>
 #include <memory>
 #include <string>
+
+#include "animal.h"
+#include "cat.h"
+#include "dog.h"
 
 void describe_animal(const Animal* animal)
 {

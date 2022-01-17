@@ -16,18 +16,20 @@
 class ClockTimer
 {
 public:
-    [[nodiscard]] virtual std::tm get_current_time_as_tm()
+    // ReSharper disable once CppMemberFunctionMayBeStatic
+    [[nodiscard]] std::tm get_current_time_as_tm()
     {
         using namespace std::chrono;
         const time_point<system_clock> current_time_point{system_clock::now()};
         const std::time_t current_time_t{system_clock::to_time_t(current_time_point)};
+        // ReSharper disable once CppDeprecatedEntity
         const std::tm* current_time_tm{localtime(&current_time_t)};
         return *current_time_tm;
     }
 
     // The more correct return type would be std::chrono::milliseconds::rep,
     // but let's keep things simple.
-    [[nodiscard]] virtual long long get_ms_since_epoch()
+    [[nodiscard]] long long get_ms_since_epoch() const
     {
         using namespace std::chrono;
         const time_point<steady_clock> current_time_point{steady_clock::now()};

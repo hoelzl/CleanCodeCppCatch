@@ -5,7 +5,8 @@
 #endif
 #include "polymorphic_array.h"
 
-int main() {
+int main()
+{
 #if PRINT_MEMORY_LAYOUT
     print_memory_layout();
 #endif

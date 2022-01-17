@@ -1,3 +1,8 @@
+// ReSharper disable IdentifierTypo
+// ReSharper disable CppInconsistentNaming
+// ReSharper disable CppMemberFunctionMayBeStatic
+// ReSharper disable CppClangTidyModernizeUseNodiscard
+// ReSharper disable CppClangTidyClangDiagnosticUnusedPrivateField
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,7 +13,7 @@ class BadNames1
 {
     std::vector<std::pair<int, int>> the_list;
 
-    std::vector<std::pair<int, int>> get_them()
+    std::vector<std::pair<int, int>> get_them() const
     {
         std::vector<std::pair<int, int>> list1{};
         for (std::pair<int, int> x : the_list) {
@@ -22,89 +27,75 @@ class BadNames1
 
 class BdNms3
 {
-    int ts_yymmdd;
+    int ts_yymmdd{};
 };
 
 // BdNms3 improved:
 class BadNames3
 {
-    int unix_timestamp;
+    int unix_timestamp{};
 };
 
 // Not intention revealing, problem not implementation
-const int INCLUDE_NONE = 0;
-const int INCLUDE_FIRST = 1;
-const int INCLUDE_SECOND = 2;
-const int INCLUDE_BOTH = 3;
+constexpr int INCLUDE_NONE = 0;
+constexpr int INCLUDE_FIRST = 1;
+constexpr int INCLUDE_SECOND = 2;
+constexpr int INCLUDE_BOTH = 3;
 
 // Closer to problem
-const int INCLUDE_NO_DATE = 0;
-const int INCLUDE_START_DATE = 1;
-const int INCLUDE_END_DATE = 2;
-const int INCLUDE_BOTH_DATES = 3;
+constexpr int INCLUDE_NO_DATE = 0;
+constexpr int INCLUDE_START_DATE = 1;
+constexpr int INCLUDE_END_DATE = 2;
+constexpr int INCLUDE_BOTH_DATES = 3;
 
 // Compute the yearly salary
 // double salary{add_array_elements(monthly_salaries)};
 
 // Disinformation: name doesn't mean what is says
-class Pair
+struct Pair
 {
-    int first;
-    int second;
-    int third;
+    int first{};
+    int second{};
+    int third{};
 };
 
-class Triple
+struct Triple
 {
-    int first;
-    int second;
-    int third;
+    int first{};
+    int second{};
+    int third{};
 };
 
 // Disinformation: names differ only slightly
-int MY_CONTROLLER_FOR_EFFICIENT_HANDLING_OF_STRINGS = 1;
-int MY_CONTROLLER_FOR_EFFICIENT_STORING_OF_STRINGS = 2;
+constexpr int MY_CONTROLLER_FOR_EFFICIENT_HANDLING_OF_STRINGS = 1;
+constexpr int MY_CONTROLLER_FOR_EFFICIENT_STORING_OF_STRINGS = 2;
 
 // Hungarian notation
-int* pi_target;
-int* target;
+const int* pi_target;
+const int* target;
 
 // Prefixes
 class IActor
-{
-};
+{};
 class Actor : public IActor
-{
-};
+{};
 
 class Actor2
-{
-};
+{};
 class ActorImpl : public Actor2
-{
-};
+{};
 
 // Wrong parts of speech
 class GoToTheServer
 {
-    void connection()
-    {
-    }
-    bool server_availability()
-    {
-        return false;
-    }
+    void connection() {}
+    bool server_availability() { return false; }
 };
 
 class ServerConnection
 {
-    void connect()
-    {
-    }
-    bool is_server_available()
-    {
-        return false;
-    }
+    void connect() {}
+    bool is_server_available() { return false; }
 };
 
 
@@ -127,7 +118,7 @@ class UnixDate : public SerialDate
     int unix_timestamp{0};
     int to_serial() override
     {
-        return unix_timestamp;// Unix timestamp
+        return unix_timestamp; // Unix timestamp
     }
 };
 
@@ -135,22 +126,18 @@ class CalenderDate;
 class SerializableDate;
 
 
-// Wrong part of speech, could be expressed in code
-class BadFile
+// Wrong part of speech: this is supposed to be a file, not a function that wraps a file
+// handle
+class WrapFileHandle
 {
+    // Wrong part of speech, could be expressed in code
     // Does not change the state of the file.
-    bool open()
-    {
-        return true;
-    }
+    bool open() { return true; }
 };
 
 class File
 {
-    bool is_open() const
-    {
-        return true;
-    }
+    bool is_open() const { return true; }
 };
 
 
@@ -159,27 +146,24 @@ class File
 // Not intention revealing, could be expressed in code
 void copy(char a1[], char a2[])
 {
-    while (*(a2++) = *(a1++))
-        ;
+    while ((*(a2++) = *(a1++))) {}
 }
 
 void copy_2(char from[], char to[])
 {
-    while (*(to++) = *(from++))
-        ;
+    while ((*(to++) = *(from++))) {}
 }
 
 void copy_3(const char from[], char to[])
 {
-    while (*(to++) = *(from++))
-        ;
+    while ((*(to++) = *(from++))) {}
 }
 
 // Refactoring into classes
 int my_fun(int a, int b)
 {
     // Do something complex
-    int c{0};
+    int c{a + b};
     // Work some more
     int d{0};
     // Do something else
@@ -190,25 +174,15 @@ class MyFun
 {
     int a;
     int b;
-    int c{0};
+    int c{a + b};
     int d{0};
 
 public:
-    MyFun(int a, int b)
-    {
-        this->a = a;
-        this->b = b;
-    }
+    MyFun(int a, int b) : a{a}, b{b} {}
 
-    void do_something_complex()
-    {
-    }
-    void work_some_more()
-    {
-    }
-    void do_something_else()
-    {
-    }
+    void do_something_complex() {}
+    void work_some_more() {}
+    void do_something_else() {}
 
     int compute()
     {
@@ -227,56 +201,19 @@ void f()
     int j{my_new_fun.compute()};
 }
 
-class Employee
-{
-    virtual int calculate_pay(const std::string& name) = 0;
-};
-
-class CommissionedEmployee : public Employee
-{
-    int calculate_pay(const std::string& name) override
-    {
-        return 4500;
-    }
-};
-
-class HourlyEmployee : public Employee
-{
-    int calculate_pay(const std::string& name) override
-    {
-        return 1500;
-    }
-};
-
-Employee* makeEmployee(int id)
-{
-    if (id < 100) {
-        return new CommissionedEmployee();
-    } else {
-        return new HourlyEmployee();
-    }
-}
-
 // Long argument lists
-void my_long_arglist_function(int a, int b, int c)
-{
-}
-void my_long_arglist_function_2(float x, int a, int b, int c)
-{
-}
+void my_long_arglist_function(int a, int b, int c) {}
+void my_long_arglist_function_2(float x, int a, int b, int c) {}
 
-struct GridPosition {
+struct GridPosition
+{
     int a;
     int b;
     int c;
 };
 
-void my_long_arglist_function(GridPosition g)
-{
-}
-void my_long_arglist_function_2(float x, GridPosition g)
-{
-}
+void my_long_arglist_function(GridPosition g) {}
+void my_long_arglist_function_2(float x, GridPosition g) {}
 
 // Boolean parameters
 int print_text(std::string text, bool should_print_header = false)
@@ -296,14 +233,15 @@ enum class TextDecoration
     header_and_footer,
 };
 
-struct PrinterConfig 
+struct PrinterConfig
 {
     bool include_header{false};
     bool include_footer{false};
     int indent{4};
 };
 
-int print_text(std::string text, TextDecoration decoration = TextDecoration::no_decoration);
+int print_text(
+    std::string text, TextDecoration decoration = TextDecoration::no_decoration);
 
 
 int print_text_without_header(std::string text)
@@ -321,6 +259,33 @@ int print_text_with_header(std::string text)
 }
 
 
+struct Employee  // NOLINT(cppcoreguidelines-special-member-functions)
+{
+    virtual ~Employee() = default;
+    virtual int calculate_pay(const std::string& name) = 0;
+};
+
+struct CommissionedEmployee : public Employee
+{
+    int calculate_pay(const std::string& name) override { return 4500; }
+};
+
+struct HourlyEmployee : public Employee
+{
+    int calculate_pay(const std::string& name) override { return 1500; }
+};
+
+Employee* makeEmployee(int id)
+{
+    if (id < 100) {
+        return new CommissionedEmployee();
+    }
+    else {
+        return new HourlyEmployee();
+    }
+}
+
+
 // BadNames1 improved...
 class MineSweeper
 {
@@ -329,7 +294,8 @@ class MineSweeper
         Flagged,
         Unflagged
     };
-    struct Cell {
+    struct Cell
+    {
         Status status{Status::Flagged};
         int bomb_count{0};
     };

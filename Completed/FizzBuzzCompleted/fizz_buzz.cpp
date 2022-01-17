@@ -1,4 +1,5 @@
 #include "fizz_buzz.h"
+
 #include <iostream>
 #include <string>
 
@@ -23,7 +24,4 @@ void fizz_buzz(std::ostream& os, int n)
     }
 }
 
-void fizz_buzz(int n)
-{
-    fizz_buzz(std::cout, n);
-}
+void fizz_buzz(int n) { fizz_buzz(std::cout, n); }

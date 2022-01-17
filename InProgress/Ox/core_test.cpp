@@ -1,5 +1,6 @@
-#include <catch2/catch_test_macros.hpp>
 #include "core.h"
+
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("character matchers")
 {
@@ -27,22 +28,19 @@ TEST_CASE("match_chars")
 {
     SECTION("perfect match")
     {
-        const std::unique_ptr<CharacterMatch> match{
-                get_character_match('b', 1, "abc")};
+        const std::unique_ptr<CharacterMatch> match{get_character_match('b', 1, "abc")};
         CHECK(dynamic_cast<PerfectMatch*>(match.get()));
     }
 
     SECTION("partial match")
     {
-        const std::unique_ptr<CharacterMatch> match{
-                get_character_match('b', 0, "abc")};
+        const std::unique_ptr<CharacterMatch> match{get_character_match('b', 0, "abc")};
         CHECK(dynamic_cast<PartialMatch*>(match.get()));
     }
 
     SECTION("failed match")
     {
-        const std::unique_ptr<CharacterMatch> match{
-                get_character_match('x', 0, "abc")};
+        const std::unique_ptr<CharacterMatch> match{get_character_match('x', 0, "abc")};
         CHECK(dynamic_cast<FailedMatch*>(match.get()));
     }
 }

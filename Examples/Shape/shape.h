@@ -1,22 +1,30 @@
+// ReSharper disable CppClangTidyCppcoreguidelinesNonPrivateMemberVariablesInClasses
 #pragma once
 
-#include "point.h"
 #include <array>
 #include <iostream>
+
+#include "point.h"
 
 class AbstractShape
 {
 public:
-    virtual double compute_area() const = 0;
+    AbstractShape() = default;
+    AbstractShape(const AbstractShape& other) = delete;
+    AbstractShape(AbstractShape&& other) noexcept = delete;
+    AbstractShape& operator=(const AbstractShape& other) = delete;
+    AbstractShape& operator=(AbstractShape&& other) noexcept = delete;
+    virtual ~AbstractShape() = default;
+
+    [[nodiscard]] virtual double compute_area() const = 0;
     virtual void move(double x, double y) = 0;
 
 protected:
-    friend std::ostream& operator<<(std::ostream& s,
-                                    const AbstractShape& shape);
+    friend std::ostream& operator<<(std::ostream& os, const AbstractShape& shape);
     virtual std::ostream& write_to_stream(std::ostream& s) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& s, const AbstractShape& square);
+std::ostream& operator<<(std::ostream& os, const AbstractShape& shape);
 
 class Square : public AbstractShape
 {
@@ -26,11 +34,11 @@ class Square : public AbstractShape
 public:
     Square(Point bottom_left_corner, double side);
 
-    double compute_area() const override;
+    [[nodiscard]] double compute_area() const override;
     void move(double x, double y) override;
 
 protected:
-    virtual std::ostream& write_to_stream(std::ostream& s) const override;
+    std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
 class Rectangle : public AbstractShape
@@ -42,11 +50,11 @@ class Rectangle : public AbstractShape
 public:
     Rectangle(Point bottom_left_corner, double width, double height);
 
-    double compute_area() const override;
+    [[nodiscard]] double compute_area() const override;
     void move(double x, double y) override;
 
 protected:
-    virtual std::ostream& write_to_stream(std::ostream& s) const override;
+    std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
 class Circle : public AbstractShape
@@ -56,11 +64,11 @@ class Circle : public AbstractShape
 
 public:
     Circle(Point center, double radius);
-    double compute_area() const override;
+    [[nodiscard]] double compute_area() const override;
     void move(double x, double y) override;
 
 protected:
-    virtual std::ostream& write_to_stream(std::ostream& s) const override;
+    std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
 enum class ShapeKind
@@ -70,21 +78,17 @@ enum class ShapeKind
     Circle
 };
 
-struct RawShape {
-    RawShape(ShapeKind shape_kind, Point point, double data1 = 0.0,
-             double data2 = 0.0)
-        : shape_kind{shape_kind}, point{point}, data1{data1}, data2{data2}
-    {
-    }
+struct RawShape
+{
+    RawShape(ShapeKind shape_kind, Point point, double data1 = 0.0, double data2 = 0.0)
+        : point{point}, data1{data1}, data2{data2}, shape_kind{shape_kind}
+    {}
 
     Point point;
     double data1;
     double data2;
 
-    ShapeKind get_shape_kind() const
-    {
-        return shape_kind;
-    }
+    [[nodiscard]] ShapeKind get_shape_kind() const { return shape_kind; }
 
 private:
     ShapeKind shape_kind;
@@ -97,7 +101,7 @@ RawSquare::type make(Point bottom_left_corner, double side);
 Point get_bottom_left_corner(const type& square);
 void set_bottom_left_corner(type& square, Point point);
 double get_side(const type& square);
-}// namespace RawSquare
+} // namespace RawSquare
 
 namespace RawRectangle {
 using type = RawShape;
@@ -107,7 +111,7 @@ Point get_bottom_left_corner(const type& rectangle);
 void set_bottom_left_corner(type& rectangle, Point point);
 double get_width(const type& rectangle);
 double get_height(const type& rectangle);
-}// namespace RawRectangle
+} // namespace RawRectangle
 
 namespace RawCircle {
 using type = RawShape;
@@ -116,7 +120,7 @@ RawSquare::type make(Point center, double radius);
 Point get_center(const type& circle);
 void set_center(type& circle, Point point);
 double get_radius(const type& circle);
-}// namespace RawCircle
+} // namespace RawCircle
 
 double compute_area(const RawShape& shape);
 

@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(DvdShop)
 
-set(CMAKE_CXX_STANDARD 11)
-
 set(DVD_SHOP_SOURCES Movie.cpp Movie.h Customer.cpp Customer.h Rental.cpp Rental.h)
 set(TEST_SOURCES DvdShopTest.cpp CustomerTest.cpp MovieTest.cpp RentalTest.cpp)
 

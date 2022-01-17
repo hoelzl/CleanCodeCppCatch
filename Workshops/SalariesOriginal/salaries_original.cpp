@@ -1,4 +1,5 @@
 #include "salaries_original.h"
+
 #include <iostream>
 #include <string>
 
@@ -12,8 +13,8 @@
 //
 // You can use the *_workshop* files for your solution.
 
-double handle_money_stuff(int i_dow, double d_spd, const char* pc_n,
-                          std::vector<double>& dv_slrs)
+double handle_money_stuff(
+    int i_dow, double d_spd, const char* pc_n, std::vector<double>& dv_slrs)
 {
     static std::string sa_dns[]{"Mon", "Tue", "Wed", "Thu", "Fri"};
     // We count Sunday as 1, Monday as 2, etc. but the work week starts on Monday
@@ -24,9 +25,11 @@ double handle_money_stuff(int i_dow, double d_spd, const char* pc_n,
     double d_t{0.0};
     if (d_ssf > 500.0 && d_ssf <= 1000.0) {
         d_t = d_ssf * 0.05;
-    } else if (d_ssf > 500.0 && d_ssf <= 2000.0) {
+    }
+    else if (d_ssf > 500.0 && d_ssf <= 2000.0) {
         d_t = d_ssf * 0.1;
-    } else if (d_ssf > 500.0) {
+    }
+    else if (d_ssf > 500.0) {
         d_t = d_ssf * 0.15;
     }
     // Update the salary based on the tax to pay

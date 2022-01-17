@@ -4,8 +4,8 @@
 
 using Catch::Approx;
 
-const double PI_DIV_4 = atan(1.0);
-const double PI_DIV_2 = PI_DIV_4 * 2.0;
+const double pi_div_4 = atan(1.0);
+const double pi_div_2 = pi_div_4 * 2.0;
 
 TEST_CASE("tests for abstract points")
 {
@@ -25,7 +25,7 @@ TEST_CASE("tests for abstract points")
             REQUIRE(p.get_y() == Approx(0.0));
         }
 
-        EncapsulatedPoint p2{EncapsulatedPoint::from_polar(1.0, PI_DIV_2)};
+        EncapsulatedPoint p2{EncapsulatedPoint::from_polar(1.0, pi_div_2)};
         //REQUIRE(p2.get_x() == Approx(0.0));
         //double epsilon{std::numeric_limits<double>::epsilon() * 1000.0};
         //REQUIRE(p2.get_x() == Approx(0.0).epsilon(epsilon));
@@ -33,7 +33,7 @@ TEST_CASE("tests for abstract points")
         REQUIRE(p2.get_x() == Approx(0.0).margin(1e-15));
         REQUIRE(p2.get_y() == Approx(1.0));
 
-        EncapsulatedPoint p3{EncapsulatedPoint::from_polar(1.0, PI_DIV_4)};
+        EncapsulatedPoint p3{EncapsulatedPoint::from_polar(1.0, pi_div_4)};
         REQUIRE(p3.get_x() == Approx(sqrt(2.0) / 2.0));
         REQUIRE(p3.get_y() == Approx(sqrt(2.0) / 2.0));
     }
@@ -42,7 +42,7 @@ TEST_CASE("tests for abstract points")
     {
         EncapsulatedPoint p{EncapsulatedPoint::from_cartesian(0.0, 2.0)};
         REQUIRE(p.get_r() == Approx(2.0));
-        REQUIRE(p.get_theta() == Approx(PI_DIV_4));
+        REQUIRE(p.get_theta() == Approx(pi_div_4));
 
         EncapsulatedPoint p2{EncapsulatedPoint::from_cartesian(1.0, 0.0)};
         REQUIRE(p2.get_r() == Approx(1.0));

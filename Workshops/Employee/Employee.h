@@ -2,23 +2,24 @@
 #ifndef EMPLOYEE_EMPLOYEE_H
 #define EMPLOYEE_EMPLOYEE_H
 
-#include "AugurDB.h"
-#include "Project.h"
 #include <iostream>
 #include <memory>
 #include <string>
 
+#include "AugurDB.h"
+#include "Project.h"
+
 enum class EmployeeType
 {
-    Regular,
-    Houred,
-    Commissioned,
+    regular,
+    houred,
+    commissioned,
 };
 
 enum class SaveResult
 {
-    Successful,
-    Failed,
+    successful,
+    failed,
 };
 
 class Employee
@@ -27,15 +28,15 @@ private:
     int id;
     std::string name;
     EmployeeType type;
-    double salary;// only for regular employees
-    int overtime; // for regular employees or freelancers (payed by the hour)
-    const Project& project;// only for commissioned employees
-    std::shared_ptr<AugurDB> database{};
+    double salary;          // only for regular employees
+    int overtime;           // for regular employees or freelancers (payed by the hour)
+    const Project& project; // only for commissioned employees
+    std::shared_ptr<AugurDb> database{};
 
 public:
-    Employee(int id, std::string name, EmployeeType type, double salary,
-             int overtime, const Project& project,
-             std::shared_ptr<AugurDB> database);
+    Employee(
+        int id, std::string name, EmployeeType type, double salary, int overtime,
+        const Project& project, std::shared_ptr<AugurDb> database);
 
     int get_id() const;
     const std::string& get_name() const;
@@ -44,8 +45,8 @@ public:
     double calculate_pay() const;
     int report_hours() const;
     void print_report(std::ostream& os = std::cout) const;
-    SaveResult save_employee() const;// save to database
+    SaveResult save_employee() const; // save to database
 };
 
 
-#endif// EMPLOYEE_EMPLOYEE_H
+#endif // EMPLOYEE_EMPLOYEE_H

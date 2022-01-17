@@ -1,8 +1,6 @@
 #include "NewReleaseMovie.h"
 
-NewReleaseMovie::NewReleaseMovie(const std::string& title) : Movie(title)
-{
-}
+NewReleaseMovie::NewReleaseMovie(const std::string& title) : Movie(title) {}
 
 double NewReleaseMovie::determine_amount(int days_rented) const
 {

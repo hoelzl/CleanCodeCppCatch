@@ -1,28 +1,26 @@
 #define CATCH_CONFIG_MAIN
-#include "Employee.h"
-#include "Project.h"
 #include <catch2/catch_test_macros.hpp>
 #include <sstream>
 #include <string>
 #include <vector>
 
+#include "Employee.h"
+#include "Project.h"
+
 using namespace std::string_literals;
 
 SCENARIO("Some Company")
 {
-    std::shared_ptr<AugurDB> database{std::make_shared<AugurDB>()};
+    std::shared_ptr<AugurDb> database{std::make_shared<AugurDb>()};
 
     GIVEN("any kind of employee and project")
     {
         Project project{"The Big Project", 5000.0};
         Employee employee{
-                123,     "Jack Hammer"s, EmployeeType::Commissioned, 2000.0, 10,
-                project, database};
+            123,     "Jack Hammer"s, EmployeeType::commissioned, 2000.0, 10,
+            project, database};
 
-        THEN("the employee's ID is correct")
-        {
-            CHECK(employee.get_id() == 123);
-        }
+        THEN("the employee's ID is correct") { CHECK(employee.get_id() == 123); }
 
         THEN("the employee's name is correct")
         {
@@ -31,9 +29,8 @@ SCENARIO("Some Company")
 
         THEN("saving works")
         {
-            CHECK(employee.save_employee() == SaveResult::Successful);
-            DatabaseRecord db_record{
-                    {"id"s, "name"s, "type"s, "salary"s, "project"s}};
+            CHECK(employee.save_employee() == SaveResult::successful);
+            DatabaseRecord db_record{{"id"s, "name"s, "type"s, "salary"s, "project"s}};
             std::vector<DatabaseRecord> expected_records{db_record};
             CHECK(database->get_records() == expected_records);
         }
@@ -42,14 +39,10 @@ SCENARIO("Some Company")
     GIVEN("a regular employee")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{
-                123,     "Jill Connor"s, EmployeeType::Regular, 2000.0, 10,
-                project, database};
+        Employee employee{123,     "Jill Connor"s, EmployeeType::regular, 2000.0, 10,
+                          project, database};
 
-        THEN("the report hours are correct")
-        {
-            CHECK(employee.report_hours() == 50);
-        }
+        THEN("the report hours are correct") { CHECK(employee.report_hours() == 50); }
 
         THEN("the report is correct")
         {
@@ -67,14 +60,10 @@ SCENARIO("Some Company")
     GIVEN("a freelance employee")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{
-                123,     "Jill Connor"s, EmployeeType::Houred, 2000.0, 35,
-                project, database};
+        Employee employee{123,     "Jill Connor"s, EmployeeType::houred, 2000.0, 35,
+                          project, database};
 
-        THEN("the report hours are correct")
-        {
-            CHECK(employee.report_hours() == 35);
-        }
+        THEN("the report hours are correct") { CHECK(employee.report_hours() == 35); }
 
         THEN("the report is correct")
         {
@@ -93,13 +82,10 @@ SCENARIO("Some Company")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
         Employee employee{
-                123,     "Jill Connor"s, EmployeeType::Commissioned, 2000.0, 35,
-                project, database};
+            123,     "Jill Connor"s, EmployeeType::commissioned, 2000.0, 35,
+            project, database};
 
-        THEN("the report hours are correct")
-        {
-            CHECK(employee.report_hours() == 40);
-        }
+        THEN("the report hours are correct") { CHECK(employee.report_hours() == 40); }
 
         THEN("the report is correct")
         {
@@ -117,13 +103,9 @@ SCENARIO("Some Company")
     GIVEN("an employee with invalid type")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{123,
-                          "Jill Connor"s,
-                          static_cast<EmployeeType>(123),
-                          2000.0,
-                          35,
-                          project,
-                          database};
+        Employee employee{
+            123,     "Jill Connor"s, static_cast<EmployeeType>(123), 2000.0, 35,
+            project, database};
 
         THEN("report_hours() raises an exception")
         {

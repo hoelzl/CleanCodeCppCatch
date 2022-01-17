@@ -1,27 +1,24 @@
 #include "Employee.h"
+
 #include <iostream>
 #include <stdexcept>
 #include <utility>
 
 
-Employee::Employee(int id, std::string name,
-                   std::unique_ptr<const PaymentScheme> payment_scheme,
-                   std::shared_ptr<const ReportPrinter> report_printer,
-                   std::shared_ptr<Database> database)
-    : id{id}, name{std::move(name)}, payment_scheme{std::move(payment_scheme)},
-      report_printer{std::move(report_printer)}, database{std::move(database)}
-{
-}
+Employee::Employee(
+    int id, std::string name, std::unique_ptr<const PaymentScheme> payment_scheme,
+    std::shared_ptr<const ReportPrinter> report_printer,
+    std::shared_ptr<Database> database)
+    : id{id}
+    , name{std::move(name)}
+    , payment_scheme{std::move(payment_scheme)}
+    , report_printer{std::move(report_printer)}
+    , database{std::move(database)}
+{}
 
-int Employee::get_id() const
-{
-    return id;
-}
+int Employee::get_id() const { return id; }
 
-const std::string& Employee::get_name() const
-{
-    return name;
-}
+const std::string& Employee::get_name() const { return name; }
 
 const PaymentScheme& Employee::get_payment_scheme() const
 {
@@ -59,5 +56,5 @@ SaveResult Employee::save_employee() const
     if (database) {
         return database->save_employee(*this);
     }
-    return SaveResult::Failed;
+    return SaveResult::failed;
 }

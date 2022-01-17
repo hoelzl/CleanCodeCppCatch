@@ -8,11 +8,18 @@ class Project;
 class PaymentScheme
 {
 public:
-    virtual int get_regular_hours() const = 0;
-    virtual int get_overtime_hours() const = 0;
-    int get_total_hours() const;
+    PaymentScheme() = default;
+    PaymentScheme(const PaymentScheme& other) = delete;
+    PaymentScheme(PaymentScheme&& other) noexcept = delete;
+    PaymentScheme& operator=(const PaymentScheme& other) = delete;
+    PaymentScheme& operator=(PaymentScheme&& other) noexcept = delete;
+    virtual ~PaymentScheme() = default;
 
-    virtual double calculate_pay(const Employee& employee) const = 0;
+    [[nodiscard]] virtual int get_regular_hours() const = 0;
+    [[nodiscard]] virtual int get_overtime_hours() const = 0;
+    [[nodiscard]] int get_total_hours() const;
+
+    [[nodiscard]] virtual double calculate_pay(const Employee& employee) const = 0;
 };
 
 class RegularPaymentScheme : public PaymentScheme
@@ -23,11 +30,11 @@ class RegularPaymentScheme : public PaymentScheme
 public:
     RegularPaymentScheme(double salary, int overtime_hours);
 
-    double get_salary() const;
+    [[nodiscard]] double get_salary() const;
 
-    virtual int get_regular_hours() const override;
-    virtual int get_overtime_hours() const override;
-    virtual double calculate_pay(const Employee& employee) const override;
+    [[nodiscard]] int get_regular_hours() const override;
+    [[nodiscard]] int get_overtime_hours() const override;
+    [[nodiscard]] double calculate_pay(const Employee& employee) const override;
 };
 
 class CommissionedPaymentScheme : public PaymentScheme
@@ -37,11 +44,11 @@ class CommissionedPaymentScheme : public PaymentScheme
 public:
     CommissionedPaymentScheme(const Project& project);
 
-    const Project& get_project() const;
+    [[nodiscard]] const Project& get_project() const;
 
-    virtual int get_regular_hours() const override;
-    virtual int get_overtime_hours() const override;
-    virtual double calculate_pay(const Employee& employee) const override;
+    [[nodiscard]] int get_regular_hours() const override;
+    [[nodiscard]] int get_overtime_hours() const override;
+    [[nodiscard]] double calculate_pay(const Employee& employee) const override;
 };
 
 class FreelancePaymentScheme : public PaymentScheme
@@ -51,9 +58,9 @@ class FreelancePaymentScheme : public PaymentScheme
 public:
     FreelancePaymentScheme(int billable_hours);
 
-    virtual int get_regular_hours() const override;
-    virtual int get_overtime_hours() const override;
-    virtual double calculate_pay(const Employee& employee) const override;
+    [[nodiscard]] int get_regular_hours() const override;
+    [[nodiscard]] int get_overtime_hours() const override;
+    [[nodiscard]] double calculate_pay(const Employee& employee) const override;
 };
 
-#endif//EMPLOYEE_COMPLETED_PAYMENT_SCHEME
+#endif // EMPLOYEE_COMPLETED_PAYMENT_SCHEME

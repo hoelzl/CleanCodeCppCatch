@@ -1,18 +1,20 @@
 #pragma once
 
-#include "resource.h"
-#include <vector>
 #include <utility>
+#include <vector>
+
+#include "resource.h"
 
 enum class Algorithm
 {
-    ROUND_ROBIN,
-    WEIGHTED_ROUND_ROBIN
+    round_robin,
+    weighted_round_robin
 };
 
 using queue_t = std::vector<Resource>;
 
-class LoadBalancer {
+class LoadBalancer
+{
 public:
     // For RR scheduling
     queue_t queue{};

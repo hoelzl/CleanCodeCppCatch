@@ -21,7 +21,7 @@ namespace Catch {
 namespace Matchers {
     struct MatcherGenericBase : MatcherUntypedBase {
         MatcherGenericBase() = default;
-        virtual ~MatcherGenericBase(); // = default;
+        ~MatcherGenericBase() override; // = default;
 
         MatcherGenericBase(MatcherGenericBase&) = default;
         MatcherGenericBase(MatcherGenericBase&&) = default;

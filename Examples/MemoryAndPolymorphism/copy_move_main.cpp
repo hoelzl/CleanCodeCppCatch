@@ -2,9 +2,10 @@
 // Copyright (c) 2021 Dr. Matthias Hölzl. See file LICENSE.md.
 
 #define SHOW_ANIMAL_INSTANCE_LIFE_CYCLE 1
+#include <iostream>
+
 #include "cat.h"
 #include "dog.h"
-#include <iostream>
 
 int main()
 {

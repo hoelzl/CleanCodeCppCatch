@@ -1,5 +1,3 @@
 #include "fizz_buzz.h"
 
-void fizz_buzz(int n)
-{
-}
+void fizz_buzz(int n) {}

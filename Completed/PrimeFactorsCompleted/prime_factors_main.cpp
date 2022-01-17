@@ -1,5 +1,6 @@
-#include "prime_factors.h"
 #include <iostream>
+
+#include "prime_factors.h"
 
 int main(int argc, char** argv)
 {

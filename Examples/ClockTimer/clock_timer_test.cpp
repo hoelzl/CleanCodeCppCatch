@@ -1,7 +1,6 @@
 // Created by Dr. Matthias Hölzl on 19/05/2021.
 // Copyright (c) 2021 Dr. Matthias Hölzl. See file LICENSE.md.
 
-#define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
 #include "clock_timer.hpp"
 #include <thread>
@@ -16,7 +15,7 @@ TEST_CASE("Tests for the Clock Timer."){
     }
     SECTION("Tests for get_ms_since_epoch") {
         using namespace std::chrono_literals;
-        ClockTimer ct{};
+        constexpr ClockTimer ct{};
         const long long time1{ct.get_ms_since_epoch()};
         std::this_thread::sleep_for(100ms);
         const long long time2{ct.get_ms_since_epoch()};

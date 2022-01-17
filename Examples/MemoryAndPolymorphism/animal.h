@@ -1,3 +1,5 @@
+// ReSharper disable CppClangTidyCppcoreguidelinesProTypeReinterpretCast
+// ReSharper disable CppPolymorphicClassWithNonVirtualPublicDestructor
 #pragma once
 #include <cstdint>
 #include <iostream>
@@ -19,15 +21,15 @@ public:
     Animal(const Animal& animal)
     {
         std::cout << "Creating animal instance " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << " via copy constructor." << std::endl;
+                  << reinterpret_cast<std::uintptr_t>(this) << " via copy constructor."
+                  << std::endl;
     }
 
     Animal(Animal&& animal) noexcept
     {
         std::cout << "Creating animal instance " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << " via move constructor." << std::endl;
+                  << reinterpret_cast<std::uintptr_t>(this) << " via move constructor."
+                  << std::endl;
     }
 
     Animal& operator=(const Animal& animal)
@@ -69,15 +71,9 @@ public:
 
     // Use Non-virtual interface pattern
     // (special case of template method).
-    [[nodiscard]] std::string describe() const
-    {
-        return describe_impl();
-    }
+    [[nodiscard]] std::string describe() const { return describe_impl(); }
 
-    [[nodiscard]] std::string make_sound() const
-    {
-        return make_sound_impl();
-    }
+    [[nodiscard]] std::string make_sound() const { return make_sound_impl(); }
 
     [[nodiscard]] std::string provide_detailed_description() const
     {
@@ -92,7 +88,7 @@ protected:
     {
         std::string description{};
         description.append({});
-        return "Detailed description:\n"s + describe_impl() + "\n"s +
-               "The sound it makes is "s + make_sound_impl() + "\n"s;
+        return "Detailed description:\n"s + describe_impl() + "\n"s
+               + "The sound it makes is "s + make_sound_impl() + "\n"s;
     }
 };

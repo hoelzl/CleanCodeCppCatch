@@ -17,8 +17,7 @@ void RoundRobin::balance()
 
 void WeightedRoundRobin::add_resource(Resource r)
 {
-    std::cout << "Adding resource to weighted round robin balancer."
-              << std::endl;
+    std::cout << "Adding resource to weighted round robin balancer." << std::endl;
     // Note: this will add a copy construction even though we move off r!
     // queue_t queue{std::move(r)};
     queue_t queue{};
@@ -32,8 +31,8 @@ void WeightedRoundRobin::balance()
     std::cout << "Using weighted round robin balancer." << std::endl;
     for (const auto& wq : weighted_queues) {
         for (const Resource& r : wq.queue) {
-            std::cout << "Scheduling " << r << " with weight " << wq.weight
-                      << "." << std::endl;
+            std::cout << "Scheduling " << r << " with weight " << wq.weight << "."
+                      << std::endl;
         }
     }
     std::cout << "Done balancing." << std::endl;

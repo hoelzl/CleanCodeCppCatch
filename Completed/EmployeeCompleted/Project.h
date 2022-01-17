@@ -14,10 +14,10 @@ private:
 public:
     Project(std::string name, double assets, double commissioned_pay);
 
-    const std::string& get_name() const;
-    double get_assets() const;
-    double get_commissioned_pay() const;
+    [[nodiscard]] const std::string& get_name() const;
+    [[nodiscard]] double get_assets() const;
+    [[nodiscard]] double get_commissioned_pay() const;
 };
 
 
-#endif//EMPLOYEE_COMPLETED_PROJECT_H
+#endif // EMPLOYEE_COMPLETED_PROJECT_H

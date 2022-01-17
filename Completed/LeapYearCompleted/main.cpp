@@ -22,6 +22,7 @@ TEST_CASE("A year is not a leap year")
 
 TEST_CASE("A year is a leap year")
 {
+    // clang-format off
     SECTION("if it is divisible by 4 but not 100")
     {
         REQUIRE(is_leap_year(1984));
@@ -30,4 +31,5 @@ TEST_CASE("A year is a leap year")
     {
         REQUIRE(is_leap_year(2000));
     }
+    // clang-format on
 }

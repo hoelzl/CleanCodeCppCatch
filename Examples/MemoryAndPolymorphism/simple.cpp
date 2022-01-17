@@ -1,14 +1,10 @@
 #include <iostream>
 
-struct Base {
-    Base(int x, int y, int z) : x{x}, y{y}, z{z}
-    {
-    }
+struct Base
+{
+    Base(int x, int y, int z) : x{x}, y{y}, z{z} {}
     virtual ~Base() = default;
-    [[nodiscard]] virtual int get_sum() const
-    {
-        return x + y + z;
-    }
+    [[nodiscard]] virtual int get_sum() const { return x + y + z; }
 
 protected:
     int x;
@@ -18,18 +14,11 @@ private:
     int z;
 };
 
-struct Derived : public Base {
-    Derived(int x, int y, int z) : Base{x, y, z}
-    {
-    }
-    [[nodiscard]] int get_sum() const override
-    {
-        return Base::get_sum() + 1;
-    }
-    [[nodiscard]] int get_product() const
-    {
-        return x * y;
-    }
+struct Derived : public Base
+{
+    Derived(int x, int y, int z) : Base{x, y, z} {}
+    [[nodiscard]] int get_sum() const override { return Base::get_sum() + 1; }
+    [[nodiscard]] int get_product() const { return x * y; }
 };
 
 void print_it(const Base& base)
@@ -44,8 +33,8 @@ int main()
     print_it(base);
 
     Derived derived{2, 3, 5};
-    std::cout << "derived: " << derived.get_sum() << ", "
-              << derived.get_product() << std::endl;
+    std::cout << "derived: " << derived.get_sum() << ", " << derived.get_product()
+              << std::endl;
     print_it(derived);
 
     const Base* base_pointer{&base};

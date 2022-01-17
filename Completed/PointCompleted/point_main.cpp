@@ -3,12 +3,12 @@
 #include "encapsulated_point.h"
 #include "raw_point.h"
 
-int main()
+int main()  // NOLINT(bugprone-exception-escape)
 {
     std::cout << "Creating points." << std::endl;
 
-    const RawPoint cp1{1.0, 2.0};
-    const RawPoint cp2{2.0, 3.0};
+    constexpr RawPoint cp1{1.0, 2.0};
+    constexpr RawPoint cp2{2.0, 3.0};
     const RawPoint cp3{cp1 + cp2};
 
     // atan(1) is pi/4; and this is not clean code :)
@@ -21,7 +21,7 @@ int main()
 
     std::cout << std::endl;
 
-    EncapsulatedPoint ap1{EncapsulatedPoint::from_cartesian(1.0, 2.0)};
+    const EncapsulatedPoint ap1{EncapsulatedPoint::from_cartesian(1.0, 2.0)};
     const EncapsulatedPoint ap2{EncapsulatedPoint::from_cartesian(2.0, 3.0)};
     const EncapsulatedPoint ap3{ap1 + ap2};
     const EncapsulatedPoint ap4{EncapsulatedPoint::from_polar(sqrt(2), atan(1))};

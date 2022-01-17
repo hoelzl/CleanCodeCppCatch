@@ -10,15 +10,15 @@ private:
     int price_code;
 
 public:
-    static constexpr int CHILDRENS{2};
-    static constexpr int REGULAR{0};
-    static constexpr int NEW_RELEASE{1};
+    static constexpr int childrens{2};
+    static constexpr int regular{0};
+    static constexpr int new_release{1};
 
-    Movie(const std::string& title, int price_code);
+    Movie(std::string title, int price_code);
     [[nodiscard]] int get_price_code() const;
     void set_price_code(int price_code);
     [[nodiscard]] const std::string& get_title() const;
 };
 
 
-#endif//DVDSHOP_MOVIE_H
+#endif // DVDSHOP_MOVIE_H

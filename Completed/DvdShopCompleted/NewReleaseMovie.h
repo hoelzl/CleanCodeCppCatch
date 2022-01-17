@@ -6,10 +6,10 @@
 class NewReleaseMovie : public Movie
 {
 public:
-    NewReleaseMovie(const std::string& title);
-    double determine_amount(int days_rented) const override;
-    int determine_points(int days_rented) const override;
+    explicit NewReleaseMovie(const std::string& title);
+    [[nodiscard]] double determine_amount(int days_rented) const override;
+    [[nodiscard]] int determine_points(int days_rented) const override;
 };
 
 
-#endif//DVDSHOP_NEWRELEASEMOVIE_H
+#endif // DVDSHOP_NEWRELEASEMOVIE_H

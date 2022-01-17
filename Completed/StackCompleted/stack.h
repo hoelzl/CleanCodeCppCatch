@@ -20,7 +20,7 @@ public:
     void clear_default() noexcept;
 
 private:
-    int pop_empty_stack();
+    [[nodiscard]] int pop_empty_stack() const;
     int pop_nonempty_stack() noexcept;
 };
 
@@ -46,6 +46,6 @@ public:
     void clear_default() noexcept;
 
 private:
-    int pop_empty_stack();
+    [[nodiscard]] int pop_empty_stack() const;
     int pop_nonempty_stack() noexcept;
 };

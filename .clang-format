@@ -1,19 +1,26 @@
 ---
 Language: Cpp
 BasedOnStyle: LLVM
+Standard: c++20
 AccessModifierOffset: -4
 AlignAfterOpenBracket: AlwaysBreak
-AlignOperands: false
-AllowShortBlocksOnASingleLine: true
+AlignOperands: Align
+AllowAllArgumentsOnNextLine: true
+AllowAllConstructorInitializersOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Always
 AllowShortCaseLabelsOnASingleLine: true
-AlwaysBreakAfterDefinitionReturnType: false
+AllowShortFunctionsOnASingleLine: All
+AllowShortLambdasOnASingleLine: All
 AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: true
+BinPackParameters: true
 BraceWrapping: 
   AfterCaseLabel: false
   AfterClass: true
   AfterControlStatement: false
   AfterEnum: true
-  AfterFunction: false
+  AfterFunction: true
   AfterNamespace: false
   AfterStruct: true
   AfterUnion: true
@@ -25,12 +32,14 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-BreakBeforeBinaryOperators: true
 BreakBeforeBraces: Custom
+BreakBeforeBinaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
+BreakStringLiterals: true
 ColumnLimit: 88
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
+FixNamespaceComments: true
 IncludeBlocks: Regroup
 IncludeCategories: 
   - Regex: '^<.*'
@@ -45,9 +54,10 @@ MacroBlockBegin: ''
 MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 2
 PointerAlignment: Left
+ReflowComments: true
 SpacesInContainerLiterals: false
-Standard: c++20
 TabWidth: 4
+UseTab: Never
 ---
 Language: JavaScript
 BasedOnStyle: LLVM

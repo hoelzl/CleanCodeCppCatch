@@ -1,35 +1,31 @@
 #define CATCH_CONFIG_MAIN
+#include <catch2/catch_test_macros.hpp>
+#include <sstream>
+
 #include "AugurDB.h"
 #include "AugurDatabase.h"
 #include "Employee.h"
 #include "PaymentScheme.h"
 #include "Project.h"
-#include <catch2/catch_test_macros.hpp>
-#include <sstream>
-#include <string>
 
 using namespace std::string_literals;
 
 SCENARIO("Some Company")
 {
-    std::shared_ptr<AugurDB> augur_db{std::make_shared<AugurDB>()};
-    std::shared_ptr<Database> database{
-            std::make_shared<AugurDatabase>(augur_db)};
+    std::shared_ptr<AugurDb> augur_db{std::make_shared<AugurDb>()};
+    std::shared_ptr<Database> database{std::make_shared<AugurDatabase>(augur_db)};
 
     std::stringstream report_stream{};
     std::shared_ptr<const ReportPrinter> report_printer{
-            std::make_shared<ReportPrinter>(report_stream)};
+        std::make_shared<ReportPrinter>(report_stream)};
 
     GIVEN("any kind of employee")
     {
-        Employee employee{123, "Jack Hammer"s,
-                          std::make_unique<RegularPaymentScheme>(2000.0, 10),
-                          report_printer, database};
+        Employee employee{
+            123, "Jack Hammer"s, std::make_unique<RegularPaymentScheme>(2000.0, 10),
+            report_printer, database};
 
-        THEN("the employee's ID is correct")
-        {
-            CHECK(employee.get_id() == 123);
-        }
+        THEN("the employee's ID is correct") { CHECK(employee.get_id() == 123); }
 
         THEN("The employee's name is correct")
         {
@@ -39,14 +35,11 @@ SCENARIO("Some Company")
 
     GIVEN("a regular employee")
     {
-        Employee employee{123, "Jill Connor"s,
-                          std::make_unique<RegularPaymentScheme>(2000.0, 10),
-                          report_printer, database};
+        Employee employee{
+            123, "Jill Connor"s, std::make_unique<RegularPaymentScheme>(2000.0, 10),
+            report_printer, database};
 
-        THEN("the report hours are correct")
-        {
-            CHECK(employee.report_hours() == 50);
-        }
+        THEN("the report hours are correct") { CHECK(employee.report_hours() == 50); }
 
         THEN("the report is correct")
         {
@@ -61,7 +54,7 @@ SCENARIO("Some Company")
 
         THEN("saving works")
         {
-            CHECK(employee.save_employee() == SaveResult::Successful);
+            CHECK(employee.save_employee() == SaveResult::successful);
             DatabaseRecord db_record{{"id"s, "name"s, "salary"s, "overtime"s}};
             std::vector<DatabaseRecord> expected_records{db_record};
             CHECK(augur_db->get_records() == expected_records);
@@ -70,14 +63,11 @@ SCENARIO("Some Company")
 
     GIVEN("a freelance employee")
     {
-        Employee employee{123, "Jill Connor"s,
-                          std::make_unique<FreelancePaymentScheme>(35),
-                          report_printer, database};
+        Employee employee{
+            123, "Jill Connor"s, std::make_unique<FreelancePaymentScheme>(35),
+            report_printer, database};
 
-        THEN("the report hours are correct")
-        {
-            CHECK(employee.report_hours() == 35);
-        }
+        THEN("the report hours are correct") { CHECK(employee.report_hours() == 35); }
 
         THEN("the report is correct")
         {
@@ -92,7 +82,7 @@ SCENARIO("Some Company")
 
         THEN("saving works")
         {
-            CHECK(employee.save_employee() == SaveResult::Successful);
+            CHECK(employee.save_employee() == SaveResult::successful);
             DatabaseRecord db_record{{"id"s, "name"s, "billable_hours"s}};
             std::vector<DatabaseRecord> expected_records{db_record};
             CHECK(augur_db->get_records() == expected_records);
@@ -102,14 +92,11 @@ SCENARIO("Some Company")
     GIVEN("a commissioned employee")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
-        Employee employee{123, "Jill Connor"s,
-                          std::make_unique<CommissionedPaymentScheme>(project),
-                          report_printer, database};
+        Employee employee{
+            123, "Jill Connor"s, std::make_unique<CommissionedPaymentScheme>(project),
+            report_printer, database};
 
-        THEN("the report hours are correct")
-        {
-            CHECK(employee.report_hours() == 40);
-        }
+        THEN("the report hours are correct") { CHECK(employee.report_hours() == 40); }
 
         THEN("the report is correct")
         {
@@ -124,7 +111,7 @@ SCENARIO("Some Company")
 
         THEN("saving works")
         {
-            CHECK(employee.save_employee() == SaveResult::Successful);
+            CHECK(employee.save_employee() == SaveResult::successful);
             DatabaseRecord db_record{{"id"s, "name"s, "project"s}};
             std::vector<DatabaseRecord> expected_records{db_record};
             CHECK(augur_db->get_records() == expected_records);

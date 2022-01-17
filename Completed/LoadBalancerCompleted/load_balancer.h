@@ -1,8 +1,9 @@
 #pragma once
 
-#include "resource.h"
 #include <iostream>
 #include <vector>
+
+#include "resource.h"
 
 using queue_t = std::vector<Resource>;
 
@@ -24,11 +25,11 @@ public:
     void balance() override;
 };
 
-struct WeightedQueue {
+struct WeightedQueue
+{
     WeightedQueue(double weight = 1, queue_t queue = {})
         : weight(weight), queue{std::move(queue)}
-    {
-    }
+    {}
     double weight;
     queue_t queue;
 };

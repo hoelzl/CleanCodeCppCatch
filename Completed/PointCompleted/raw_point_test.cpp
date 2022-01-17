@@ -1,11 +1,12 @@
-#include <catch2/catch_test_macros.hpp>
-#include <catch2/catch_approx.hpp>
 #include "raw_point.h"
+
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
 
 using Catch::Approx;
 
-const double PI_DIV_4 = atan(1.0);
-const double PI_DIV_2 = PI_DIV_4 * 2.0;
+const double pi_div_4 = atan(1.0);
+const double pi_div_2 = pi_div_4 * 2.0;
 
 TEST_CASE("tests for concrete points")
 {
@@ -22,11 +23,11 @@ TEST_CASE("tests for concrete points")
         REQUIRE(p.x == Approx(2.0));
         REQUIRE(p.y == Approx(0.0));
 
-        RawPoint p2{point_from_polar(1.0, PI_DIV_2)};
+        RawPoint p2{point_from_polar(1.0, pi_div_2)};
         REQUIRE(p2.x == Approx(0.0).margin(1e-10));
         REQUIRE(p2.y == Approx(1.0));
 
-        RawPoint p3{point_from_polar(1.0, PI_DIV_4)};
+        RawPoint p3{point_from_polar(1.0, pi_div_4)};
         REQUIRE(p3.x == Approx(sqrt(2.0) / 2.0));
         REQUIRE(p3.y == Approx(sqrt(2.0) / 2.0));
     }
@@ -35,7 +36,7 @@ TEST_CASE("tests for concrete points")
     {
         RawPoint p{0.0, 2.0};
         REQUIRE(point_r(p) == Approx(2.0));
-        REQUIRE(point_theta(p) == Approx(PI_DIV_4));
+        REQUIRE(point_theta(p) == Approx(pi_div_4));
 
         RawPoint p2{1.0, 0.0};
         REQUIRE(point_r(p2) == Approx(1.0));

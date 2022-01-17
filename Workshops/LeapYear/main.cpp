@@ -1,7 +1,3 @@
-#define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
 
-bool is_leap_year(int year)
-{
-    return false;
-}
+bool is_leap_year(int year) { return false; }

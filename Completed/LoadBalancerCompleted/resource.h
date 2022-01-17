@@ -1,3 +1,5 @@
+// ReSharper disable CppClangTidyCppcoreguidelinesProTypeReinterpretCast
+// ReSharper disable CppClangTidyBugproneExceptionEscape
 #pragma once
 
 #include <cstdint>
@@ -11,7 +13,7 @@ class Resource
     std::string description;
 
 public:
-    Resource(std::string description) : description(description)
+    Resource(std::string description) : description(std::move(description))
     {
 #if SHOW_RESOURCE_LIFECYCLE
         std::cout << "Creating resource " << std::hex
@@ -20,20 +22,18 @@ public:
     }
 
 #if SHOW_RESOURCE_LIFECYCLE
-    Resource(const Resource& res) noexcept
+    Resource(const Resource& res) noexcept : description(res.description)
     {
         std::cout << "Creating resource " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << " via copy constructor." << std::endl;
-        description = res.description;
+                  << reinterpret_cast<std::uintptr_t>(this) << " via copy constructor."
+                  << std::endl;
     }
 
-    Resource(Resource&& res) noexcept
+    Resource(Resource&& res) noexcept : description(std::move(res.description))
     {
         std::cout << "Creating resource " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << " via move constructor." << std::endl;
-        description = std::move(res.description);
+                  << reinterpret_cast<std::uintptr_t>(this) << " via move constructor."
+                  << std::endl;
     }
 
     Resource& operator=(const Resource& res) noexcept
@@ -47,8 +47,7 @@ public:
     Resource& operator=(Resource&& res) noexcept
     {
         std::cout << "Move assigning resource " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << "." << std::endl;
+                  << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
         this->description = std::move(res.description);
         return *this;
     }
@@ -60,10 +59,7 @@ public:
     }
 #endif
 
-    std::string get_description() const
-    {
-        return description;
-    }
+    [[nodiscard]] std::string get_description() const { return description; }
 };
 
 inline std::ostream& operator<<(std::ostream& s, const Resource& res)

@@ -46,7 +46,7 @@ public:
         return *this;
     }
 
-    ~Dog()
+    ~Dog() override
     {
         std::cout << "Destroying dog instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;

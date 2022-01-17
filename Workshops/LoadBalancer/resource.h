@@ -1,21 +1,16 @@
 #pragma once
 
-#include <string>
 #include <iostream>
+#include <string>
 
 class Resource
 {
     std::string description;
 
 public:
-    Resource(std::string description) : description(description)
-    {
-    }
+    explicit Resource(std::string description) : description(std::move(description)) {}
 
-    std::string get_description() const
-    {
-        return description;
-    }
+    std::string get_description() const { return description; }
 };
 
 inline std::ostream& operator<<(std::ostream& s, const Resource& res)

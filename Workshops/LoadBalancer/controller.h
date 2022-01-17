@@ -2,12 +2,13 @@
 
 #include "load_balancer.h"
 
-class Controller {
+class Controller
+{
 private:
     LoadBalancer load_balancer{};
-    Algorithm algorithm;
+    Algorithm algorithm{};
 
 public:
-    void balance();
+    void balance() const;
     void set_algorithm(Algorithm algorithm);
 };

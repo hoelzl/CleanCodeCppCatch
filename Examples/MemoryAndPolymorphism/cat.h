@@ -1,7 +1,8 @@
 #pragma once
 
-#include "animal.h"
 #include <string>
+
+#include "animal.h"
 
 using namespace std::string_literals;
 
@@ -18,15 +19,15 @@ public:
     Cat(const Cat& cat) : Animal(cat)
     {
         std::cout << "Creating cat instance " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << " via copy constructor." << std::endl;
+                  << reinterpret_cast<std::uintptr_t>(this) << " via copy constructor."
+                  << std::endl;
     }
 
     Cat(Cat&& cat) noexcept : Animal(std::move(cat))
     {
         std::cout << "Creating cat instance " << std::hex
-                  << reinterpret_cast<std::uintptr_t>(this)
-                  << " via move constructor." << std::endl;
+                  << reinterpret_cast<std::uintptr_t>(this) << " via move constructor."
+                  << std::endl;
     }
 
     Cat& operator=(const Cat& cat)
@@ -45,7 +46,7 @@ public:
         return *this;
     }
 
-    ~Cat()
+    ~Cat() override
     {
         std::cout << "Destroying cat instance " << std::hex
                   << reinterpret_cast<std::uintptr_t>(this) << "." << std::endl;
@@ -58,15 +59,12 @@ protected:
         return "A cat. The most elegant and majestic of animals."s;
     }
 
-    [[nodiscard]] std::string make_sound_impl() const override
-    {
-        return "[Meow]!"s;
-    }
+    [[nodiscard]] std::string make_sound_impl() const override { return "[Meow]!"s; }
 
     [[nodiscard]] std::string provide_detailed_description_impl() const override
     {
-        return "The glorious species of cats.\n"s +
-               "No description can do this animal justice.\n"s +
-               "So don't even try.\n"s;
+        return "The glorious species of cats.\n"s
+               + "No description can do this animal justice.\n"s
+               + "So don't even try.\n"s;
     }
 };

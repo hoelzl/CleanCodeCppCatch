@@ -1,7 +1,7 @@
-#define CATCH_CONFIG_MAIN
-
-#include <catch2/catch_test_macros.hpp>
 #include "prime_factors.h"
+
+#include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <functional>
 #include <numeric>
 #include <sstream>
@@ -53,7 +53,7 @@ bool is_prime(long n)
 
 long multiply_elements(const std::vector<long>& v)
 {
-    return std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
+    return std::accumulate(v.begin(), v.end(), 1, std::multiplies<>());
 }
 
 // Use the tag [slow] to include the test.

@@ -34,6 +34,5 @@ void compute_and_write_primes(long n, std::ostream& os)
 {
     const std::vector<long> prime_factors(compute_prime_factors(n));
 
-    os << "The primes of " << n
-       << " are: " << format_primes(prime_factors);
+    os << "The primes of " << n << " are: " << format_primes(prime_factors);
 }

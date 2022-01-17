@@ -11,10 +11,10 @@ private:
 
 public:
     Rental(const Movie& movie, int days_rented);
-    std::string get_title() const;
-    double determine_amount() const;
-    int determine_points() const;
+    [[nodiscard]] std::string get_title() const;
+    [[nodiscard]] double determine_amount() const;
+    [[nodiscard]] int determine_points() const;
 };
 
 
-#endif//DVDSHOP_RENTAL_H
+#endif // DVDSHOP_RENTAL_H

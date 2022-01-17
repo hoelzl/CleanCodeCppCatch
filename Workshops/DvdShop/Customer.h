@@ -1,9 +1,10 @@
 #ifndef DVDSHOP_CUSTOMER_H
 #define DVDSHOP_CUSTOMER_H
 
-#include "Rental.h"
 #include <string>
 #include <vector>
+
+#include "Rental.h"
 
 using namespace std::literals::string_literals;
 
@@ -22,4 +23,4 @@ public:
 };
 
 
-#endif//DVDSHOP_CUSTOMER_H
+#endif // DVDSHOP_CUSTOMER_H

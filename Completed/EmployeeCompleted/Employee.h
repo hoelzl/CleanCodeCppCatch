@@ -2,12 +2,12 @@
 #ifndef EMPLOYEE_COMPLETED_EMPLOYEE_H
 #define EMPLOYEE_COMPLETED_EMPLOYEE_H
 
-#include "Database.h"
-#include "PaymentScheme.h"
-#include "Project.h"
-#include "ReportPrinter.h"
 #include <memory>
 #include <string>
+
+#include "Database.h"
+#include "PaymentScheme.h"
+#include "ReportPrinter.h"
 
 class Employee
 {
@@ -20,19 +20,19 @@ private:
     std::shared_ptr<Database> database;
 
 public:
-    Employee(int id, std::string name,
-             std::unique_ptr<const PaymentScheme> payment_scheme,
-             std::shared_ptr<const ReportPrinter> report_printer,
-             std::shared_ptr<Database> database);
+    Employee(
+        int id, std::string name, std::unique_ptr<const PaymentScheme> payment_scheme,
+        std::shared_ptr<const ReportPrinter> report_printer,
+        std::shared_ptr<Database> database);
 
-    int get_id() const;
-    const std::string& get_name() const;
-    const PaymentScheme& get_payment_scheme() const;
+    [[nodiscard]] int get_id() const;
+    [[nodiscard]] const std::string& get_name() const;
+    [[nodiscard]] const PaymentScheme& get_payment_scheme() const;
 
-    double calculate_pay() const;
-    int report_hours() const;
+    [[nodiscard]] double calculate_pay() const;
+    [[nodiscard]] int report_hours() const;
     void print_report() const;
-    SaveResult save_employee() const;
+    [[nodiscard]] SaveResult save_employee() const;
 };
 
-#endif//EMPLOYEE_COMPLETED_EMPLOYEE_H
+#endif // EMPLOYEE_COMPLETED_EMPLOYEE_H

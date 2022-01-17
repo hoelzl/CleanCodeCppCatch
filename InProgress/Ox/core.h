@@ -48,8 +48,7 @@ get_character_match(char guess, std::size_t index, const std::string& solution);
 class Match
 {
 public:
-    Match(const std::string& word_to_guess,
-          const std::string& proposed_solution);
+    Match(const std::string& word_to_guess, const std::string& proposed_solution);
     [[nodiscard]] bool is_perfect_match() const;
     [[nodiscard]] std::string describe() const;
 
@@ -60,4 +59,4 @@ private:
 };
 
 
-#endif//OX_CORE_H
+#endif // OX_CORE_H

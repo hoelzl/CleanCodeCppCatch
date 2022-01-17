@@ -1,9 +1,9 @@
 #define CATCH_CONFIG_MAIN
+#include "fizz_buzz.h"
+
 #include <catch2/catch_test_macros.hpp>
 #include <iostream>
 #include <sstream>
-
-#include "fizz_buzz.h"
 
 TEST_CASE("tests for say_number")
 {

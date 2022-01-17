@@ -1,8 +1,6 @@
 #include "RegularMovie.h"
 
-RegularMovie::RegularMovie(const std::string& title) : Movie(title)
-{
-}
+RegularMovie::RegularMovie(const std::string& title) : Movie(title) {}
 
 double RegularMovie::determine_amount(int days_rented) const
 {
@@ -13,7 +11,4 @@ double RegularMovie::determine_amount(int days_rented) const
     return this_amount;
 }
 
-int RegularMovie::determine_points(int days_rented) const
-{
-    return 1;
-}
+int RegularMovie::determine_points(int days_rented) const { return 1; }

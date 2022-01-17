@@ -34,7 +34,8 @@ namespace Detail {
                 setp( data, data + sizeof(data) );
             }
 
-            ~StreamBufImpl() noexcept {
+            ~StreamBufImpl() noexcept override
+            {
                 StreamBufImpl::sync();
             }
 
