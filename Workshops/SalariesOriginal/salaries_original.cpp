@@ -13,6 +13,9 @@
 //
 // You can use the *_workshop* files for your solution.
 
+// Get days of week (i_dow), the salary per day (d_spd), the name of the
+// employee (pc_n) and an input/output vector of salaries paid so far. The
+// new salary is appended to this vector. Returns the tax.
 double handle_money_stuff(
     int i_dow, double d_spd, const char* pc_n, std::vector<double>& dv_slrs)
 {
