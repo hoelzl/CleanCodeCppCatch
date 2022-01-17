@@ -23,9 +23,7 @@ TEST_CASE("tests for concrete points")
         REQUIRE(p.y == Approx(0.0));
 
         RawPoint p2{point_from_polar(1.0, PI_DIV_2)};
-        // REQUIRE(p2.x == Approx(0.0));
-        REQUIRE(p2.x <= 0.00001);
-        REQUIRE(p2.x >= -0.00001);
+        REQUIRE(p2.x == Approx(0.0).margin(1e-10));
         REQUIRE(p2.y == Approx(1.0));
 
         RawPoint p3{point_from_polar(1.0, PI_DIV_4)};

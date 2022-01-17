@@ -48,7 +48,7 @@ int main()
               << derived.get_product() << std::endl;
     print_it(derived);
 
-    Base* base_pointer{&base};
+    const Base* base_pointer{&base};
     std::cout << "base_pointer: " << base_pointer->get_sum() << std::endl;
 
     base_pointer = &derived;

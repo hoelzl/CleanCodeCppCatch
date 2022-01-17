@@ -7,10 +7,10 @@
 void pay_some_salaries()
 {
     std::vector<double> all_salaries{};
-    double tax_1{process_salary(3, 240.0, "Joe", all_salaries)};
-    double tax_2{process_salary(5, 240.0, "Jack", all_salaries)};
-    double tax_3{process_salary(6, 260.0, "Jill", all_salaries)};
-    double tax_4{process_salary(6, 800.0, "Jane", all_salaries)};
+    const double tax_1{process_salary(3, 240.0, "Joe", all_salaries)};
+    const double tax_2{process_salary(5, 240.0, "Jack", all_salaries)};
+    const double tax_3{process_salary(6, 260.0, "Jill", all_salaries)};
+    const double tax_4{process_salary(6, 800.0, "Jane", all_salaries)};
     std::cout << tax_1 << ", " << tax_2 << ", " << tax_3 << ", " << tax_4
               << "\n";
 }
@@ -40,7 +40,7 @@ void show_compute_day_of_week_name()
 
 void show_compute_tax_rate()
 {
-    for (double salary :
+    for (const double salary :
          {400.0, 500.0, 600.0, 1000.0, 1500.0, 2000.0, 3000.0}) {
         std::cout << "Salary: " << salary
                   << ", tax rate: " << compute_tax_rate(salary) << "\n";

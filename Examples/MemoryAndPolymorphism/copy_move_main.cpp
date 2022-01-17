@@ -9,7 +9,7 @@
 int main()
 {
     std::cout << "Dog fluffy{} =================================" << '\n';
-    Dog fluffy{};
+    const Dog fluffy{};
     std::cout << "Dog dolly{Dog{}} =============================" << '\n';
     Dog dolly{Dog{}};
     std::cout << "Dog pepper{fluffy} ===========================" << '\n';

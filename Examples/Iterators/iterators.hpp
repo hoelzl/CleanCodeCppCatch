@@ -30,7 +30,7 @@ class MyClass {
     }
 
     const MyIterator operator++(int) {
-      MyIterator tmp{*this};
+        const MyIterator tmp{*this};
       ++(*this);
       return tmp;
     }

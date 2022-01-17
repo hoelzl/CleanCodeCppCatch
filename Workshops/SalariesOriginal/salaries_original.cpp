@@ -17,7 +17,7 @@ double handle_money_stuff(int i_dow, double d_spd, const char* pc_n,
 {
     static std::string sa_dns[]{"Mon", "Tue", "Wed", "Thu", "Fri"};
     // We count Sunday as 1, Monday as 2, etc. but the work week starts on Monday
-    std::string& sr_d{sa_dns[i_dow - 2]};
+    const std::string& sr_d{sa_dns[i_dow - 2]};
     // Compute the salary so far, based on the day of week and the salary per day
     double d_ssf{(i_dow - 1) * d_spd};
     // Compute the tax

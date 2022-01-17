@@ -26,9 +26,11 @@ TEST_CASE("tests for abstract points")
         }
 
         EncapsulatedPoint p2{EncapsulatedPoint::from_polar(1.0, PI_DIV_2)};
-        // REQUIRE(p2.get_x() == Approx(0.0));
-        REQUIRE(p2.get_x() <= 0.00001);
-        REQUIRE(p2.get_x() >= -0.00001);
+        //REQUIRE(p2.get_x() == Approx(0.0));
+        //double epsilon{std::numeric_limits<double>::epsilon() * 1000.0};
+        //REQUIRE(p2.get_x() == Approx(0.0).epsilon(epsilon));
+        REQUIRE(p2.get_x() == Approx(0.0).scale(1e-10));
+        REQUIRE(p2.get_x() == Approx(0.0).margin(1e-15));
         REQUIRE(p2.get_y() == Approx(1.0));
 
         EncapsulatedPoint p3{EncapsulatedPoint::from_polar(1.0, PI_DIV_4)};

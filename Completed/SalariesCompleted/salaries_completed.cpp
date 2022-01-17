@@ -12,7 +12,7 @@ double process_salary(int day_number, double salary_per_day,
                       std::vector<double>& all_salaries)
 {
     assert_valid_day_number(day_number);
-    auto salary_after_taxes =
+    const auto salary_after_taxes =
             compute_salary_after_taxes(day_number, salary_per_day);
     store_salary(salary_after_taxes, all_salaries);
     print_salary(day_number, salary_per_day, employee_name);
@@ -29,9 +29,9 @@ void assert_valid_day_number(int day_number)
 
 double compute_salary_after_taxes(int day_number, double salary_per_day)
 {
-    auto salary_before_taxes =
+    const auto salary_before_taxes =
             compute_salary_before_taxes(day_number, salary_per_day);
-    auto taxes = compute_taxes(salary_before_taxes);
+    const auto taxes = compute_taxes(salary_before_taxes);
     return salary_before_taxes - taxes;
 }
 
@@ -48,7 +48,7 @@ double compute_taxes(double salary_before_taxes)
 
 double compute_taxes(int day_number, double salary_per_day)
 {
-    auto salary_before_taxes =
+    const auto salary_before_taxes =
             compute_salary_before_taxes(day_number, salary_per_day);
     return compute_taxes(salary_before_taxes);
 }

@@ -22,7 +22,7 @@ std::string format_primes(const std::vector<long>& primes)
 {
     std::string result{};
     std::string prefix{""s};
-    for (int prime : primes) {
+    for (const int prime : primes) {
         result += prefix + std::to_string(prime);
         prefix = ", ";
     }
@@ -32,7 +32,7 @@ std::string format_primes(const std::vector<long>& primes)
 
 void compute_and_write_primes(long n, std::ostream& os)
 {
-    std::vector<long> prime_factors(compute_prime_factors(n));
+    const std::vector<long> prime_factors(compute_prime_factors(n));
 
     os << "The primes of " << n
        << " are: " << format_primes(prime_factors);

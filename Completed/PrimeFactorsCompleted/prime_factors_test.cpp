@@ -64,7 +64,7 @@ TEST_CASE("Pseudo-parametric/property-based test case", "[.][slow]")
         CHECK(multiply_elements(result) == i);
         CHECK(std::is_sorted(result.begin(), result.end()));
 
-        for (long n : result) {
+        for (const long n : result) {
             CHECK(is_prime(n));
         }
     }

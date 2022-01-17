@@ -20,7 +20,7 @@ double Square::compute_area() const
 
 void Square::move(double x, double y)
 {
-    Point new_location{bottom_left_corner + Point{x, y}};
+    const Point new_location{bottom_left_corner + Point{x, y}};
     bottom_left_corner = new_location;
 }
 
@@ -44,7 +44,7 @@ double Rectangle::compute_area() const
 
 void Rectangle::move(double x, double y)
 {
-    Point new_location{bottom_left_corner + Point{x, y}};
+    const Point new_location{bottom_left_corner + Point{x, y}};
     bottom_left_corner = new_location;
 }
 
@@ -68,7 +68,7 @@ double Circle::compute_area() const
 
 void Circle::move(double x, double y)
 {
-    Point new_location{center + Point{x, y}};
+    const Point new_location{center + Point{x, y}};
     center = new_location;
 }
 
@@ -148,16 +148,16 @@ double compute_area(const RawShape& shape)
 {
     switch (shape.get_shape_kind()) {
         case ShapeKind::Square: {
-            double side{RawSquare::get_side(shape)};
+            const double side{RawSquare::get_side(shape)};
             return side * side;
         }
         case ShapeKind::Rectangle: {
-            double width{RawRectangle::get_width(shape)};
-            double height{RawRectangle::get_height(shape)};
+            const double width{RawRectangle::get_width(shape)};
+            const double height{RawRectangle::get_height(shape)};
             return width * height;
         }
         case ShapeKind::Circle: {
-            double radius{RawCircle::get_radius(shape)};
+            const double radius{RawCircle::get_radius(shape)};
             return 4.0 * atan(1.0) * radius * radius;
         }
         default: throw std::invalid_argument("Invalid shape.");
@@ -168,19 +168,19 @@ void move(RawShape& shape, double x, double y)
 {
     switch (shape.get_shape_kind()) {
         case ShapeKind::Square: {
-            Point new_location{RawSquare::get_bottom_left_corner(shape) +
+            const Point new_location{RawSquare::get_bottom_left_corner(shape) +
                                Point{x, y}};
             RawSquare::set_bottom_left_corner(shape, new_location);
             break;
         }
         case ShapeKind::Rectangle: {
-            Point new_location{RawRectangle::get_bottom_left_corner(shape) +
+            const Point new_location{RawRectangle::get_bottom_left_corner(shape) +
                                Point{x, y}};
             RawRectangle::set_bottom_left_corner(shape, new_location);
             break;
         }
         case ShapeKind::Circle: {
-            Point new_location{RawCircle::get_center(shape) + Point{x, y}};
+            const Point new_location{RawCircle::get_center(shape) + Point{x, y}};
             RawCircle::set_center(shape, new_location);
             break;
         }

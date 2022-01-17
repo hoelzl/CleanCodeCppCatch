@@ -57,7 +57,7 @@ int Stack::pop_empty_stack()
 
 int Stack::pop_nonempty_stack() noexcept
 {
-    int result{elements.back()};
+    const int result{elements.back()};
     elements.pop_back();
     return result;
 }

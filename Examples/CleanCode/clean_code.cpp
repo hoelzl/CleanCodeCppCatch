@@ -9,14 +9,14 @@ void f1(int x)
 
 int f2(int x, int y)
 {
-    int result = x + y;
+    const int result = x + y;
     std::cout << "z1 = " << result << std::endl;
     return result;
 }
 
 int f3(int y, int z1)
 {
-    int z2 = y + z1;
+    const int z2 = y + z1;
     std::cout << "z2 = " << z2 << std::endl;
     return z2;
 }
@@ -24,10 +24,10 @@ int f3(int y, int z1)
 int long_function(int x, int y)
 {
     f1(x);
-    int z1 = f2(x, y);
-    int z2 = f3(x, y);
+    const int z1 = f2(x, y);
+    const int z2 = f3(x, y);
 
-    int z3 = z1 + z2;
+    const int z3 = z1 + z2;
     std::cout << "z3 = " << z3 << std::endl;
     return 1;
 }

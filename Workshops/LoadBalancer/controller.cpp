@@ -6,7 +6,7 @@ void Controller::balance()
 {
     switch (algorithm) {
         case Algorithm::ROUND_ROBIN: {
-            queue_t& queue = load_balancer.queue;
+            const queue_t& queue = load_balancer.queue;
             std::cout << "Using round robin balancer." << std::endl;
             for (const Resource& r : queue) {
                 std::cout << "Scheduling " << r << "." << std::endl;
@@ -15,7 +15,7 @@ void Controller::balance()
             break;        
         }
         case Algorithm::WEIGHTED_ROUND_ROBIN: {
-            std::vector<std::pair<double, queue_t>>& weighted_queues = load_balancer.weighted_queues;
+            const std::vector<std::pair<double, queue_t>>& weighted_queues = load_balancer.weighted_queues;
             std::cout << "Using weighted round robin balancer." << std::endl;
             for (const auto& wq : weighted_queues) {
                 for (const Resource& r : wq.second) {

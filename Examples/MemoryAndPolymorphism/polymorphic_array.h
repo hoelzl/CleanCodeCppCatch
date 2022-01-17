@@ -82,14 +82,14 @@ void print_std_array(std::array<T, 3> arr)
 
 void print_contents_of_base_std_array()
 {
-    std::array<MyBase, 3> arr{MyBase{1}, MyBase{2}, MyBase{3}};
+    const std::array<MyBase, 3> arr{MyBase{1}, MyBase{2}, MyBase{3}};
     print_std_array(arr);
 }
 
 void print_contents_of_derived_std_array()
 {
-    std::array<MyDerived, 3> arr{MyDerived{1, 10}, MyDerived{2, 20},
-                                 MyDerived{3, 30}};
+    const std::array<MyDerived, 3> arr{MyDerived{1, 10}, MyDerived{2, 20},
+                                       MyDerived{3, 30}};
 #if USE_TEMPLATES
     print_std_array(arr);
 #endif
@@ -123,17 +123,17 @@ void print_std_array_of_pointer(const char* prefix, const std::array<T, n>& arr)
 
 void print_contents_of_base_std_array_of_pointer()
 {
-    std::array<MyBasePtr, 3> arr{std::make_unique<MyBase>(1),
-                                 std::make_unique<MyBase>(2),
-                                 std::make_unique<MyBase>(3)};
+    const std::array<MyBasePtr, 3> arr{std::make_unique<MyBase>(1),
+                                       std::make_unique<MyBase>(2),
+                                       std::make_unique<MyBase>(3)};
     print_std_array_of_pointer("base", arr);
 }
 
 void print_contents_of_derived_std_array_of_pointer()
 {
-    std::array<MyDerivedPtr, 3> arr{std::make_unique<MyDerived>(1, 10),
-                                    std::make_unique<MyDerived>(2, 20),
-                                    std::make_unique<MyDerived>(3, 30)};
+    const std::array<MyDerivedPtr, 3> arr{std::make_unique<MyDerived>(1, 10),
+                                          std::make_unique<MyDerived>(2, 20),
+                                          std::make_unique<MyDerived>(3, 30)};
 #if USE_TEMPLATES
     print_std_array_of_pointer("derived", arr);
 #endif
@@ -141,9 +141,9 @@ void print_contents_of_derived_std_array_of_pointer()
 
 void print_contents_of_mixed_std_array_of_pointer()
 {
-    std::array<MyBasePtr, 3> arr{std::make_unique<MyBase>(1),
-                                 std::make_unique<MyDerived>(2, 20),
-                                 std::make_unique<MyBase>(3)};
+    const std::array<MyBasePtr, 3> arr{std::make_unique<MyBase>(1),
+                                       std::make_unique<MyDerived>(2, 20),
+                                       std::make_unique<MyBase>(3)};
     print_std_array_of_pointer("mixed", arr);
 }
 

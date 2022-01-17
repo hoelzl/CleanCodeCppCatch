@@ -19,9 +19,9 @@ public:
     [[nodiscard]] virtual std::tm get_current_time_as_tm()
     {
         using namespace std::chrono;
-        time_point<system_clock> current_time_point{system_clock::now()};
-        std::time_t current_time_t{system_clock::to_time_t(current_time_point)};
-        std::tm* current_time_tm{localtime(&current_time_t)};
+        const time_point<system_clock> current_time_point{system_clock::now()};
+        const std::time_t current_time_t{system_clock::to_time_t(current_time_point)};
+        const std::tm* current_time_tm{localtime(&current_time_t)};
         return *current_time_tm;
     }
 
@@ -30,8 +30,8 @@ public:
     [[nodiscard]] virtual long long get_ms_since_epoch()
     {
         using namespace std::chrono;
-        time_point<steady_clock> current_time_point{steady_clock::now()};
-        auto duration{duration_cast<milliseconds>(
+        const time_point<steady_clock> current_time_point{steady_clock::now()};
+        const auto duration{duration_cast<milliseconds>(
                 current_time_point.time_since_epoch())};
         return duration.count();
     }

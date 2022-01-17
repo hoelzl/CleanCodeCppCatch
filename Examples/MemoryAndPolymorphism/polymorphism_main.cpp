@@ -26,21 +26,21 @@ int main()
 {
     std::cout << "Dog fluffy{} ================================================"
               << std::endl;
-    Dog fluffy{};
+    const Dog fluffy{};
     std::cout << fluffy.describe() << std::endl;
     std::cout << fluffy.make_sound() << std::endl;
     std::cout << fluffy.provide_detailed_description() << std::endl;
 
     std::cout << "Cat garfield{} =============================================="
               << std::endl;
-    Cat garfield{};
+    const Cat garfield{};
     std::cout << garfield.describe() << std::endl;
     std::cout << garfield.make_sound() << std::endl;
     std::cout << garfield.provide_detailed_description() << std::endl;
 
     std::cout << "Animal* animal{new Dog} ====================================="
               << std::endl;
-    Animal* animal{new Dog};
+    const Animal* animal{new Dog};
     describe_animal(animal);
     delete animal;
 

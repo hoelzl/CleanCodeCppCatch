@@ -54,7 +54,7 @@ std::string RentalStatement::make_rental_items()
 
 std::string RentalStatement::make_rental_item(Rental& rental)
 {
-    double rental_amount{rental.determine_amount()};
+    const double rental_amount{rental.determine_amount()};
     frequent_renter_points += rental.determine_points();
     total_amount += rental_amount;
 
