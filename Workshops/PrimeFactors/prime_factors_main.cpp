@@ -5,6 +5,6 @@
 
 int main(int argc, char** argv) {
 
-    const int number_to_factor{argc >= 2 ? std::stol(argv[1]) : 100L};
+    const int number_to_factor{argc >= 2 ? std::stoi(argv[1]) : 100L};
     std::cout << "I don't know how to factor, yet.\n" << "Please fix me.\n";
 }

@@ -16,4 +16,4 @@ public:
     SaveResult save_employee(const Employee& employee) override;
 };
 
-#endif EMPLOYEE_COMPLETED_AUGUR_DATABASE_H
+#endif // EMPLOYEE_COMPLETED_AUGUR_DATABASE_H
