@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cmath>
 
 struct RawPoint {
     double x;
@@ -8,17 +9,17 @@ struct RawPoint {
 
 inline RawPoint point_from_polar(double r, double theta)
 {
-    return {r * cos(theta), r * sin(theta)};
+    return {r * std::cos(theta), r * std::sin(theta)};
 }
 
 inline double point_r(RawPoint point)
 {
-    return sqrt(point.x * point.x + point.y * point.y);
+    return std::sqrt(point.x * point.x + point.y * point.y);
 }
 
 inline double point_theta(RawPoint point)
 {
-    return (point.x == 0.0) ? atan(1.0) : atan(point.y / point.x);
+    return (point.x == 0.0) ? std::atan(1.0) : std::atan(point.y / point.x);
 }
 
 inline RawPoint operator+(RawPoint lhs, RawPoint rhs)

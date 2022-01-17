@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 #include <iostream>
 
 class EncapsulatedPoint
@@ -13,13 +14,13 @@ public:
     static EncapsulatedPoint from_cartesian(double x, double y) { return {x, y}; }
     static EncapsulatedPoint from_polar(double r, double theta)
     {
-        return {r * cos(theta), r * sin(theta)};
+        return {r * std::cos(theta), r * std::sin(theta)};
     }
 
     double get_x() const { return x; }
     double get_y() const { return y; }
-    double get_r() const { return sqrt(x * x + y * y); }
-    double get_theta() const { return x == 0.0 ? atan(1.0) : atan(y / x); }
+    double get_r() const { return std::sqrt(x * x + y * y); }
+    double get_theta() const { return x == 0.0 ? std::atan(1.0) : std::atan(y / x); }
 
     EncapsulatedPoint operator+(EncapsulatedPoint rhs) const
     {
