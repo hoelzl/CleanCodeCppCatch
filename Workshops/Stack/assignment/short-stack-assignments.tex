@@ -94,16 +94,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Extension (2)}  
-  \begin{itemize}
-  \item Extend the \texttt{Stack} data type with a member function\\[1ex]
-    \verb!std::size_t count(int element)!\\[1ex]
-    that counts the occurrences of \emph{element} on the stack
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Extension (3)}
+  \frametitle{Extension (2)}
   \begin{itemize}
   \item Our \texttt{Stack} class will now be used on an embedded
     system where dynamic memory allocation at runtime is not allowed.
@@ -120,6 +111,15 @@
     how many elements are currently stored on the stack, e.g., you could use
     \verb!std::size_t next_index! to indicate the index of the first
     unused element of the stack.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Extension (3)}  
+  \begin{itemize}
+  \item Extend the \texttt{Stack} data type with a member function\\[1ex]
+    \verb!std::size_t count(int element)!\\[1ex]
+    that counts the occurrences of \emph{element} on the stack
   \end{itemize}
 \end{frame}
 
