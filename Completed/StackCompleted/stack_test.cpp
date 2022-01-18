@@ -1,5 +1,4 @@
 // ReSharper disable CppClangTidyCppcoreguidelinesMacroUsage
-#define CATCH_CONFIG_MAIN
 #include "stack.h"
 
 #include <catch2/catch_test_macros.hpp>
@@ -215,7 +214,7 @@ SCENARIO("Tests for bounded stacks")
 
         WHEN("the stack is full")
         {
-            for (int i = 0; i < Stack_t::max_size; ++i) {
+            for (size_t i = 0; i < Stack_t::max_size; ++i) {
                 stack.push(an_arbitrary_number);
             }
 
