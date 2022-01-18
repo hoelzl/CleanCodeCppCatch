@@ -4,6 +4,7 @@
 
 #include <string>
 
+namespace employee_completed {
 class Project
 {
 private:
@@ -19,5 +20,5 @@ public:
     [[nodiscard]] double get_commissioned_pay() const;
 };
 
-
+} // namespace employee_completed
 #endif // EMPLOYEE_COMPLETED_PROJECT_H

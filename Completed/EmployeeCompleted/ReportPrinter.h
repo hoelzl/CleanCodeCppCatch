@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+namespace employee_completed {
 class Employee;
 
 class ReportPrinter
@@ -18,3 +19,5 @@ public:
 
     virtual void print_report(const Employee& employee) const;
 };
+
+} // namespace employee_completed

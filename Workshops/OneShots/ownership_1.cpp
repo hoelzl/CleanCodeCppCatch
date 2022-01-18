@@ -49,7 +49,6 @@ TEST_CASE("take_ownership_1()")
     CHECK(take_ownership_1(i) == 10);
 }
 
-
 // NONONONONONONO!
 int take_ownership_2(int& i)
 {

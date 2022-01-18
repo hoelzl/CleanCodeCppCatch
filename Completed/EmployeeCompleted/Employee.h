@@ -9,6 +9,8 @@
 #include "PaymentScheme.h"
 #include "ReportPrinter.h"
 
+namespace employee_completed {
+
 class Employee
 {
 private:
@@ -35,4 +37,5 @@ public:
     [[nodiscard]] SaveResult save_employee() const;
 };
 
+} // namespace employee_completed
 #endif // EMPLOYEE_COMPLETED_EMPLOYEE_H

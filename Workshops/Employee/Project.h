@@ -2,7 +2,7 @@
 #define EMPLOYEE_PROJECT_H
 
 #include <string>
-
+namespace employee_workshop {
 class Project
 {
 private:
@@ -18,6 +18,6 @@ public:
     [[nodiscard]] double get_assets() const;
     [[nodiscard]] double get_commissioned_pay() const;
 };
-
+}
 
 #endif // EMPLOYEE_PROJECT_H

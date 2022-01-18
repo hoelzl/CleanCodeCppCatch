@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 
+namespace employee_completed {
 struct DatabaseRecord
 {
     DatabaseRecord(std::vector<std::string> saved_fields)
@@ -64,5 +65,6 @@ public:
         current_record_entries.push_back(name);
     }
 };
+} // namespace employee_completed
 
 #endif // EMPLOYEE_AUGURDB_H

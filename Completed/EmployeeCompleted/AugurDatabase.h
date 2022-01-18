@@ -6,6 +6,7 @@
 #include "AugurDB.h"
 #include "Database.h"
 
+namespace employee_completed {
 class AugurDatabase : public Database
 {
     std::shared_ptr<AugurDb> augur_db{};
@@ -16,4 +17,5 @@ public:
     SaveResult save_employee(const Employee& employee) override;
 };
 
+} // namespace employee_completed
 #endif // EMPLOYEE_COMPLETED_AUGUR_DATABASE_H

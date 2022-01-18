@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+namespace employee_workshop {
+
 struct DatabaseRecord
 {
     explicit DatabaseRecord(std::vector<std::string> saved_fields)
@@ -65,4 +67,5 @@ public:
     }
 };
 
+} // namespace employee_workshop
 #endif // EMPLOYEE_AUGURDB_H

@@ -3,6 +3,7 @@
 #include "Employee.h"
 #include "Project.h"
 
+namespace employee_completed {
 AugurDatabase::AugurDatabase(std::shared_ptr<AugurDb> augur_db)
     : augur_db{std::move(augur_db)}
 {}
@@ -40,3 +41,4 @@ SaveResult AugurDatabase::save_employee(const Employee& employee)
 
     return result;
 }
+} // namespace employee_completed

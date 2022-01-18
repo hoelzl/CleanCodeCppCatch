@@ -8,6 +8,7 @@
 
 
 namespace salaries_completed {
+
 struct TaxedSalary
 {
     double taxes{};

@@ -1,0 +1,165 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{AnnArbor}
+\setbeamercovered{transparent}
+\usecolortheme{seahorse}
+\setbeamercolor{frametitle}{fg=blue,bg=white}
+
+\definecolor{darkgreen}{rgb}{0,0.4,0}
+\definecolor{limegreen}{rgb}{0.196 ,0.809  ,0.196}
+\definecolor{magenta}{rgb}{0.99,0,0.99}
+\definecolor{maroon}{rgb}{0.687, 0.187, 0.375}
+\definecolor{violet}{rgb}{0.539, 0.167, 0.882}
+\definecolor{slateblue1}{rgb}{0.513, 0.435, 1}
+\definecolor{steelblue1}{rgb}{0.388, 0.721, 1}
+\definecolor{gry}{rgb}{0.745 , 0.745 , 0.745}
+\definecolor{darkorange}{rgb}{1 , 0.549 , 0}
+\definecolor{lavender}{rgb}{0.901, 0.901, 0.980}
+\definecolor{lavenderblush4}{rgb}{0.545, 0.513, 0.525}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+    
+\year=2021
+\month=11
+\day=30
+
+\author{Dr. Matthias Hölzl}
+
+\begin{document}
+\title[Stack]{%
+  Stack\\
+  (Short Version)}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Goals}
+  \begin{itemize}
+  \item Create a simple \texttt{Stack} data structure using TDD
+  \item Proceed incrementally, baby steps\\[1ex]
+  
+  \item This exercise is meant to demonstrate
+    \begin{itemize}
+    \item how to develop features \texttt{incrementally} using TDD
+    \item how to write good tests that help you to grow your design 
+    \end{itemize}
+  \item Therefore: \textbf{Please do not look ahead in this document!\\
+      Only move to the next page after having finished the current
+      exercise.}
+  \item (Also note that the stack implemented in this workshop has several
+    pretty bad design flaws and should not be used for anything but
+    demonstrating TDD.)
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Stack}
+  \begin{itemize}
+  \item Open the \texttt{Stack} project in your IDE/editor of choice
+  \item Ensure that you can build the target \texttt{StackTest} and
+    that the test fails when you execute it
+  \end{itemize}
+  \bigskip
+  \begin{itemize}
+  \item \textcolor{darkgreen}{Solve simply!}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Stack}
+\begin{itemize}
+\item Implement a \texttt{Stack} data type for integers with the
+  following signature:
+\item \texttt{void push(int element)}
+\item \texttt{int pop()}
+\item \verb!bool is_empty()!
+\item If the stack is empty, \texttt{pop()} should throw an exception
+  of type \verb!std::out_of_range!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Extension (1)}  
+  \begin{itemize}
+  \item Extend the \texttt{Stack} data type with a method\\[1ex]
+    \verb!std::size_t size()!\\[1ex]
+    that returns the number of elements on the stack
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Extension (2)}  
+  \begin{itemize}
+  \item Extend the \texttt{Stack} data type with a member function\\[1ex]
+    \verb!std::size_t count(int element)!\\[1ex]
+    that counts the occurrences of \emph{element} on the stack
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Extension (3)}
+  \begin{itemize}
+  \item Our \texttt{Stack} class will now be used on an embedded
+    system where dynamic memory allocation at runtime is not allowed.
+    Therefore we have to replace its implementation with one that does
+    not use \verb!std::vector!.
+
+    Modify your implementation so that it uses a
+    \verb|std::array<int, 16>| to store its elements. Make
+    \texttt{push()} throw an exception of type
+    \verb!std::out_of_range! if the stack is full.
+
+    \bigskip
+    \emph{Hint:} You will probably need a member variable to indicate
+    how many elements are currently stored on the stack, e.g., you could use
+    \verb!std::size_t next_index! to indicate the index of the first
+    unused element of the stack.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{If you have time left and nothing better to do...}
+	\begin{center}
+		\LARGE Bonus Content
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Extension (4)}  
+	\begin{itemize}
+	\item Extend the \texttt{Stack} data type with a member function\\[1ex]
+	  \verb!int pop_default(int default_value)!\\[1ex]
+	  that acts like \texttt{pop()} when the stack is not empty and
+	  returns \verb!default_value! when the stack is empty
+	\end{itemize}
+  \end{frame}
+  
+  \begin{frame}[fragile]
+	\frametitle{Extension (5)}  
+	\begin{itemize}
+	\item Extend the \texttt{Stack} data type with member functions\\[1ex]
+	  \verb!void set_default(int default_value)!\\
+	  \verb!void clear_default()!\\[1ex]
+	  After \verb!set_default(default_value)! has been called, \texttt{pop()}
+	  should act like \verb!pop_default(default_value)!. When
+	  \verb!clear_default()! is called, \texttt{pop()} should revert to
+	  its original behavior, i.e., throw an exception when the stack is
+	  empty.
+	\end{itemize}
+  \end{frame}
+  
+\end{document}
+
+
+% \input{body}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

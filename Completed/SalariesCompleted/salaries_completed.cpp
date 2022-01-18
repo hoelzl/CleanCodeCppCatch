@@ -53,15 +53,13 @@ double compute_tax_rate(double salary)
     if (salary <= 500.0) {
         return 0.0;
     }
-    else if (salary <= 1000.0) {
+    if (salary <= 1000.0) {
         return 0.05;
     }
-    else if (salary <= 2000.0) {
+    if (salary <= 2000.0) {
         return 0.1;
     }
-    else {
-        return 0.15;
-    }
+    return 0.15;
 }
 
 void store_salary(double salary, std::vector<double>& all_salaries)

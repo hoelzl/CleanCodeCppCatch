@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <utility>
 
-
+namespace employee_completed {
 Employee::Employee(
     int id, std::string name, std::unique_ptr<const PaymentScheme> payment_scheme,
     std::shared_ptr<const ReportPrinter> report_printer,
@@ -58,3 +58,4 @@ SaveResult Employee::save_employee() const
     }
     return SaveResult::failed;
 }
+} // namespace employee_completed

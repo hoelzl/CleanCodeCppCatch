@@ -85,6 +85,14 @@ class Actor2
 class ActorImpl : public Actor2
 {};
 
+class AbstractActor
+{};
+class Actor3 : public AbstractActor
+{
+    int foo();
+    int foo_;
+};
+
 // Wrong parts of speech
 class GoToTheServer
 {
@@ -95,6 +103,7 @@ class GoToTheServer
 class ServerConnection
 {
     void connect() {}
+    // OsConnection& get_connection();
     bool is_server_available() { return false; }
 };
 

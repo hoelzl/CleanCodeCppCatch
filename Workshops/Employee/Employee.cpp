@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <utility>
-
+namespace employee_workshop {
 using namespace std::string_literals;
 
 Employee::Employee(
@@ -61,3 +61,4 @@ SaveResult Employee::save_employee() const
     database->commit_transaction();
     return SaveResult::successful;
 }
+} // namespace employee_workshop

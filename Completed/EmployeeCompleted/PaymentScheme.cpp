@@ -1,7 +1,7 @@
 #include "PaymentScheme.h"
 
 #include "Project.h"
-
+namespace employee_completed {
 RegularPaymentScheme::RegularPaymentScheme(double salary, int overtime_hours)
     : salary{salary}, overtime_hours{overtime_hours}
 {}
@@ -49,3 +49,4 @@ double FreelancePaymentScheme::calculate_pay(const Employee& employee) const
 {
     return 50.0 * billable_hours;
 }
+} // namespace employee_completed

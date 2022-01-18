@@ -8,6 +8,7 @@
 #include "PaymentScheme.h"
 #include "Project.h"
 
+namespace employee_completed {
 using namespace std::string_literals;
 
 SCENARIO("Some Company")
@@ -118,3 +119,4 @@ SCENARIO("Some Company")
         }
     }
 }
+} // namespace employee_completed

@@ -9,6 +9,7 @@
 #include "AugurDB.h"
 #include "Project.h"
 
+namespace employee_workshop {
 enum class EmployeeType
 {
     regular,
@@ -48,5 +49,5 @@ public:
     SaveResult save_employee() const; // save to database
 };
 
-
+} // namespace employee_workshop
 #endif // EMPLOYEE_EMPLOYEE_H

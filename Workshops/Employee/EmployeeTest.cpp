@@ -7,6 +7,7 @@
 #include "Project.h"
 
 using namespace std::string_literals;
+using namespace employee_workshop;
 
 SCENARIO("Some Company")
 {

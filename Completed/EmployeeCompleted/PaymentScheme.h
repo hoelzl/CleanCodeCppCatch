@@ -2,6 +2,7 @@
 #ifndef EMPLOYEE_COMPLETED_PAYMENT_SCHEME
 #define EMPLOYEE_COMPLETED_PAYMENT_SCHEME
 
+namespace employee_completed {
 class Employee;
 class Project;
 
@@ -62,5 +63,5 @@ public:
     [[nodiscard]] int get_overtime_hours() const override;
     [[nodiscard]] double calculate_pay(const Employee& employee) const override;
 };
-
+} // namespace employee_completed
 #endif // EMPLOYEE_COMPLETED_PAYMENT_SCHEME

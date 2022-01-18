@@ -6,6 +6,7 @@
 
 #include "AugurDB.h"
 
+namespace employee_completed {
 using namespace std::string_literals;
 
 class Employee;
@@ -29,4 +30,5 @@ public:
     virtual SaveResult save_employee(const Employee& employee) = 0;
 };
 
+} // namespace employee_completed
 #endif // EMPLOYEE_COMPLETED_DATABASE_H
