@@ -4,7 +4,6 @@
 #include "prime_factors.h"
 
 int main(int argc, char** argv) {
-
-    const int number_to_factor{argc >= 2 ? std::stoi(argv[1]) : 100};
-    std::cout << "I don't know how to factor, yet.\n" << "Please fix me.\n";
+    const long number_to_factor{argc >= 2 ? std::stol(argv[1]) : 100L};
+    prime_factors::compute_and_write_primes(number_to_factor, std::cout);
 }
