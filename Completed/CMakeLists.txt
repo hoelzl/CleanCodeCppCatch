@@ -1,5 +1,6 @@
 ﻿add_subdirectory("DvdShopCompleted")
 add_subdirectory("EmployeeCompleted")
+add_subdirectory("EmployeeSimplifiedCompleted")
 add_subdirectory("FizzBuzzCompleted")
 add_subdirectory("LeapYearCompleted")
 add_subdirectory("LoadBalancerCompleted")

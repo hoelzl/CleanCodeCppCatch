@@ -1,5 +1,6 @@
 ﻿add_subdirectory("DvdShop")
 add_subdirectory("Employee")
+add_subdirectory("EmployeeSimplified")
 add_subdirectory("FizzBuzz")
 add_subdirectory("LeapYear")
 add_subdirectory("LoadBalancer")
