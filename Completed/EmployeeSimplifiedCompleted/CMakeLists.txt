@@ -10,5 +10,5 @@ add_executable(EmployeeSimplifiedCompletedTest
 	"EmployeeTest.cpp"
 	"Project.hpp"
 	"PaymentScheme.hpp"
- "PaymentScheme.cpp")
+ "PaymentScheme.cpp" "EmployeeDao.hpp" "EmployeeDao.cpp" "EmployeeDaoTest.cpp" "ReportPrinter.hpp" "ReportPrinter.cpp")
 target_link_libraries(EmployeeSimplifiedCompletedTest "Catch2WithMain")

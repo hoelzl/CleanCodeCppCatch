@@ -4,9 +4,6 @@
 #ifndef PAYMENTSCHEME_HPP
 #define PAYMENTSCHEME_HPP
 
-#include <memory>
-
-#include "AugurDB.hpp"
 #include "Project.hpp"
 
 namespace employee_completed_simplified {
@@ -28,7 +25,6 @@ struct PaymentScheme
 
     [[nodiscard]] virtual double calculate_pay() const = 0;
     [[nodiscard]] virtual int report_hours() const = 0;
-    virtual void save_fields(const std::shared_ptr<AugurDb>& database) = 0;
 };
 
 struct RegularPaymentScheme : PaymentScheme
@@ -42,7 +38,6 @@ struct RegularPaymentScheme : PaymentScheme
 
     [[nodiscard]] double calculate_pay() const override;
     [[nodiscard]] int report_hours() const override;
-    void save_fields(const std::shared_ptr<AugurDb>& database) override;
 };
 
 struct FreelancePaymentScheme : PaymentScheme
@@ -53,7 +48,6 @@ struct FreelancePaymentScheme : PaymentScheme
 
     [[nodiscard]] double calculate_pay() const override;
     [[nodiscard]] int report_hours() const override;
-    void save_fields(const std::shared_ptr<AugurDb>& database) override;
 };
 
 struct CommissionedPaymentScheme : PaymentScheme
@@ -64,7 +58,6 @@ struct CommissionedPaymentScheme : PaymentScheme
 
     [[nodiscard]] double calculate_pay() const override;
     [[nodiscard]] int report_hours() const override;
-    void save_fields(const std::shared_ptr<AugurDb>& database) override;
 };
 
 } // namespace employee_completed_simplified
