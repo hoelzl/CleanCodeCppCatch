@@ -1,0 +1,143 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{AnnArbor}
+\setbeamercovered{transparent}
+% \usecolortheme{seahorse}
+\setbeamercolor{frametitle}{fg=blue,bg=white}
+
+\definecolor{darkgreen}{rgb}{0,0.4,0}
+\definecolor{limegreen}{rgb}{0.196 ,0.809  ,0.196}
+\definecolor{magenta}{rgb}{0.99,0,0.99}
+\definecolor{maroon}{rgb}{0.687, 0.187, 0.375}
+\definecolor{violet}{rgb}{0.539, 0.167, 0.882}
+\definecolor{slateblue1}{rgb}{0.513, 0.435, 1}
+\definecolor{steelblue1}{rgb}{0.388, 0.721, 1}
+\definecolor{gry}{rgb}{0.745 , 0.745 , 0.745}
+\definecolor{darkorange}{rgb}{1 , 0.549 , 0}
+\definecolor{lavender}{rgb}{0.901, 0.901, 0.980}
+\definecolor{lavenderblush4}{rgb}{0.545, 0.513, 0.525}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+    
+\year=2022
+\month=01
+\day=18
+
+\author{Dr. Matthias Hölzl}
+
+\begin{document}
+\title[Stack]{%
+  Employee Workshop\\
+  (Simplified Version)}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Goal}
+  \Large Make a small program conform to the SOLID and GRASP guidelines,\\[1ex]
+  in particular to the SRP.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Notes}
+  \begin{itemize}
+    \item The code is in \verb|Workshops/EmployeeSimplified|, a possible
+      solution is in \verb|Completed/EmployeeSimplifiedCompleted|.
+    \item To simplify the code, most classes are defined as structs with
+      publicly accessible members. While you should obviously not do this in
+      production code, you can follow the same style during the refactorings to
+      reduce the amount of boilerplate code you need to write.
+    \item Add constructors to your structs, otherwise \verb|std::make_unique()|
+      might not work.
+    \item You don't have to keep interfaces stable when refactoring, except for
+      the interface to the \verb|AugurDB| database.
+    \item \textbf{There is no single `correct' solution.} You don't have to
+      follow the steps proposed in this outline; they are just there to help you
+      if you get stuck. Try to follow your own ideas about refactoring the code
+      and see how it turns out.
+    \item \textbf{Refactor in small steps. Try to keep your code buildable and
+      running as long as possible.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Step 1: Identify Reasons to Change}
+  \begin{itemize}
+    \item What reasons to change does the \verb|Employee| class have?
+    \item What strategies can you use to resolve them?
+    \item Try to refactor the code using the strategy you have identified. If
+      you are uncertain whether you're on the right track you can look at the
+      following steps to see a possible way forward.
+  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Step 2: Extract a \texttt{ReportPrinter} interface}
+
+  The probably easiest class to extract is one that takes care of printing
+  Employees. Extract a \texttt{ResourcePrinter} interface and a concrete
+  implementation that prints the data to an output stream.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Step 3: Extract a \texttt{PaymentScheme} interface}
+
+  Since payment and work hours are closely related, it might be useful to
+  extract them together. Define a \texttt{PaymentScheme} interface that provides
+  the necessary member functions to deal with these aspects. 
+  
+  Implement subclasses for the various kinds of employees that store the
+  required data; this allows you to remove a lot of the data from the
+  \texttt{Employee} class and clean up the usage of variables for multiple
+  unrelated uses.
+
+  To save to the database you will probably need to provide functionaliyt in
+  \texttt{PaymentScheme} that supports this. This is not strictly conforming to
+  the clean code rules, but it is a good compromise to implement a `quick and
+  dirty' solution for this right now, since you need to address saving to the
+  database anyway, and any proper solution you implement right now would have to
+  be changed anyway.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Step 4: Extract an \texttt{EmployeeDao} interface}
+
+  \begin{itemize}
+    \item Extract an interface that can be used to save employees to a database.
+    \item Implement the interface for the Augur database.
+    \item \textit{Note:} In a realistic scenario you would probably create a
+      factory  that creates the correct DAO based on the database you provide.
+      To simplify the example, you can simply hard-code the creation of an
+      \texttt{AugurDbEmpleyeeDao} whenever you need a DAO.
+    \item There is no completely clean way to implement saving the
+    \texttt{PaymentScheme} subclasses to the database in C++. You either have to
+    add a member function to the \texttt{PaymentScheme} subclasses that provides
+    the data in a standardized format, or you have to use a case distinction
+    with \verb|dynamic_cast<>()| to identify the subclass of
+    \texttt{PaymentScheme} you are currently trying to save.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Step 5: Admire your clean \texttt{Employee} class}
+
+  Congratulations! You now have an \texttt{Employee} class where all reasons to
+  change are delegated to an interface that serves exactly that purpose!
+\end{frame}
+
+\end{document}
+
+
+% \input{body}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
