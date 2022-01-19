@@ -1,2 +1,0 @@
-The source code for the pdf file can be found in the folder
-`../../StackCompleted/doc`.
