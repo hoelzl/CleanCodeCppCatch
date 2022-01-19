@@ -1,5 +1,6 @@
-#ifndef OX_CORE_H
-#define OX_CORE_H
+// ReSharper disable CppClangTidyCppcoreguidelinesNonPrivateMemberVariablesInClasses
+#ifndef OX_CORE_HPP
+#define OX_CORE_HPP
 
 #include <memory>
 #include <string>
@@ -12,6 +13,13 @@ protected:
 
 public:
     explicit CharacterMatch(char proposed_char);
+
+    CharacterMatch(const CharacterMatch& other) = delete;
+    CharacterMatch(CharacterMatch&& other) noexcept = delete;
+    CharacterMatch& operator=(const CharacterMatch& other) = delete;
+    CharacterMatch& operator=(CharacterMatch&& other) noexcept = delete;
+    virtual ~CharacterMatch() = default;
+
     [[nodiscard]] virtual bool is_perfect_match() const = 0;
     [[nodiscard]] virtual bool is_partial_match() const = 0;
 };
@@ -59,4 +67,4 @@ private:
 };
 
 
-#endif // OX_CORE_H
+#endif // OX_CORE_HPP

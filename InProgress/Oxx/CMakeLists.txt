@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(Ox)
 
-set(OxSources "core.h" "core.cpp" "game.h" "game.cpp")
+set(OxSources "core.hpp" "core.cpp" "game.hpp" "game.cpp")
 
 add_executable(Ox "main.cpp" ${OxSources})
 

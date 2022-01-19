@@ -1,7 +1,7 @@
 //
 // Created by tc on 08/07/2020.
 //
-#include "core.h"
+#include "core.hpp"
 
 CharacterMatch::CharacterMatch(char proposed_char) : proposed_char(proposed_char) {}
 
