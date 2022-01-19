@@ -1,72 +1,66 @@
-//
-// Created by tc on 08/07/2020.
-//
 #include "core.hpp"
 
-CharacterMatch::CharacterMatch(char proposed_char) : proposed_char(proposed_char) {}
+#include <algorithm>
 
-PerfectMatch::PerfectMatch(char proposed_char) : CharacterMatch(proposed_char) {}
+namespace oxx::core {
 
-bool PerfectMatch::is_perfect_match() const { return true; }
+namespace rng = std::ranges;
 
-bool PerfectMatch::is_partial_match() const { return true; }
+bool is_partial_character_match(CharacterMatch match)
+{
+    return match != CharacterMatch::no_match;
+}
 
-PartialMatch::PartialMatch(char proposed_char) : CharacterMatch(proposed_char) {}
+bool is_perfect_character_match(CharacterMatch match)
+{
+    return match == CharacterMatch::perfect_match;
+}
 
-bool PartialMatch::is_perfect_match() const { return false; }
-
-bool PartialMatch::is_partial_match() const { return true; }
-
-FailedMatch::FailedMatch(char proposed_char) : CharacterMatch(proposed_char) {}
-
-bool FailedMatch::is_perfect_match() const { return false; }
-
-bool FailedMatch::is_partial_match() const { return false; }
-
-std::unique_ptr<CharacterMatch>
+CharacterMatch
 get_character_match(char guess, std::size_t index, const std::string& solution)
 {
     if (index < solution.size() && solution[index] == guess) {
-        return std::make_unique<PerfectMatch>(guess);
+        return CharacterMatch::perfect_match;
     }
     if (solution.find(guess) != std::string::npos) {
-        return std::make_unique<PartialMatch>(guess);
+        return CharacterMatch::partial_match;
     }
-    return std::make_unique<FailedMatch>(guess);
+    return CharacterMatch::no_match;
 }
 
 Match::Match(const std::string& word_to_guess, const std::string& proposed_solution)
     : word_to_guess(word_to_guess), proposed_solution(proposed_solution)
 {
-    for (int i{0}; i < word_to_guess.size(); ++i) {
+    for (auto i{0}; i < std::ssize(word_to_guess); ++i) {
         character_matches.push_back(
-            get_character_match(word_to_guess[i], i, proposed_solution));
+            get_character_match(proposed_solution[i], i, word_to_guess));
     }
 }
 
 bool Match::is_perfect_match() const
 {
-    for (auto& char_match : character_matches) {
-        if (!char_match->is_perfect_match()) {
-            return false;
-        }
+    return rng::all_of(character_matches, [](auto match) {
+        return is_perfect_character_match(match);
+    });
+}
+
+char describe_character_match(CharacterMatch char_match)
+{
+    if (is_perfect_character_match(char_match)) {
+        return '+';
     }
-    return true;
+    if (is_partial_character_match(char_match)) {
+        return '-';
+    }
+    return '.';
 }
 
 std::string Match::describe() const
 {
     std::string result{};
-    for (auto& char_match : character_matches) {
-        if (char_match->is_perfect_match()) {
-            result += "+";
-        }
-        else if (char_match->is_partial_match()) {
-            result += "-";
-        }
-        else {
-            result += ".";
-        }
+    for (const auto char_match : character_matches) {
+        result += describe_character_match(char_match);
     }
     return result;
 }
+} // namespace oxx::core
