@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/External/Catch2/CMakeLists.txt
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/CMakeDependentOption.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/GNUInstallDirs.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake

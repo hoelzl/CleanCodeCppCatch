@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7591180D-9687-3AB9-A628-98E746C3D0F7}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCXXCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeRCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompilerABI.c;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCompilerIdDetection.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompileFeatures.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerABI.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerId.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeFindBinUtils.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseLibraryArchitecture.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystem.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCompilerCommon.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CompilerId\VS-10.vcxproj.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Internal\FeatureTesting.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-Determine-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCXXCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeRCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompilerABI.c;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCompilerIdDetection.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompileFeatures.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerABI.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerId.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeFindBinUtils.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseLibraryArchitecture.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystem.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCompilerCommon.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CompilerId\VS-10.vcxproj.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Internal\FeatureTesting.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-Determine-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCXXCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeRCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompilerABI.c;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCompilerIdDetection.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompileFeatures.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerABI.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerId.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeFindBinUtils.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseLibraryArchitecture.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystem.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCompilerCommon.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CompilerId\VS-10.vcxproj.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Internal\FeatureTesting.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-Determine-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeCXXCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeRCCompiler.cmake;C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\3.23.0\CMakeSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCCompilerABI.c;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeCompilerIdDetection.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompileFeatures.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerABI.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineCompilerId.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeDetermineSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeFindBinUtils.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeParseLibraryArchitecture.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCCompiler.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystem.cmake.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCXXCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestCompilerCommon.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CMakeTestRCCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\CompilerId\VS-10.vcxproj.in;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Internal\FeatureTesting.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-Determine-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\ZERO_CHECK.vcxproj">
+      <Project>{FE386556-03B5-341C-9041-DA256C343C83}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\External\Catch2\src\Catch2.vcxproj">
+      <Project>{D3C848BE-7A23-3F0B-9E9B-EA7B53EF85A5}</Project>
+      <Name>Catch2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\External\Catch2\src\Catch2WithMain.vcxproj">
+      <Project>{5D7F0FE5-B64C-3096-B6D0-4850F5FD1021}</Project>
+      <Name>Catch2WithMain</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\CleanCode\CleanCode.vcxproj">
+      <Project>{7A4438F9-2324-3786-A88F-1AA2BEC6B87C}</Project>
+      <Name>CleanCode</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\ClockTimer\ClockTimerTest.vcxproj">
+      <Project>{CBA89029-85C1-3314-A751-E2D2BA7C697C}</Project>
+      <Name>ClockTimerTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\MemoryAndPolymorphism\CopyMove.vcxproj">
+      <Project>{CF4B24ED-E795-3F07-B328-E4DEFDFD3874}</Project>
+      <Name>CopyMove</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\DvdShop.vcxproj">
+      <Project>{135B7108-F1A4-31DE-B352-A60EB50521F2}</Project>
+      <Name>DvdShop</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\DvdShopCompleted\DvdShopCompleted.vcxproj">
+      <Project>{855C63AD-4785-3206-952A-C309F4E9FA9E}</Project>
+      <Name>DvdShopCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\DvdShopCompleted\DvdShopCompletedTest.vcxproj">
+      <Project>{C70777D4-C44E-3E2D-9714-D0ABF4C416F2}</Project>
+      <Name>DvdShopCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\DvdShopTest.vcxproj">
+      <Project>{916DE07C-728E-3FFB-A309-D986BE753F00}</Project>
+      <Name>DvdShopTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\EmployeeCompleted\EmployeeCompletedTest.vcxproj">
+      <Project>{98108B6E-CD4E-3292-98B3-2726A66FDC3A}</Project>
+      <Name>EmployeeCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\EmployeeSimplifiedCompleted\EmployeeSimplifiedCompletedTest.vcxproj">
+      <Project>{E1D801A2-7BE7-36FB-B28E-D136EAF693C9}</Project>
+      <Name>EmployeeSimplifiedCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\EmployeeSimplified\EmployeeSimplifiedTest.vcxproj">
+      <Project>{C276A398-CC94-3353-BE39-8818EA06BCC7}</Project>
+      <Name>EmployeeSimplifiedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\Employee\EmployeeTest.vcxproj">
+      <Project>{603FB157-4DD1-39C4-8EB2-63DE66A682B6}</Project>
+      <Name>EmployeeTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\FizzBuzz\FizzBuzz.vcxproj">
+      <Project>{5D8FD5D8-2668-3E89-AA4C-99A6FB7FEF50}</Project>
+      <Name>FizzBuzz</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\FizzBuzzCompleted\FizzBuzzCompleted.vcxproj">
+      <Project>{0C46694C-ADB1-30FF-8E18-49C1F1E7B5AA}</Project>
+      <Name>FizzBuzzCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\FizzBuzzCompleted\FizzBuzzCompletedTest.vcxproj">
+      <Project>{90EF06D2-309D-3495-82BD-3A22F7314944}</Project>
+      <Name>FizzBuzzCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\FizzBuzz\FizzBuzzTest.vcxproj">
+      <Project>{2A935985-91C5-3F71-A4DD-DA79E5AFA7FA}</Project>
+      <Name>FizzBuzzTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\Iterators\Iterators.vcxproj">
+      <Project>{FC20F0AC-A1B6-336B-BA5E-B79C1AAF7EDB}</Project>
+      <Name>Iterators</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\LeapYearCompleted\LeapYearCompletedTest.vcxproj">
+      <Project>{F0DCBAAD-DDEC-36C7-8789-456126A9F70A}</Project>
+      <Name>LeapYearCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\LeapYear\LeapYearTest.vcxproj">
+      <Project>{3114922B-3A11-3848-834C-BD0F033DF562}</Project>
+      <Name>LeapYearTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\LoadBalancer\LoadBalancer.vcxproj">
+      <Project>{E32557EE-9DAE-39A4-B796-9E0B01785BF8}</Project>
+      <Name>LoadBalancer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\LoadBalancerCompleted\LoadBalancerCompleted.vcxproj">
+      <Project>{E77BD274-12B5-3632-A132-58051CDED377}</Project>
+      <Name>LoadBalancerCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\MemoryAndPolymorphism\Memory.vcxproj">
+      <Project>{B9644C69-749C-353C-A7EB-B684F749CF66}</Project>
+      <Name>Memory</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\OneShotsCompleted\OneShotsCompletedTest.vcxproj">
+      <Project>{6B8ADC0C-1EEA-3B20-A36D-A4A067442837}</Project>
+      <Name>OneShotsCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\OneShots\OneShotsTest.vcxproj">
+      <Project>{4C7A7397-6C4A-36A4-BEDC-0F3379791B7F}</Project>
+      <Name>OneShotsTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\InProgress\Oxx\Oxx.vcxproj">
+      <Project>{04E49514-43A4-3E90-B605-F8BC65047EAD}</Project>
+      <Name>Oxx</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\InProgress\Oxx\OxxTest.vcxproj">
+      <Project>{E00F2478-FAA6-3B5F-9C20-93FEE935B965}</Project>
+      <Name>OxxTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\Point\Point.vcxproj">
+      <Project>{97AC235A-2197-355D-A174-3F6FB9DDD525}</Project>
+      <Name>Point</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\PointCompleted\PointCompleted.vcxproj">
+      <Project>{46BAD560-226B-3239-BF5C-134B36BB5925}</Project>
+      <Name>PointCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\PointCompleted\PointCompletedTest.vcxproj">
+      <Project>{886E9EBB-E0A2-3719-BBB1-FCB8F53843B8}</Project>
+      <Name>PointCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\Point\PointTest.vcxproj">
+      <Project>{F092F87F-5BC8-3B0B-9993-5B21126D5F66}</Project>
+      <Name>PointTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\MemoryAndPolymorphism\Polymorphism.vcxproj">
+      <Project>{0B63E4C5-88AD-33CD-AD99-7687A1E44899}</Project>
+      <Name>Polymorphism</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\PrimeFactors\PrimeFactors.vcxproj">
+      <Project>{FAF5C614-E2F7-3823-AD55-DB102A344070}</Project>
+      <Name>PrimeFactors</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\PrimeFactorsCompleted\PrimeFactorsCompleted.vcxproj">
+      <Project>{D4E6F41F-035E-3286-90A8-C5830573CD38}</Project>
+      <Name>PrimeFactorsCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\PrimeFactorsCompleted\PrimeFactorsCompletedTest.vcxproj">
+      <Project>{DD0B09BB-8B88-37D5-9FAB-8AFD53D321BE}</Project>
+      <Name>PrimeFactorsCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\PrimeFactors\PrimeFactorsTest.vcxproj">
+      <Project>{C5C4B4D1-3541-32AF-BB77-D2A753039F6A}</Project>
+      <Name>PrimeFactorsTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\SalariesCompleted\SalariesCompleted.vcxproj">
+      <Project>{83D28D4D-C661-338A-8926-019B9E4CE5FF}</Project>
+      <Name>SalariesCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\SalariesOriginal\SalariesOriginal.vcxproj">
+      <Project>{7756EB63-2CF1-3501-A6EF-2C82FA30060A}</Project>
+      <Name>SalariesOriginal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\SalariesWorkshop\SalariesWorkshop.vcxproj">
+      <Project>{60121349-1D1D-35B2-818E-12E31DB10099}</Project>
+      <Name>SalariesWorkshop</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\Shape\Shape.vcxproj">
+      <Project>{01FA3543-F8BB-3D35-BC82-F234A76AE218}</Project>
+      <Name>Shape</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Examples\MemoryAndPolymorphism\Simple.vcxproj">
+      <Project>{511142C5-2C9D-3184-BD23-FE85133505D5}</Project>
+      <Name>Simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\Stack\Stack.vcxproj">
+      <Project>{BEA02C01-1D3C-3841-857A-4A4A47104D5F}</Project>
+      <Name>Stack</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\StackCompleted\StackCompleted.vcxproj">
+      <Project>{A4C76D96-BEE9-3083-85AB-4B059FB0888B}</Project>
+      <Name>StackCompleted</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Completed\StackCompleted\StackCompletedTest.vcxproj">
+      <Project>{DF8CBDFA-9457-3267-8A51-B25EFB4BD2F8}</Project>
+      <Name>StackCompletedTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\Stack\StackTest.vcxproj">
+      <Project>{C6168731-E105-39D2-A73E-86312714B6A2}</Project>
+      <Name>StackTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

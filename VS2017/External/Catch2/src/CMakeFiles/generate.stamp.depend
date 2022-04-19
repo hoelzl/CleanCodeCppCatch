@@ -1,0 +1,9 @@
+# CMake generation dependency list for this directory.
+C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/External/Catch2/CMake/MiscFunctions.cmake
+C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/External/Catch2/src/CMakeLists.txt
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/CheckCXXSourceCompiles.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/Internal/CheckCompilerFlag.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/Internal/CheckFlagCommonConfig.cmake
+C:/Users/tc/Programming/Python/Anaconda3/envs/cam/Library/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake

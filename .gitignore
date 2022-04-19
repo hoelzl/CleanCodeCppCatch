@@ -4,3 +4,4 @@
 **/out
 **/cmake-build-debug/*
 **/build
+**/__pycache__
