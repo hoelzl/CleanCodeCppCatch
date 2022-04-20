@@ -5,6 +5,7 @@
 **/cmake-build-debug/*
 **/build
 **/__pycache__
+VS2017/**
 VS2017/CMakeFiles/*
 VS2017/Win32/
 VS2017/Win64/
