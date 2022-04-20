@@ -3,7 +3,7 @@
 #include <array>
 #include <iostream>
 #include <memory>
-#include <span>
+#include <gsl/span>
 #include <typeinfo>
 #include <vector>
 
@@ -143,7 +143,7 @@ inline void print_contents_of_mixed_std_array_of_pointer()
     print_std_array_of_pointer("mixed", arr);
 }
 
-inline void print_span_of_pointer(const char* prefix, const std::span<MyBasePtr>& span)
+inline void print_span_of_pointer(const char* prefix, const gsl::span<MyBasePtr>& span)
 {
     std::cout << "Span<MyBasePtr> (" << prefix << "): " << typeid(span).name()
               << std::endl;
@@ -171,10 +171,10 @@ inline void print_contents_of_mixed_span()
         vec.emplace_back(std::move(ptr));
     }
 
-    print_span_of_pointer("mixed", std::span<MyBasePtr>{arr1});
-    print_span_of_pointer("arr2", std::span<MyBasePtr>{arr2});
-    print_span_of_pointer("vec", std::span<MyBasePtr>{vec.data(), vec.size()});
-    print_span_of_pointer("arr2", std::span<MyBasePtr>{arr2});
+    print_span_of_pointer("mixed", gsl::span<MyBasePtr>{arr1});
+    print_span_of_pointer("arr2", gsl::span<MyBasePtr>{arr2});
+    print_span_of_pointer("vec", gsl::span<MyBasePtr>{vec.data(), vec.size()});
+    print_span_of_pointer("arr2", gsl::span<MyBasePtr>{arr2});
 }
 
 

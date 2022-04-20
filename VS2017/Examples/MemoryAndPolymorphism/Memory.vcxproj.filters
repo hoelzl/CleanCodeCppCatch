@@ -20,6 +20,9 @@
     <CustomBuild Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\Examples\MemoryAndPolymorphism\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Natvis Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\External\GSL\GSL.natvis" />
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{CDD3466C-2239-3729-8325-CC2764062AF6}</UniqueIdentifier>
     </Filter>

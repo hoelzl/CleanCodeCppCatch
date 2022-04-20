@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ResolveNugetPackages>false</ResolveNugetPackages>
-  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -23,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7591180D-9687-3AB9-A628-98E746C3D0F7}</ProjectGuid>
-    <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -105,69 +102,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\Workshops\DvdShop\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/Workshops/DvdShop/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/Workshops/DvdShop/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/Workshops/DvdShop/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/Workshops/DvdShop/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/Workshops/DvdShop/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/Workshops/DvdShop/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/Workshops/DvdShop/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-C:\Users\tc\Programming\Python\Anaconda3\envs\cam\Library\bin\cmake.exe -SC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch -BC:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017 --check-stamp-file C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/VS2017/Workshops/DvdShop/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\ZERO_CHECK.vcxproj">
       <Project>{FE386556-03B5-341C-9041-DA256C343C83}</Project>
       <Name>ZERO_CHECK</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
     <ProjectReference Include="C:\Users\tc\Programming\Cpp\Courses\CleanCodeCppCatch\VS2017\Workshops\DvdShop\DvdShop.vcxproj">
       <Project>{135B7108-F1A4-31DE-B352-A60EB50521F2}</Project>

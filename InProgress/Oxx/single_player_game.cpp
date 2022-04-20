@@ -32,7 +32,8 @@ std::vector<Match> SinglePlayerGame::get_matches() const { return matches; }
 
 int SinglePlayerGame::expected_size() const
 {
-    return static_cast<int>(std::ssize(word_to_guess));
+    // return static_cast<int>(std::ssize(word_to_guess));
+    return static_cast<int>(std::size(word_to_guess));
 }
 
 std::string SinglePlayerGame::get_guess_from_player() const

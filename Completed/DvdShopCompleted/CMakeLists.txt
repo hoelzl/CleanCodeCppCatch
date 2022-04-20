@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.12)
 project(DvdShopCompleted)
 
 set(DVD_SHOP_SOURCES Movie.cpp Movie.h Rental.cpp Rental.h
