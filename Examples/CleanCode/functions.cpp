@@ -54,15 +54,20 @@ void print_text(const std::string& text, bool should_print_header = false)
     if (should_print_header) {
         std::cout << "Header\n";
     }
-    std::cout << text << '\n';
+    // The call to .c_str() is necessary to work around a missing operator<<() in
+    // VS2017.
+    std::cout << text.c_str() << '\n';
 }
 
-void print_text_without_header(const std::string& text) { std::cout << text << '\n'; }
+void print_text_without_header(const std::string& text)
+{
+    std::cout << text.c_str() << '\n';
+}
 
 void print_text_with_header(const std::string& text)
 {
     std::cout << "Header\n";
-    std::cout << text << '\n';
+    std::cout << text.c_str() << '\n';
 }
 
 enum class TextDecoration
@@ -77,7 +82,7 @@ void print_text_using_enum(
     if (decoration == TextDecoration::header) {
         std::cout << "Header\n";
     }
-    std::cout << text << '\n';
+    std::cout << text.c_str() << '\n';
 }
 
 enum class TextDecoration2
@@ -96,7 +101,7 @@ void print_text_using_enum2(
         std::cout << "Header\n";
     }
 
-    std::cout << text << '\n';
+    std::cout << text.c_str() << '\n';
 
     if (decoration == TextDecoration2::footer_only
         || decoration == TextDecoration2::header_and_footer) {
@@ -117,7 +122,7 @@ void print_text_using_struct(const std::string& text, PrinterConfig config = {})
         std::cout << "Header\n";
     }
 
-    std::cout << text << '\n';
+    std::cout << text.c_str() << '\n';
 
     if (config.include_footer) {
         std::cout << "Footer\n";
@@ -128,12 +133,20 @@ void test_print_text_using_struct()
 {
     print_text_using_struct("Foo!");
     std::cout << '\n';
+#if (__cplusplus >= 202002L)
     print_text_using_struct("Foo!", {.include_header = true});
     std::cout << '\n';
     print_text_using_struct("Foo!", {.include_footer = true});
     std::cout << '\n';
     print_text_using_struct(
         "Foo!", {.include_header = true, .include_footer = true, .indent = 2});
+#else
+    print_text_using_struct("Foo!", {true});
+    std::cout << '\n';
+    print_text_using_struct("Foo!", {false, true});
+    std::cout << '\n';
+    print_text_using_struct("Foo!", {true, true, 2});
+#endif
 }
 
 
