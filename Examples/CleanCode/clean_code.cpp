@@ -1,42 +1,27 @@
+// Copyright (c) 2022 Dr. Matthias Hölzl.
+
 // ReSharper disable CppClangTidyBugproneExceptionEscape
 #include <iostream>
-#include <string>
 
-#include "complex_function.h"
-#include "complex_function_refactored.h"
+#include "complex_function.hpp"
+#include "complex_function_refactored.hpp"
+#include "functions.hpp"
+#include "classes.hpp"
 
-
-void format_text_example()
+int main()
 {
-    std::string formatted_text{format_text(
-        "This is the text to format\n", "<<< A header >>>\n", "<<< A footer >>>\n",
-        10)};
-    std::cout << "Original output:" << std::endl;
-    std::cout << formatted_text << std::endl;
+    test_print_text_using_struct();
+    std::cout << '\n';
 
-    FormatText format_text_object{
-        "This is the text to format with the object\n", "<<< A header >>>\n",
-        "<<< A footer >>>\n", 10};
-    formatted_text = format_text_object.compute();
+    test_refactoring_into_classes();
+    std::cout << '\n';
 
-    std::cout << "Output of compute():" << std::endl;
-    std::cout << formatted_text << std::endl;
+    format_text_with_original_function();
+    format_text_after_refactoring();
 
-    //// Careful!
-    //// This does not produce the expected result!
-    formatted_text = format_text_object.compute();
+    format_text_with_refactored_function_inline();
 
-    std::cout << "Output of second call to compute():" << std::endl;
-    std::cout << formatted_text << std::endl;
-
-    formatted_text
-        = FormatText{"This is the text to format\n", "<<< A header >>>\n", "<<< A footer >>>\n", 10}
-              .compute();
-
-    std::cout << "Output of inline construction:" << std::endl;
-    std::cout << formatted_text << std::endl;
-
-    std::cout << "The end.";
+    test_employee_with_switch();
+    std::cout << '\n';
+    test_employee();
 }
-
-int main() { format_text_example(); }

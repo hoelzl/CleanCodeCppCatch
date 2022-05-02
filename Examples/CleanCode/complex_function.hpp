@@ -6,3 +6,9 @@ std::string format_text(
     std::size_t num_separator_chars);
 
 // Use refactoring into a class to disentangle this function!
+
+extern const std::string test_text;
+extern const std::string test_header;
+extern const std::string test_footer;
+
+void format_text_with_original_function();
