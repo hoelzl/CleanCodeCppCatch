@@ -1,8 +1,12 @@
+// Copyright (c) 2022 Dr. Matthias Hölzl.
+
 // ReSharper disable IdentifierTypo
 // ReSharper disable CppInconsistentNaming
 // ReSharper disable CppMemberFunctionMayBeStatic
 // ReSharper disable CppClangTidyModernizeUseNodiscard
 // ReSharper disable CppClangTidyClangDiagnosticUnusedPrivateField
+
+// ReSharper disable All
 #include <iostream>
 #include <string>
 #include <vector>
@@ -48,9 +52,6 @@ constexpr int INCLUDE_START_DATE = 1;
 constexpr int INCLUDE_END_DATE = 2;
 constexpr int INCLUDE_BOTH_DATES = 3;
 
-// Compute the yearly salary
-// double salary{add_array_elements(monthly_salaries)};
-
 // Disinformation: name doesn't mean what is says
 struct Pair
 {
@@ -59,6 +60,7 @@ struct Pair
     int third{};
 };
 
+// Renamed:
 struct Triple
 {
     int first{};
@@ -66,12 +68,13 @@ struct Triple
     int third{};
 };
 
-// Disinformation: names differ only slightly
+// Disinformation(?): names differ only slightly
 constexpr int MY_CONTROLLER_FOR_EFFICIENT_HANDLING_OF_STRINGS = 1;
 constexpr int MY_CONTROLLER_FOR_EFFICIENT_STORING_OF_STRINGS = 2;
 
 // Hungarian notation
 const int* pi_target;
+// Better:
 const int* target;
 
 // Prefixes
@@ -88,10 +91,7 @@ class ActorImpl : public Actor2
 class AbstractActor
 {};
 class Actor3 : public AbstractActor
-{
-    int foo();
-    int foo_;
-};
+{};
 
 // Wrong parts of speech
 class GoToTheServer
@@ -117,6 +117,8 @@ class ObjCtrlr;
 // Not intention revealing
 class SerialDate
 {
+public:
+    virtual ~SerialDate() = default;
     virtual int to_serial() = 0;
     // ...
 };
@@ -131,168 +133,38 @@ class UnixDate : public SerialDate
     }
 };
 
-class CalenderDate;
-class SerializableDate;
+// Probably Better:
+class CalenderDate
+{
+public:
+    virtual ~CalenderDate() = default;
+    virtual int to_timestamp() = 0;
+};
 
 
 // Wrong part of speech: this is supposed to be a file, not a function that wraps a file
 // handle
 class WrapFileHandle
 {
+public:
     // Wrong part of speech, could be expressed in code
     // Does not change the state of the file.
     bool open() { return true; }
+
+private:
+    // Problematic: is handle a verb or a noun?
+    int handle{};
 };
 
 class File
 {
-    bool is_open() const { return true; }
-};
-
-
-// Functions
-
-// Not intention revealing, could be expressed in code
-void copy(char a1[], char a2[])
-{
-    while ((*(a2++) = *(a1++))) {}
-}
-
-void copy_2(char from[], char to[])
-{
-    while ((*(to++) = *(from++))) {}
-}
-
-void copy_3(const char from[], char to[])
-{
-    while ((*(to++) = *(from++))) {}
-}
-
-// Refactoring into classes
-int my_fun(int a, int b)
-{
-    // Do something complex
-    int c{a + b};
-    // Work some more
-    int d{0};
-    // Do something else
-    return 0;
-}
-
-class MyFun
-{
-    int a;
-    int b;
-    int c{a + b};
-    int d{0};
-
 public:
-    MyFun(int a, int b) : a{a}, b{b} {}
+    bool is_open() const { return true; }
 
-    void do_something_complex() {}
-    void work_some_more() {}
-    void do_something_else() {}
-
-    int compute()
-    {
-        do_something_complex();
-        work_some_more();
-        do_something_else();
-        return 0;
-    }
+private:
+    // Probably better, makes it clear that handle is a noun.
+    int file_handle{};
 };
-
-void f()
-{
-    int i{my_fun(1, 2)};
-
-    MyFun my_new_fun{1, 2};
-    int j{my_new_fun.compute()};
-}
-
-// Long argument lists
-void my_long_arglist_function(int a, int b, int c) {}
-void my_long_arglist_function_2(float x, int a, int b, int c) {}
-
-struct GridPosition
-{
-    int a;
-    int b;
-    int c;
-};
-
-void my_long_arglist_function(GridPosition g) {}
-void my_long_arglist_function_2(float x, GridPosition g) {}
-
-// Boolean parameters
-int print_text(std::string text, bool should_print_header = false)
-{
-    if (should_print_header) {
-        std::cout << "Header" << std::endl;
-    }
-    std::cout << text << std::endl;
-    return 0;
-}
-
-enum class TextDecoration
-{
-    no_decoration,
-    header_only,
-    footer_only,
-    header_and_footer,
-};
-
-struct PrinterConfig
-{
-    bool include_header{false};
-    bool include_footer{false};
-    int indent{4};
-};
-
-int print_text(
-    std::string text, TextDecoration decoration = TextDecoration::no_decoration);
-
-
-int print_text_without_header(std::string text)
-{
-    std::cout << text << std::endl;
-    return 0;
-}
-
-int print_text_with_header(std::string text)
-{
-    std::cout << "Header" << std::endl;
-    std::cout << text << std::endl;
-
-    return 0;
-}
-
-
-struct Employee  // NOLINT(cppcoreguidelines-special-member-functions)
-{
-    virtual ~Employee() = default;
-    virtual int calculate_pay(const std::string& name) = 0;
-};
-
-struct CommissionedEmployee : public Employee
-{
-    int calculate_pay(const std::string& name) override { return 4500; }
-};
-
-struct HourlyEmployee : public Employee
-{
-    int calculate_pay(const std::string& name) override { return 1500; }
-};
-
-Employee* makeEmployee(int id)
-{
-    if (id < 100) {
-        return new CommissionedEmployee();
-    }
-    else {
-        return new HourlyEmployee();
-    }
-}
 
 
 // BadNames1 improved...

@@ -1,4 +1,12 @@
-#include <string>
+// Copyright (c) 2022 Dr. Matthias Hölzl.
+
+#include "complex_function.hpp"
+
+#include <iostream>
+
+const std::string test_text{"This is the test_text to format\n"};
+const std::string test_header{"<<< A test_header >>>\n"};
+const std::string test_footer{"<<< A test_footer >>>\n"};
 
 std::string format_text(
     const std::string& text, const std::string& header, const std::string& footer,
@@ -16,4 +24,11 @@ std::string format_text(
     result += footer;
 
     return result;
+}
+
+void format_text_with_original_function()
+{
+    std::cout << "Original output:" << '\n';
+    std::cout << std::string{format_text(test_text, test_header, test_footer, 10)}
+              << '\n';
 }
