@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.12/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
-C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.12/Modules/CheckCXXCompilerFlag.cmake
-C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.12/Modules/CheckCXXSourceCompiles.cmake
-C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/External/Catch2/CMake/MiscFunctions.cmake
-C:/Users/tc/Programming/Cpp/Courses/CleanCodeCppCatch/External/Catch2/src/CMakeLists.txt
