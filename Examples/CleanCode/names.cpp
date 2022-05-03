@@ -6,7 +6,6 @@
 // ReSharper disable CppClangTidyModernizeUseNodiscard
 // ReSharper disable CppClangTidyClangDiagnosticUnusedPrivateField
 
-// ReSharper disable All
 #include <iostream>
 #include <string>
 #include <vector>
@@ -180,14 +179,14 @@ class MineSweeper
         Status status{Status::Flagged};
         int bomb_count{0};
     };
-    using board_type = std::vector<Cell>;
-    using flagged_cells_type = std::vector<Cell>;
+    using Board = std::vector<Cell>;
+    using FlaggedCells = std::vector<Cell>;
 
-    board_type game_board;
+    Board game_board;
 
-    flagged_cells_type get_flagged_cells()
+    FlaggedCells get_flagged_cells()
     {
-        flagged_cells_type flagged_cells{};
+        FlaggedCells flagged_cells{};
         for (Cell cell : game_board) {
             if (cell.status == Status::Flagged) {
                 flagged_cells.push_back(cell);

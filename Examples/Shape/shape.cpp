@@ -4,7 +4,7 @@
 
 #include "point.h"
 
-std::ostream& operator<<(std::ostream& os, const AbstractShape& shape)
+std::ostream& operator<<(std::ostream& os, const Shape& shape)
 {
     return shape.write_to_stream(os);
 }
