@@ -1,32 +1,31 @@
 // ReSharper disable CppClangTidyCppcoreguidelinesNonPrivateMemberVariablesInClasses
 #pragma once
 
-#include <array>
 #include <iostream>
 
 #include "point.h"
 
-class AbstractShape
+class Shape
 {
 public:
-    AbstractShape() = default;
-    AbstractShape(const AbstractShape& other) = delete;
-    AbstractShape(AbstractShape&& other) noexcept = delete;
-    AbstractShape& operator=(const AbstractShape& other) = delete;
-    AbstractShape& operator=(AbstractShape&& other) noexcept = delete;
-    virtual ~AbstractShape() = default;
+    Shape() = default;
+    Shape(const Shape& other) = delete;
+    Shape(Shape&& other) noexcept = delete;
+    Shape& operator=(const Shape& other) = delete;
+    Shape& operator=(Shape&& other) noexcept = delete;
+    virtual ~Shape() = default;
 
     [[nodiscard]] virtual double compute_area() const = 0;
     virtual void move(double x, double y) = 0;
 
 protected:
-    friend std::ostream& operator<<(std::ostream& os, const AbstractShape& shape);
+    friend std::ostream& operator<<(std::ostream& os, const Shape& shape);
     virtual std::ostream& write_to_stream(std::ostream& s) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const AbstractShape& shape);
+std::ostream& operator<<(std::ostream& os, const Shape& shape);
 
-class Square : public AbstractShape
+class Square : public Shape
 {
     Point bottom_left_corner{};
     double side{1.0};
@@ -41,7 +40,7 @@ protected:
     std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
-class Rectangle : public AbstractShape
+class Rectangle : public Shape
 {
     Point bottom_left_corner{};
     double width{1.0};
@@ -57,7 +56,7 @@ protected:
     std::ostream& write_to_stream(std::ostream& s) const override;
 };
 
-class Circle : public AbstractShape
+class Circle : public Shape
 {
     Point center{};
     double radius{1.0};

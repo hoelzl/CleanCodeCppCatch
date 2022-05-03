@@ -6,6 +6,7 @@
 #include "complex_function.hpp"
 #include "complex_function_refactored.hpp"
 #include "functions.hpp"
+#include "names.hpp"
 #include "classes.hpp"
 
 int main()

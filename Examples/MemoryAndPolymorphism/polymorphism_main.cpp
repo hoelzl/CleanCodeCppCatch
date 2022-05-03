@@ -3,7 +3,7 @@
 #pragma clang diagnostic ignored "-Wdelete-abstract-non-virtual-dtor"
 #endif
 
-#define OMIT_VIRTUAL_DESTRUCTOR 1
+#define OMIT_VIRTUAL_DESTRUCTOR 0
 #define SHOW_ANIMAL_INSTANCE_LIFE_CYCLE 1
 
 #include <iostream>
@@ -11,8 +11,17 @@
 #include <string>
 
 #include "animal.h"
+#include "animal_with_switch.h"
 #include "cat.h"
 #include "dog.h"
+
+void describe_animal(AnimalWithSwitch animal)
+{
+    std::cout << "Describing an animal.\n";
+    std::cout << animal.describe() << std::endl;
+    std::cout << animal.make_sound() << std::endl;
+    std::cout << animal.provide_detailed_description() << std::endl;
+}
 
 void describe_animal(const Animal* animal)
 {
@@ -24,6 +33,17 @@ void describe_animal(const Animal* animal)
 
 int main()
 {
+    std::cout << "AnimalWithSwitch animal_with_switch{Dog}====================="
+              << std::endl;
+    AnimalWithSwitch animal_with_switch{AnimalType::Dog};
+    describe_animal(animal_with_switch);
+
+    std::cout << "animal_with_switch = AnimalWithSwitch{AnimalType::Cat}======="
+              << std::endl;
+    animal_with_switch = AnimalWithSwitch{AnimalType::Cat};
+    describe_animal(animal_with_switch);
+
+
     std::cout << "Dog fluffy{} ================================================"
               << std::endl;
     const Dog fluffy{};
@@ -52,7 +72,7 @@ int main()
 
     std::cout << "std::unique_ptr<Animal> smart_animal{std::make_unique<Dog>()}"
               << std::endl;
-    std::unique_ptr<Animal> smart_animal{std::make_unique<Dog>()};
+    std::unique_ptr<const Animal> smart_animal{std::make_unique<Dog>()};
     describe_animal(smart_animal.get());
 
     std::cout << "smart_animal = std::make_unique<Cat>() ======================"
