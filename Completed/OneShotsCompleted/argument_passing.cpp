@@ -11,11 +11,10 @@ int fun1(const int my_int, const int your_int) { return 2 * my_int + 3 * your_in
 
 TEST_CASE("fun1()")
 {
-    const int i{1};
-    const int j{2};
-    CHECK(fun1(1, 2) == 8);
-    CHECK(fun1(i, j) == 8);
+    constexpr int i{2};
+    CHECK(fun1(1, i) == 8);
 }
+
 
 int fun2(const std::array<int, 1024>& values)
 {
@@ -33,22 +32,6 @@ struct SomeStruct
 {
     int x;
     int y;
-};
-
-class AnotherStruct
-{
-    SomeStruct& get_s()
-    {
-        return s;
-    }
-
-    [[nodiscard]] const SomeStruct& get_s() const 
-    {
-        return s;
-    }
-
-private:
-    SomeStruct s{0, 0};
 };
 
 void fun3(SomeStruct& s)

@@ -46,6 +46,11 @@ struct HourlyEmployee : public Employee
     [[nodiscard]] int compute_salary() const override { return 1500; }
 };
 
+struct SalariedEmployee : public Employee
+{
+    [[nodiscard]] int compute_salary() const override { return 2500; }
+};
+
 std::unique_ptr<Employee> make_employee(EmployeeType employee_type);
 
 void test_employee();
