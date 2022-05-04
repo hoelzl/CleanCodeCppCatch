@@ -1,5 +1,4 @@
 // ReSharper disable CppClangTidyCppcoreguidelinesMacroUsage
-#define CATCH_CONFIG_MAIN
 #include "stack.h"
 
 #include <catch2/catch_test_macros.hpp>
@@ -26,15 +25,15 @@ SCENARIO("Tests for core stack functionality")
 
         WHEN("nothing has been pushed")
         {
-            THEN("the stack is empty") { REQUIRE(stack.is_empty()); }
-            THEN("its size is 0") { REQUIRE(stack.size() == 0); }
+            THEN("the stack is empty") { CHECK(stack.is_empty()); }
+            THEN("its size is 0") { CHECK(stack.size() == 0); }
             THEN("pop throws an exception")
             {
-                REQUIRE_THROWS_AS(stack.pop(), std::out_of_range);
+                CHECK_THROWS_AS(stack.pop(), std::out_of_range);
             }
             THEN("pop_default returns the default value")
             {
-                REQUIRE(stack.pop_default(an_arbitrary_number) == an_arbitrary_number);
+                CHECK(stack.pop_default(an_arbitrary_number) == an_arbitrary_number);
             }
         }
 
@@ -42,23 +41,23 @@ SCENARIO("Tests for core stack functionality")
         {
             stack.push(an_arbitrary_number);
 
-            THEN("the stack is no longer empty") { REQUIRE_FALSE(stack.is_empty()); }
-            THEN("its size is 1") { REQUIRE(stack.size() == 1); }
+            THEN("the stack is no longer empty") { CHECK_FALSE(stack.is_empty()); }
+            THEN("its size is 1") { CHECK(stack.size() == 1); }
             THEN("pop returns this value")
             {
                 int popped_value = stack.pop();
 
-                REQUIRE(popped_value == an_arbitrary_number);
+                CHECK(popped_value == an_arbitrary_number);
 
-                AND_THEN("removes it from the stack") { REQUIRE(stack.is_empty()); }
+                AND_THEN("removes it from the stack") { CHECK(stack.is_empty()); }
             }
             THEN("pop_default returns this value")
             {
                 int popped_value = stack.pop_default(another_arbitrary_number);
 
-                REQUIRE(popped_value == an_arbitrary_number);
+                CHECK(popped_value == an_arbitrary_number);
 
-                AND_THEN("removes it from the stack") { REQUIRE(stack.is_empty()); }
+                AND_THEN("removes it from the stack") { CHECK(stack.is_empty()); }
             }
         }
 
@@ -68,28 +67,22 @@ SCENARIO("Tests for core stack functionality")
             stack.push(another_arbitrary_number);
             stack.push(a_third_arbitrary_number);
 
-            THEN("the stack has size 3") { REQUIRE(stack.size() == 3); }
+            THEN("the stack has size 3") { CHECK(stack.size() == 3); }
             THEN("pop takes the topmost element")
             {
                 int popped_value = stack.pop();
 
-                REQUIRE(popped_value == a_third_arbitrary_number);
+                CHECK(popped_value == a_third_arbitrary_number);
 
-                AND_THEN("the resulting stack has size 2")
-                {
-                    REQUIRE(stack.size() == 2);
-                }
+                AND_THEN("the resulting stack has size 2") { CHECK(stack.size() == 2); }
             }
             THEN("pop_default takes the topmost element")
             {
                 int popped_value = stack.pop_default(a_fourth_arbitrary_number);
 
-                REQUIRE(popped_value == a_third_arbitrary_number);
+                CHECK(popped_value == a_third_arbitrary_number);
 
-                AND_THEN("the resulting stack has size 2")
-                {
-                    REQUIRE(stack.size() == 2);
-                }
+                AND_THEN("the resulting stack has size 2") { CHECK(stack.size() == 2); }
             }
         }
     }
@@ -101,15 +94,15 @@ SCENARIO("Tests for core stack functionality")
 
         WHEN("nothing has been pushed")
         {
-            THEN("the stack is empty") { REQUIRE(stack.is_empty()); }
-            THEN("its size is 0") { REQUIRE(stack.size() == 0); }
+            THEN("the stack is empty") { CHECK(stack.is_empty()); }
+            THEN("its size is 0") { CHECK(stack.size() == 0); }
             THEN("pop returns the default value")
             {
-                REQUIRE(stack.pop() == an_arbitrary_number);
+                CHECK(stack.pop() == an_arbitrary_number);
             }
             THEN("pop_default returns its own default value")
             {
-                REQUIRE(
+                CHECK(
                     stack.pop_default(another_arbitrary_number)
                     == another_arbitrary_number);
             }
@@ -119,21 +112,21 @@ SCENARIO("Tests for core stack functionality")
         {
             stack.push(another_arbitrary_number);
 
-            THEN("the stack is no longer empty") { REQUIRE_FALSE(stack.is_empty()); }
-            THEN("its size is 1") { REQUIRE(stack.size() == 1); }
+            THEN("the stack is no longer empty") { CHECK_FALSE(stack.is_empty()); }
+            THEN("its size is 1") { CHECK(stack.size() == 1); }
             THEN("pop returns the pushed value")
             {
                 int popped_value = stack.pop();
-                REQUIRE(popped_value == another_arbitrary_number);
+                CHECK(popped_value == another_arbitrary_number);
 
-                AND_THEN("removes it from the stack") { REQUIRE(stack.is_empty()); }
+                AND_THEN("removes it from the stack") { CHECK(stack.is_empty()); }
             }
             THEN("pop_default returns the pushed value")
             {
                 int popped_value = stack.pop_default(a_third_arbitrary_number);
-                REQUIRE(popped_value == another_arbitrary_number);
+                CHECK(popped_value == another_arbitrary_number);
 
-                AND_THEN("removes it from the stack") { REQUIRE(stack.is_empty()); }
+                AND_THEN("removes it from the stack") { CHECK(stack.is_empty()); }
             }
         }
 
@@ -141,14 +134,14 @@ SCENARIO("Tests for core stack functionality")
         {
             stack.clear_default();
 
-            THEN("the stack is empty") { REQUIRE(stack.is_empty()); }
+            THEN("the stack is empty") { CHECK(stack.is_empty()); }
             THEN("pop throws an exception")
             {
-                REQUIRE_THROWS_AS(stack.pop(), std::out_of_range);
+                CHECK_THROWS_AS(stack.pop(), std::out_of_range);
             }
             THEN("pop_default returns its argument value")
             {
-                REQUIRE(
+                CHECK(
                     stack.pop_default(another_arbitrary_number)
                     == another_arbitrary_number);
             }
@@ -162,7 +155,7 @@ SCENARIO("Tests for counting elements")
 
     GIVEN("an empty stack")
     {
-        THEN("count returns 0") { REQUIRE(stack.count(an_arbitrary_number) == 0); }
+        THEN("count returns 0") { CHECK(stack.count(an_arbitrary_number) == 0); }
     }
 
     GIVEN("a stack with several elements")
@@ -176,16 +169,16 @@ SCENARIO("Tests for counting elements")
         {
             THEN("count returns 0")
             {
-                REQUIRE(stack.count(a_fourth_arbitrary_number) == 0);
+                CHECK(stack.count(a_fourth_arbitrary_number) == 0);
             }
         }
         WHEN("an element is on the stack")
         {
             THEN("count returns the number of occurrences on the stack")
             {
-                REQUIRE(stack.count(an_arbitrary_number) == 2);
-                REQUIRE(stack.count(another_arbitrary_number) == 1);
-                REQUIRE(stack.count(a_third_arbitrary_number) == 1);
+                CHECK(stack.count(an_arbitrary_number) == 2);
+                CHECK(stack.count(another_arbitrary_number) == 1);
+                CHECK(stack.count(a_third_arbitrary_number) == 1);
             }
         }
         WHEN("an element has been popped off")
@@ -195,12 +188,12 @@ SCENARIO("Tests for counting elements")
 
             THEN("count no longer counts the popped occurrences")
             {
-                REQUIRE(stack.count(an_arbitrary_number) == 1);
-                REQUIRE(stack.count(a_third_arbitrary_number) == 0);
+                CHECK(stack.count(an_arbitrary_number) == 1);
+                CHECK(stack.count(a_third_arbitrary_number) == 0);
             }
             THEN("the count of other elements is not affected")
             {
-                REQUIRE(stack.count(another_arbitrary_number) == 1);
+                CHECK(stack.count(another_arbitrary_number) == 1);
             }
         }
     }
@@ -219,19 +212,19 @@ SCENARIO("Tests for bounded stacks")
                 stack.push(an_arbitrary_number);
             }
 
-            THEN("is_full returns true") { REQUIRE(stack.is_full()); }
+            THEN("is_full returns true") { CHECK(stack.is_full()); }
             THEN("push throws an exception")
             {
-                REQUIRE_THROWS_AS(
+                CHECK_THROWS_AS(
                     stack.push(another_arbitrary_number), std::out_of_range);
             }
         }
 
         WHEN("the stack is empty")
         {
-            THEN("is_full returns false") { REQUIRE_FALSE(stack.is_full()); }
-            THEN("is_empty returns true") { REQUIRE(stack.is_empty()); }
-            THEN("push succeeds") { REQUIRE_NOTHROW(stack.push(an_arbitrary_number)); }
+            THEN("is_full returns false") { CHECK_FALSE(stack.is_full()); }
+            THEN("is_empty returns true") { CHECK(stack.is_empty()); }
+            THEN("push succeeds") { CHECK_NOTHROW(stack.push(an_arbitrary_number)); }
         }
     }
 }
