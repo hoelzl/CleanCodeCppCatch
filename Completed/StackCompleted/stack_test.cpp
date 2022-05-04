@@ -1,5 +1,4 @@
 // ReSharper disable CppClangTidyCppcoreguidelinesMacroUsage
-#define CATCH_CONFIG_MAIN
 #include "stack.h"
 
 #include <catch2/catch_test_macros.hpp>
