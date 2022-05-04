@@ -12,10 +12,10 @@ private:
 
 public:
     [[nodiscard]] bool is_empty() const { return size() == 0; }
-    
-	[[nodiscard]] bool is_full() const { return next_index >= elements.size(); }
-    
-	void push(int element)
+
+    [[nodiscard]] bool is_full() const { return next_index >= elements.size(); }
+
+    void push(int element)
     {
         if (!is_full()) {
             elements.at(next_index) = element;

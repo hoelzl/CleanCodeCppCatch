@@ -24,8 +24,8 @@
 \definecolor{pgrey}{rgb}{0.46,0.45,0.48}
     
 \year=2022
-\month=01
-\day=18
+\month=05
+\day=04
 
 \author{Dr. Matthias Hölzl}
 
@@ -41,20 +41,19 @@
 \begin{frame}[fragile]
   \frametitle{Goals}
   \begin{itemize}
-  \item Create a simple \texttt{Stack} data structure using TDD
-  \item Proceed incrementally, baby steps\\[1ex]
-  
-  \item This exercise is meant to demonstrate
-    \begin{itemize}
-    \item how to develop features \texttt{incrementally} using TDD
-    \item how to write good tests that help you to grow your design 
-    \end{itemize}
-  \item Therefore: \textbf{Please do not look ahead in this document!\\
-      Only move to the next page after having finished the current
-      exercise.}
-  \item (Also note that the stack implemented in this workshop has several
-    pretty bad design flaws and should not be used for anything but
-    demonstrating TDD.)
+    \item Create a simple \texttt{Stack} data structure using TDD
+    \item Proceed incrementally, baby steps\\[1ex]
+
+    \item This exercise is meant to demonstrate
+          \begin{itemize}
+            \item how to develop features \texttt{incrementally} using TDD
+            \item how to write good tests that help you to grow your design
+          \end{itemize}
+    \item Therefore: \textbf{Please do not look ahead in this document!\\
+            Only move to the next task after having finished the current one.}
+    \item (Also note that the stack implemented in this workshop has several
+          pretty bad design flaws and should not be used for anything but
+          demonstrating TDD.)
   \end{itemize}
 \end{frame}
 
@@ -62,98 +61,120 @@
 \begin{frame}[fragile]
   \frametitle{Stack}
   \begin{itemize}
-  \item Open the \texttt{Stack} project in your IDE/editor of choice
-  \item Ensure that you can build the target \texttt{StackTest} and
-    that the test fails when you execute it
+    \item Open the \texttt{Stack} project in your IDE/editor of choice
+    \item Ensure that you can build the target \texttt{StackTest} and
+          that the test fails when you execute it
   \end{itemize}
   \bigskip
   \begin{itemize}
-  \item \textcolor{darkgreen}{Solve simply!}
+    \item \textcolor{darkgreen}{Solve simply!}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Stack}
-\begin{itemize}
-\item Implement a \texttt{Stack} data type for integers with the
-  following signature:
-\item \texttt{void push(int element)}
-\item \texttt{int pop()}
-\item \verb!bool is_empty()!
-\item If the stack is empty, \texttt{pop()} should throw an exception
-  of type \verb!std::out_of_range!
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Extension (1)}  
   \begin{itemize}
-  \item Extend the \texttt{Stack} data type with a method\\[1ex]
-    \verb!std::size_t size()!\\[1ex]
-    that returns the number of elements on the stack
+    \item Implement a \texttt{Stack} data type for integers with the
+          following signature:
+          \begin{itemize}
+            \item \texttt{void push(int element) // Add element to the top of the stack}
+            \item \texttt{int pop() // Remove the topmost element of the stack and
+                    return it }
+            \item \verb!bool is_empty() // Check whether the stack is empty!
+          \end{itemize}
+    \item If the stack is empty, \texttt{pop()} should throw an exception
+          of type \verb!std::out_of_range!
+  \end{itemize}
+  \textbf{Hints:}
+  \begin{itemize}
+    \item Use a member variable \verb|std::vector<int> elements| to store the
+          elements of the vector
+    \item You can use the following functions of \verb|std::vector<int>|:
+          \begin{itemize}
+            \item \verb|elements.push_back(element)| to add \verb|element| to the end of
+                  \verb|elements|
+            \item \verb|elements.back()| to get the last element in the vector of elements
+            \item \verb|elements.pop_back()| to remove the last element in the vector of elements
+            \item \verb|elements.empty()| to check whether the vector of elements is
+                  empty
+          \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Extension (2)}  
+  \frametitle{Extension (1)}
   \begin{itemize}
-  \item Extend the \texttt{Stack} data type with a member function\\[1ex]
-    \verb!std::size_t count(int element)!\\[1ex]
-    that counts the occurrences of \emph{element} on the stack
+    \item Extend the \texttt{Stack} data type with a method\\[1ex]
+          \verb!std::size_t size()!\\[1ex]
+          that returns the number of elements on the stack
+    \item Can you simplify your tests using the \verb|Stack::size()| member
+          function? If your tests use implementation details, can you remedy this
+          using \verb|Stack::size()|? If so, refactor your tests.
   \end{itemize}
+  \textbf{Hint:}
+  \begin{itemize}
+    \item You can use \verb|elements.size()| to get the number of elements in
+          \verb|elements|
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Extension (2)}
+  \begin{itemize}
+    \item Our \texttt{Stack} class will now be used on an embedded system where
+          dynamic memory allocation at runtime is not allowed. Therefore we have
+          to replace its implementation with one that does not use
+          \verb!std::vector!.
+
+          An example implementation is available at \url{https://tinyurl.com/2kcn7v8f}.
+
+          How many of your test stop working if you replace your implementation
+          with the one from the link?
+
+          Test that \texttt{push()} throws an exception of type
+          \verb!std::out_of_range! if the stack is full.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{If you have time left and nothing better to do...}
+  \begin{center}
+    \LARGE Bonus Content
+  \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Extension (3)}
   \begin{itemize}
-  \item Our \texttt{Stack} class will now be used on an embedded
-    system where dynamic memory allocation at runtime is not allowed.
-    Therefore we have to replace its implementation with one that does
-    not use \verb!std::vector!.
-
-    Modify your implementation so that it uses a
-    \verb|std::array<int, 16>| to store its elements. Make
-    \texttt{push()} throw an exception of type
-    \verb!std::out_of_range! if the stack is full.
-
-    \bigskip
-    \emph{Hint:} You will probably need a member variable to indicate
-    how many elements are currently stored on the stack, e.g., you could use
-    \verb!std::size_t next_index! to indicate the index of the first
-    unused element of the stack.
+    \item Extend the \texttt{Stack} data type with a member function\\[1ex]
+          \verb!std::size_t count(int element)!\\[1ex]
+          that counts the occurrences of \emph{element} on the stack
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{If you have time left and nothing better to do...}
-    \begin{center}
-        \LARGE Bonus Content
-    \end{center}
+  \frametitle{Extension (4)}
+  \begin{itemize}
+    \item Extend the \texttt{Stack} data type with a member function\\[1ex]
+          \verb!int pop_default(int default_value)!\\[1ex]
+          that acts like \texttt{pop()} when the stack is not empty and
+          returns \verb!default_value! when the stack is empty
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Extension (4)}  
-    \begin{itemize}
-    \item Extend the \texttt{Stack} data type with a member function\\[1ex]
-      \verb!int pop_default(int default_value)!\\[1ex]
-      that acts like \texttt{pop()} when the stack is not empty and
-      returns \verb!default_value! when the stack is empty
-    \end{itemize}
-  \end{frame}
-  
-  \begin{frame}[fragile]
-    \frametitle{Extension (5)}  
-    \begin{itemize}
+  \frametitle{Extension (5)}
+  \begin{itemize}
     \item Extend the \texttt{Stack} data type with member functions\\[1ex]
-      \verb!void set_default(int default_value)!\\
-      \verb!void clear_default()!\\[1ex]
-      After \verb!set_default(default_value)! has been called, \texttt{pop()}
-      should act like \verb!pop_default(default_value)!. When
-      \verb!clear_default()! is called, \texttt{pop()} should revert to
-      its original behavior, i.e., throw an exception when the stack is
-      empty.
-    \end{itemize}
-  \end{frame}
-  
+          \verb!void set_default(int default_value)!\\
+          \verb!void clear_default()!\\[1ex]
+          After \verb!set_default(default_value)! has been called, \texttt{pop()}
+          should act like \verb!pop_default(default_value)!. When
+          \verb!clear_default()! is called, \texttt{pop()} should revert to
+          its original behavior, i.e., throw an exception when the stack is
+          empty.
+  \end{itemize}
+\end{frame}
+
 \end{document}
 
 
