@@ -9,6 +9,7 @@
 
 #include "AugurDB.h"
 #include "Project.h"
+#include "ReportPrinter.h"
 
 namespace employee_workshop_simplified {
 enum class EmployeeType
@@ -33,10 +34,12 @@ struct Employee
     int overtime;           // for regular employees or freelancers (payed by the hour)
     const Project& project; // only for commissioned employees
     std::shared_ptr<AugurDb> database{};
+    std::shared_ptr<const ReportPrinter> printer{};
 
     Employee(
         int id, std::string name, EmployeeType type, double salary, int overtime,
-        const Project& project, std::shared_ptr<AugurDb> database)
+        const Project& project, std::shared_ptr<AugurDb> database,
+        std::shared_ptr<const ReportPrinter> printer)
         : id{id}
         , name{std::move(name)}
         , type{type}
@@ -44,11 +47,12 @@ struct Employee
         , overtime{overtime}
         , project{project}
         , database{std::move(database)}
+        , printer{std::move(printer)}
     {}
 
     [[nodiscard]] double calculate_pay() const;
     [[nodiscard]] int report_hours() const;
-    void print_report(std::ostream& os = std::cout) const;
+    void print_report() const;
     [[nodiscard]] SaveResult save_employee() const; // save to database
 };
 } // namespace employee_workshop_simplified

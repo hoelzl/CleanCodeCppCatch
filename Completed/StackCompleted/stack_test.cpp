@@ -8,7 +8,7 @@ constexpr int another_arbitrary_number{34};
 constexpr int a_third_arbitrary_number{49};
 constexpr int a_fourth_arbitrary_number{75};
 
-#define USE_BOUNDED_STACK_TYPE 0
+#define USE_BOUNDED_STACK_TYPE 1
 
 #if USE_BOUNDED_STACK_TYPE
 using Stack_t = BoundedStack;

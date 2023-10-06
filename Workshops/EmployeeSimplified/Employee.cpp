@@ -28,9 +28,9 @@ int Employee::report_hours() const
     throw std::invalid_argument("Invalid employee type.");
 }
 
-void Employee::print_report(std::ostream& os /* = std::cout */) const
+void Employee::print_report() const
 {
-    os << name << " worked " << report_hours() << " hours.\n";
+    printer->print_report(*this);
 }
 
 SaveResult Employee::save_employee() const

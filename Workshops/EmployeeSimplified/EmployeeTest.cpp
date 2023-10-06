@@ -12,13 +12,15 @@ using namespace employee_workshop_simplified;
 SCENARIO("Some Company")
 {
     std::shared_ptr<AugurDb> database{std::make_shared<AugurDb>()};
+    std::ostringstream os{};
+    auto printer{std::make_shared<PlainTextReportPrinter>(os)};
 
     GIVEN("any kind of employee and project")
     {
         Project project{"The Big Project", 5000.0};
         Employee employee{
             123,     "Jack Hammer"s, EmployeeType::commissioned, 2000.0, 10,
-            project, database};
+            project, database, printer};
 
         THEN("the employee's ID is correct") { CHECK(employee.id == 123); }
 
@@ -40,14 +42,13 @@ SCENARIO("Some Company")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
         Employee employee{123,     "Jill Connor"s, EmployeeType::regular, 2000.0, 10,
-                          project, database};
+                          project, database, printer};
 
         THEN("the report hours are correct") { CHECK(employee.report_hours() == 50); }
 
         THEN("the report is correct")
         {
-            std::stringstream os{};
-            employee.print_report(os);
+            employee.print_report();
             CHECK(os.str() == "Jill Connor worked 50 hours.\n"s);
         }
 
@@ -61,14 +62,13 @@ SCENARIO("Some Company")
     {
         Project project{"A Random Project", 10000.0, 1200.0};
         Employee employee{123,     "Jill Connor"s, EmployeeType::houred, 2000.0, 35,
-                          project, database};
+                          project, database, printer};
 
         THEN("the report hours are correct") { CHECK(employee.report_hours() == 35); }
 
         THEN("the report is correct")
         {
-            std::stringstream os{};
-            employee.print_report(os);
+            employee.print_report();
             CHECK(os.str() == "Jill Connor worked 35 hours.\n"s);
         }
 
@@ -83,14 +83,13 @@ SCENARIO("Some Company")
         Project project{"A Random Project", 10000.0, 1200.0};
         Employee employee{
             123,     "Jill Connor"s, EmployeeType::commissioned, 2000.0, 35,
-            project, database};
+            project, database, printer};
 
         THEN("the report hours are correct") { CHECK(employee.report_hours() == 40); }
 
         THEN("the report is correct")
         {
-            std::stringstream os{};
-            employee.print_report(os);
+            employee.print_report();
             CHECK(os.str() == "Jill Connor worked 40 hours.\n"s);
         }
 
@@ -105,7 +104,7 @@ SCENARIO("Some Company")
         Project project{"A Random Project", 10000.0, 1200.0};
         Employee employee{
             123,     "Jill Connor"s, static_cast<EmployeeType>(123), 2000.0, 35,
-            project, database};
+            project, database, printer};
 
         THEN("report_hours() raises an exception")
         {
